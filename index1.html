@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corporate Finance — Midterm Prep · IESE MBA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0f0e;--surface:#141614;--surface2:#1a1d1a;--surface3:#212421;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.12);
+  --text:#e8ebe6;--text2:#8a9188;--text3:#5a5f58;
+  --accent:#b8f5a0;--accent2:#7dd66a;
+  --accent-dim:rgba(184,245,160,.1);--accent-dim2:rgba(184,245,160,.06);
+  --amber:#f5d67a;--amber-dim:rgba(245,214,122,.1);
+  --red:#f58a8a;--red-dim:rgba(245,138,138,.1);
+  --blue:#7ab8f5;--blue-dim:rgba(122,184,245,.1);
+  --purple:#c4a9f5;--purple-dim:rgba(196,169,245,.1);
+  --mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif;--serif:'DM Serif Display',serif;
+  --radius:8px;--radius-lg:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4;}
+.app{display:flex;min-height:100vh;position:relative;z-index:1;}
+
+/* SIDEBAR */
+.sidebar{width:240px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;border-right:.5px solid var(--border);padding:2rem 0;background:var(--surface);display:flex;flex-direction:column;}
+.sidebar-logo{padding:0 1.5rem 1.5rem;border-bottom:.5px solid var(--border);margin-bottom:1rem;}
+.sidebar-logo .school{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:4px;}
+.sidebar-logo .course{font-family:var(--serif);font-size:16px;color:var(--text);line-height:1.3;}
+.nav-section{padding:0 1rem;margin-bottom:.25rem;}
+.nav-label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;padding:.5rem .5rem .25rem;}
+.nav-item{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:var(--radius);cursor:pointer;color:var(--text2);font-size:13px;transition:all .15s;border:none;background:none;width:100%;text-align:left;}
+.nav-item:hover{background:var(--surface2);color:var(--text);}
+.nav-item.active{background:var(--accent-dim);color:var(--accent);}
+.nav-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;background:var(--text3);}
+.nav-item.active .nav-dot{background:var(--accent);}
+.sidebar-footer{margin-top:auto;padding:1.5rem;border-top:.5px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--text3);line-height:1.8;}
+
+/* MAIN */
+.main{flex:1;max-width:calc(100vw - 240px);overflow-x:hidden;}
+.page{display:none;padding:2.5rem 3rem;animation:fadeIn .2s ease;}
+.page.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+
+/* PAGE HEADER */
+.page-header{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:.5px solid var(--border);}
+.page-header .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;margin-bottom:6px;}
+.page-header h1{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--text);line-height:1.2;margin-bottom:8px;}
+.page-header p{color:var(--text2);font-size:13px;}
+
+/* SECTION */
+.section{margin-bottom:2rem;}
+.section-title{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:8px;}
+.section-title::after{content:'';flex:1;height:.5px;background:var(--border);}
+
+/* CARDS */
+.card{background:var(--surface2);border:.5px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin-bottom:.75rem;}
+.card:hover{border-color:var(--border2);}
+
+/* THEORY CARDS */
+.theory-block{background:var(--surface2);border:.5px solid var(--border);border-radius:var(--radius-lg);margin-bottom:.625rem;overflow:hidden;}
+.theory-head{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;cursor:pointer;user-select:none;gap:12px;}
+.theory-head:hover{background:var(--surface3);}
+.theory-title-wrap{display:flex;align-items:center;gap:10px;flex:1;}
+.theory-icon{width:30px;height:30px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.theory-label{font-size:13.5px;font-weight:500;}
+.theory-toggle{font-family:var(--mono);font-size:14px;color:var(--text3);transition:transform .2s;flex-shrink:0;}
+.theory-block.open .theory-toggle{transform:rotate(45deg);color:var(--accent);}
+.theory-body{display:none;border-top:.5px solid var(--border);padding:1.25rem 1.5rem;}
+.theory-block.open .theory-body{display:block;}
+.theory-body p{font-size:13px;color:var(--text2);line-height:1.75;margin-bottom:.75rem;}
+.theory-body p:last-child{margin-bottom:0;}
+.theory-body h4{font-size:12px;font-weight:600;color:var(--text);margin-bottom:.375rem;margin-top:.875rem;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;}
+
+/* CONCEPT PILLS */
+.concepts{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0;}
+.concept{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;font-family:var(--mono);font-size:11px;border:.5px solid;}
+.concept-green{background:var(--accent-dim);color:var(--accent);border-color:rgba(184,245,160,.2);}
+.concept-amber{background:var(--amber-dim);color:var(--amber);border-color:rgba(245,214,122,.2);}
+.concept-red{background:var(--red-dim);color:var(--red);border-color:rgba(245,138,138,.2);}
+.concept-blue{background:var(--blue-dim);color:var(--blue);border-color:rgba(122,184,245,.2);}
+.concept-purple{background:var(--purple-dim);color:var(--purple);border-color:rgba(196,169,245,.2);}
+
+/* FORMULA DISPLAY */
+.fml{background:var(--surface3);border:.5px solid var(--border);border-radius:var(--radius);padding:.75rem 1rem;font-family:var(--mono);font-size:12.5px;line-height:1.9;margin:.5rem 0;overflow-x:auto;}
+.fml .k{color:var(--accent);font-weight:500;}
+.fml .v{color:var(--amber);}
+.fml .c{color:var(--text3);font-size:11px;}
+.fml .r{color:var(--red);}
+
+/* QUESTION CARDS */
+.q-card{background:var(--surface2);border:.5px solid var(--border);border-radius:var(--radius-lg);margin-bottom:.5rem;overflow:hidden;transition:border-color .15s;}
+.q-card:hover{border-color:var(--border2);}
+.q-card.open{border-color:rgba(184,245,160,.2);}
+.q-head{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;cursor:pointer;user-select:none;gap:12px;}
+.q-left{display:flex;align-items:center;gap:10px;flex:1;min-width:0;}
+.q-num{font-family:var(--mono);font-size:11px;color:var(--text3);flex-shrink:0;width:20px;}
+.q-title{font-size:13px;font-weight:500;color:var(--text);}
+.q-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.pts-badge{font-family:var(--mono);font-size:11px;background:var(--surface3);border:.5px solid var(--border);color:var(--text2);padding:2px 8px;border-radius:20px;}
+.topic-tag{font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:10px;font-weight:500;}
+.t-dcf{background:var(--blue-dim);color:var(--blue);}
+.t-mult{background:var(--purple-dim);color:var(--purple);}
+.t-capex{background:var(--accent-dim);color:var(--accent);}
+.t-ma{background:var(--amber-dim);color:var(--amber);}
+.t-cs{background:var(--red-dim);color:var(--red);}
+.toggle-icon{width:18px;height:18px;border:.5px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:11px;transition:all .2s;flex-shrink:0;}
+.q-card.open .toggle-icon{background:var(--accent-dim);border-color:var(--accent);color:var(--accent);transform:rotate(45deg);}
+
+.q-body{display:none;border-top:.5px solid var(--border);}
+.q-card.open .q-body{display:block;}
+
+/* Q BODY TABS */
+.q-tabs{display:flex;border-bottom:.5px solid var(--border);background:var(--surface3);}
+.q-tab{padding:.5rem 1rem;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);cursor:pointer;border:none;background:none;transition:all .15s;border-bottom:2px solid transparent;margin-bottom:-1px;}
+.q-tab:hover{color:var(--text2);}
+.q-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+.q-panel{display:none;padding:1.125rem 1.25rem;}
+.q-panel.active{display:block;}
+
+/* CALLOUT */
+.callout{border-radius:var(--radius);padding:.625rem .875rem;font-size:12.5px;margin-top:.625rem;display:flex;gap:8px;line-height:1.6;}
+.callout-icon{flex-shrink:0;font-size:14px;}
+.c-tip{background:var(--blue-dim);border:.5px solid rgba(122,184,245,.2);color:var(--blue);}
+.c-warn{background:var(--amber-dim);border:.5px solid rgba(245,214,122,.2);color:var(--amber);}
+.c-danger{background:var(--red-dim);border:.5px solid rgba(245,138,138,.2);color:var(--red);}
+.c-ok{background:var(--accent-dim);border:.5px solid rgba(184,245,160,.2);color:var(--accent);}
+.c-purple{background:var(--purple-dim);border:.5px solid rgba(196,169,245,.2);color:var(--purple);}
+
+/* ANSWER */
+.answer-val{color:var(--accent);font-family:var(--mono);font-weight:500;}
+.step-list{list-style:none;display:flex;flex-direction:column;gap:5px;margin:.5rem 0;}
+.step-list li{display:flex;gap:10px;font-size:13px;line-height:1.6;}
+.step-n{font-family:var(--mono);font-size:10px;color:var(--accent);min-width:22px;padding-top:3px;font-weight:500;flex-shrink:0;}
+.badge-true{display:inline-flex;padding:2px 9px;border-radius:20px;font-family:var(--mono);font-size:11px;font-weight:500;background:var(--accent-dim);color:var(--accent);border:.5px solid rgba(184,245,160,.3);}
+.badge-false{display:inline-flex;padding:2px 9px;border-radius:20px;font-family:var(--mono);font-size:11px;font-weight:500;background:var(--red-dim);color:var(--red);border:.5px solid rgba(245,138,138,.3);}
+
+/* DATA TABLE */
+.data-table{width:100%;border-collapse:collapse;font-size:12.5px;font-family:var(--mono);}
+.data-table th{text-align:left;padding:6px 10px;color:var(--text3);font-weight:400;border-bottom:.5px solid var(--border2);font-size:11px;letter-spacing:.04em;}
+.data-table td{padding:7px 10px;border-bottom:.5px solid var(--border);color:var(--text);vertical-align:top;}
+.data-table tr:last-child td{border:none;}
+.data-table .num{text-align:right;}
+.data-table .hl{color:var(--accent);font-weight:500;}
+.data-table .neg{color:var(--red);}
+.data-table .pos{color:var(--accent2);}
+
+/* COMPANY BAND */
+.company-band{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding:1.25rem 1.5rem;background:var(--surface2);border:.5px solid var(--border);border-radius:var(--radius-lg);}
+.company-chip{width:44px;height:44px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:500;flex-shrink:0;}
+.chip-pfizer{background:rgba(0,102,204,.2);color:#4da6ff;border:.5px solid rgba(0,102,204,.3);}
+.chip-intel{background:rgba(0,113,197,.2);color:#4db8ff;border:.5px solid rgba(0,113,197,.3);}
+.chip-tesla{background:rgba(204,0,0,.2);color:#ff6666;border:.5px solid rgba(204,0,0,.3);}
+.company-name-serif{font-family:var(--serif);font-size:20px;}
+.company-meta-line{font-family:var(--mono);font-size:11px;color:var(--text2);margin-top:2px;}
+.company-kv{text-align:right;}
+.company-kv .kv-label{font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.05em;}
+.company-kv .kv-val{font-family:var(--mono);font-size:15px;color:var(--accent);}
+
+/* GRID */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+
+/* SHORT Q CARDS */
+.sq-card{background:var(--surface2);border:.5px solid var(--border);border-radius:var(--radius-lg);margin-bottom:.5rem;overflow:hidden;transition:border-color .15s;}
+.sq-card:hover{border-color:var(--border2);}
+.sq-card.open{border-color:rgba(184,245,160,.2);}
+.sq-head{display:flex;align-items:flex-start;gap:10px;padding:.875rem 1.25rem;cursor:pointer;user-select:none;}
+.sq-num{font-family:var(--mono);font-size:11px;color:var(--text3);min-width:24px;}
+.sq-text{flex:1;font-size:13px;color:var(--text);line-height:1.5;}
+.sq-badge-wrap{display:flex;align-items:center;gap:6px;flex-shrink:0;margin-top:1px;}
+
+.sq-body{display:none;border-top:.5px solid var(--border);}
+.sq-card.open .sq-body{display:block;}
+.sq-tabs{display:flex;border-bottom:.5px solid var(--border);background:var(--surface3);}
+.sq-tab{padding:.5rem .875rem;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);cursor:pointer;border:none;background:none;transition:all .15s;border-bottom:2px solid transparent;margin-bottom:-1px;}
+.sq-tab:hover{color:var(--text2);}
+.sq-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+.sq-panel{display:none;padding:1rem 1.25rem;font-size:13px;color:var(--text2);line-height:1.75;}
+.sq-panel.active{display:block;}
+
+/* OVERVIEW PATTERN */
+.pattern-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:.5px solid var(--border);font-size:13px;}
+.pattern-row:last-child{border:none;}
+.pdot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px;}
+.dg{background:var(--accent2);}
+.da{background:var(--amber);}
+.dr{background:var(--red);}
+.plabel{font-weight:500;min-width:150px;flex-shrink:0;}
+.pdesc{color:var(--text2);}
+
+/* STAT CARD */
+.stat-card{background:var(--surface2);border:.5px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;}
+.stat-label{font-family:var(--mono);font-size:11px;color:var(--text3);margin-bottom:6px;letter-spacing:.05em;}
+.stat-value{font-family:var(--serif);font-size:28px;color:var(--accent);}
+.stat-sub{font-size:12px;color:var(--text2);margin-top:4px;}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:2px;}
+::selection{background:rgba(184,245,160,.2);}
+p{margin-bottom:.5rem;}p:last-child{margin-bottom:0;}
+strong{font-weight:600;color:var(--text);}
+code{font-family:var(--mono);font-size:12px;color:var(--amber);background:rgba(245,214,122,.08);padding:1px 5px;border-radius:3px;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .sidebar{display:none;}
+  .main{max-width:100vw;}
+  .page{padding:1.5rem;}
+  .grid2{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ═══════════════ SIDEBAR ═══════════════ -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <div class="school">IESE Business School</div>
+    <div class="course">Corporate Finance<br>Midterm Prep</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">General</div>
+    <button class="nav-item active" onclick="showPage('overview',this)"><span class="nav-dot"></span>Panorama general</button>
+    <button class="nav-item" onclick="showPage('teoria',this)"><span class="nav-dot"></span>Teoría esencial</button>
+    <button class="nav-item" onclick="showPage('formulas',this)"><span class="nav-dot"></span>Fórmulas clave</button>
+  </div>
+  <div class="nav-section" style="margin-top:.5rem">
+    <div class="nav-label">Exámenes resueltos</div>
+    <button class="nav-item" onclick="showPage('pfizer',this)"><span class="nav-dot"></span>2023 · Pfizer</button>
+    <button class="nav-item" onclick="showPage('intel',this)"><span class="nav-dot"></span>2022 · Intel</button>
+    <button class="nav-item" onclick="showPage('tesla',this)"><span class="nav-dot"></span>2021 · Tesla</button>
+  </div>
+  <div class="nav-section" style="margin-top:.5rem">
+    <div class="nav-label">Práctica</div>
+    <button class="nav-item" onclick="showPage('shortqs',this)"><span class="nav-dot"></span>Short Questions (25)</button>
+  </div>
+  <div class="sidebar-footer">MBA I · 3rd Term<br>30 pts · 3 horas<br>Cheat sheet A4 doble cara<br><br>Click en pregunta → ver respuesta<br>Tabs: Teoría · Cálculo · Consejo</div>
+</nav>
+
+<main class="main">
+
+<!-- ═══════════════ OVERVIEW ═══════════════ -->
+<div id="page-overview" class="page active">
+  <div class="page-header">
+    <div class="eyebrow">Corporate Finance · IESE MBA · 3rd Term</div>
+    <h1>Panorama General</h1>
+    <p>Estructura del examen, temas recurrentes y errores más comunes en los 3 años.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Distribución de puntos</div>
+    <div class="grid2">
+      <div class="stat-card"><div class="stat-label">Case Questions</div><div class="stat-value">20 pts</div><div class="stat-sub">~10 preguntas sobre empresa real · τ, WACC, R_E dados</div></div>
+      <div class="stat-card"><div class="stat-label">Short Questions</div><div class="stat-value">10 pts</div><div class="stat-sub">10 × T/F con justificación escrita obligatoria · sin ella = 0</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Temas por frecuencia de aparición</div>
+    <div class="card">
+      <div class="pattern-row"><div class="pdot dg"></div><div class="plabel">DCF Valuation</div><div class="pdesc">100% de años. Siempre: ΔNA → ECF/FCF → EV con TV → stock price via equity bridge.</div></div>
+      <div class="pattern-row"><div class="pdot dg"></div><div class="plabel">Valuation Multiples</div><div class="pdesc">100% de años. EV/EBITDA forward, P/E, P/Book, P/FCF. T/F sobre over/undervalued con comps.</div></div>
+      <div class="pattern-row"><div class="pdot dg"></div><div class="plabel">Capital Budgeting</div><div class="pdesc">100% de años. NPV con perpetuidad creciente, IRR directo. Siempre un caso de hurdle rate incorrecto.</div></div>
+      <div class="pattern-row"><div class="pdot da"></div><div class="plabel">M&A — EV Target</div><div class="pdesc">2022 (SK Hynix) y 2023 (Seagen). FCF = EBIT×(1−τ) con ΔNA=0. Precio mínimo/máximo.</div></div>
+      <div class="pattern-row"><div class="pdot da"></div><div class="plabel">Capital Structure</div><div class="pdesc">2021 (Tesla equity issue) y 2023 (financiación Seagen). Pros/cons deuda vs equity.</div></div>
+      <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">Wrong Hurdle Rate</div><div class="pdesc">Clásico recurrente: IRR &gt; R_E empresa pero R_E del sector del proyecto es mayor → rechazar.</div></div>
+      <div class="pattern-row"><div class="pdot da"></div><div class="plabel">Payback Period</div><div class="pdesc">2023 (Cambridge R&D). Outflows en t=0 y t=1 antes de inflows. Conflicto PP vs NPV.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Errores fatales — memorizar</div>
+    <div class="card">
+      <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">FCF ↔ R_E / ECF ↔ WACC</div><div class="pdesc">FCF se descuenta con WACC → EV. ECF se descuenta con R_E → Equity Value. No son intercambiables nunca.</div></div>
+      <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">Hurdle rate del proyecto</div><div class="pdesc">Si el proyecto tiene distinto riesgo operativo, el hurdle rate es R_E del SECTOR del proyecto, no de la empresa.</div></div>
+      <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">NFO en ΔNA</div><div class="pdesc">ΔNA = ΔCash + ΔNFO + ΔFixed Assets. Olvidar ΔNFO es el error más frecuente en Q1.</div></div>
+      <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">Before-tax vs After-tax FCF</div><div class="pdesc">Before-tax = EBIT − ΔNA. After-tax = EBIT×(1−τ) − ΔNA. Leer qué pide el enunciado.</div></div>
+      <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">TV en tiempo correcto</div><div class="pdesc">TV_n = FCF_{n+1}/(WACC−g) se pone al FINAL del año n, luego se descuenta n años.</div></div>
+      <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">EV − Debt + Cash = Market Equity</div><div class="pdesc">Resultado del EV bridge es el market value of equity, NO el book value. Conceptos distintos.</div></div>
+      <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">Short Q sin justificación</div><div class="pdesc">T/F sin explicación = 0 puntos automático. Siempre mencionar fórmula, concepto o contraejemplo.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Empresas por año</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem">
+      <div class="card"><div style="font-family:var(--mono);font-size:10px;color:var(--accent);margin-bottom:6px;letter-spacing:.08em">2023 · Pfizer</div><div style="font-family:var(--serif);font-size:17px;margin-bottom:6px">Pfizer Inc.</div><div style="font-size:12px;color:var(--text2);line-height:1.6">τ=10% · WACC=7.2% · R_E=7.5% · 5,733M shares<br>COVID revenue · Seagen M&A · R&D Cambridge · Payback</div></div>
+      <div class="card"><div style="font-family:var(--mono);font-size:10px;color:var(--accent);margin-bottom:6px;letter-spacing:.08em">2022 · Intel</div><div style="font-family:var(--serif);font-size:17px;margin-bottom:6px">Intel Corp.</div><div style="font-size:12px;color:var(--text2);line-height:1.6">WACC=8.5% · R_E=9% · 4,090M shares<br>IDM 2.0 · Ohio factory · SK Hynix · GAA chips IRR</div></div>
+      <div class="card"><div style="font-family:var(--mono);font-size:10px;color:var(--accent);margin-bottom:6px;letter-spacing:.08em">2021 · Tesla</div><div style="font-family:var(--serif);font-size:17px;margin-bottom:6px">Tesla Inc.</div><div style="font-size:12px;color:var(--text2);line-height:1.6">WACC=8.9% · R_E=9% · 960M shares<br>Stock surge · Short squeeze · Gigafactory Berlin · SpaceX</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TEORÍA ═══════════════ -->
+<div id="page-teoria" class="page">
+  <div class="page-header">
+    <div class="eyebrow">Marco conceptual</div>
+    <h1>Teoría Esencial</h1>
+    <p>Los conceptos teóricos detrás de cada tipo de pregunta. Entiende el «por qué» antes del cálculo.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Módulo 1 — DCF Valuation</div>
+
+    <div class="theory-block" id="th-na">
+      <div class="theory-head" onclick="toggleTheory('th-na')">
+        <div class="theory-title-wrap"><div class="theory-icon" style="background:var(--blue-dim)">📊</div><div class="theory-label">Net Assets, ECF y FCF — la mecánica del balance</div></div>
+        <div class="theory-toggle">+</div>
+      </div>
+      <div class="theory-body">
+        <p>El <strong>Balance Sheet</strong> nos dice que los activos de la empresa (lo que posee) siempre igualan a sus fuentes de financiación (deuda + equity). Esto genera la identidad fundamental:</p>
+        <div class="fml"><span class="k">NA</span> = Cash surplus + NFO + Fixed Assets  =  Debt + Equity</div>
+        <p>El <strong>Cash surplus</strong> es la tesorería que excede la necesaria para operar. La <strong>NFO</strong> (Net Financial Obligations, también llamada NWC en otros frameworks) son los activos operativos netos de corto plazo: clientes y stocks menos proveedores y otras obligaciones operativas corrientes. Los <strong>Fixed Assets</strong> son los activos no corrientes.</p>
+        <h4>¿Por qué calculamos ΔNA?</h4>
+        <p>Para derivar los cash flows reales que genera la empresa necesitamos saber cuánto capital nuevo absorbió durante el año (inversiones netas). Un aumento de ΔNA positivo indica que la empresa "consumió" capital — necesitó más activos para operar. Ese capital extra tiene que haber venido de algún sitio (de los accionistas o de los acreedores).</p>
+        <div class="fml"><span class="k">ECF</span> = Net Income − ΔNA + ΔDebt   <span class="c">← lo que queda para el accionista</span>
+<span class="k">Before-tax FCF</span> = EBIT − ΔNA          <span class="c">← ignora impuestos, ignora finanzas</span>
+<span class="k">After-tax FCF</span>  = EBIT×(1−τ) − ΔNA   <span class="c">← disponible para todos los providers</span></div>
+        <h4>Intuición clave</h4>
+        <p>El ECF refleja el punto de vista del accionista: parte del beneficio neto, ajusta por la inversión realizada (ΔNA), y suma la deuda nueva levantada (porque esa deuda también contribuyó a financiar las inversiones). El FCF es «pre-deuda»: lo que generaría la empresa si no tuviera ninguna estructura de financiación.</p>
+        <div class="callout c-tip"><div class="callout-icon">💡</div>Truco de velocidad: ΔNA = ΔDebt + ΔEquity. Es exactamente lo mismo que sumar los tres activos, pero más rápido porque solo usas el lado derecho del balance.</div>
+      </div>
+    </div>
+
+    <div class="theory-block" id="th-ev">
+      <div class="theory-head" onclick="toggleTheory('th-ev')">
+        <div class="theory-title-wrap"><div class="theory-icon" style="background:var(--blue-dim)">🏢</div><div class="theory-label">Enterprise Value, Terminal Value y el EV bridge</div></div>
+        <div class="theory-toggle">+</div>
+      </div>
+      <div class="theory-body">
+        <p>El <strong>Enterprise Value (EV)</strong> es el valor total de la empresa para todos sus proveedores de capital (accionistas y acreedores). Es independiente de cómo esté financiada. Se calcula descontando los FCF futuros al WACC:</p>
+        <div class="fml"><span class="k">EV</span> = Σ <span class="v">FCF_t / (1+WACC)^t</span>  +  TV / (1+WACC)^n</div>
+        <p>El <strong>Terminal Value (TV)</strong> captura todo el valor más allá del horizonte de proyección explícita, asumiendo que la empresa crece a una tasa constante g para siempre (Gordon Growth Model):</p>
+        <div class="fml"><span class="k">TV_n</span> = FCF_{n+1} / (WACC − g)  =  FCF_n × (1+g) / (WACC − g)</div>
+        <p>El TV suele representar el 60–80% del EV en empresas maduras. Por eso es crucial ser conservador con g: una pequeña variación en g tiene un impacto enorme en el EV.</p>
+        <h4>El EV bridge — de EV a Stock Price</h4>
+        <p>El EV pertenece a todos los proveedores de capital. Para saber qué parte corresponde a los accionistas, añadimos los activos "extra" (cash surplus, que es un activo ya valorado a su valor de mercado) y restamos las deudas (que son obligaciones para con los acreedores):</p>
+        <div class="fml"><span class="k">Equity Value</span> = EV + Cash surplus − Debt
+<span class="k">Stock Price</span>   = Equity Value / Número de acciones</div>
+        <div class="callout c-warn"><div class="callout-icon">⚠️</div>Confusión habitual: EV − Debt + Cash da el <strong>market value of equity</strong>, no el book value. Son conceptualmente distintos: el book value es contable/histórico, el market value refleja expectativas futuras.</div>
+      </div>
+    </div>
+
+    <div class="theory-block" id="th-wacc-re">
+      <div class="theory-head" onclick="toggleTheory('th-wacc-re')">
+        <div class="theory-title-wrap"><div class="theory-icon" style="background:var(--blue-dim)">⚖️</div><div class="theory-label">WACC vs R_E — cuándo usar cada uno</div></div>
+        <div class="theory-toggle">+</div>
+      </div>
+      <div class="theory-body">
+        <p>El <strong>WACC</strong> (Weighted Average Cost of Capital) es la tasa de descuento que refleja el costo promedio ponderado de toda la financiación de la empresa, incluyendo el tax shield de la deuda:</p>
+        <div class="fml"><span class="k">WACC</span> = R_E × (E/V)  +  R_D × (1−τ) × (D/V)</div>
+        <p>El <strong>R_E</strong> (costo de equity) es la rentabilidad mínima que exigen los accionistas dado el riesgo operativo y financiero de la empresa. R_E &gt; WACC siempre (porque la deuda tiene tax shield y es senior).</p>
+        <h4>La regla de oro</h4>
+        <div class="fml"><span class="k">FCF</span>  →  descontar con <span class="v">WACC</span>  →  obtienes <span class="v">EV</span>   (valor para TODOS los providers)
+<span class="k">ECF</span>  →  descontar con <span class="v">R_E</span>   →  obtienes <span class="v">Equity Value</span> directamente</div>
+        <p>Ambos caminos deben dar el mismo Equity Value si los cálculos son consistentes. El examen siempre da WACC y R_E. Usa el apropiado según el tipo de cash flow que se te pide descontar.</p>
+        <div class="callout c-danger"><div class="callout-icon">🚨</div>El error más penalizado en el examen: usar R_E para descontar FCF (o WACC para ECF). La confusión genera un valor de equity incorrecto y se pierde el punto completo.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Módulo 2 — Valuation with Multiples</div>
+
+    <div class="theory-block" id="th-mult">
+      <div class="theory-head" onclick="toggleTheory('th-mult')">
+        <div class="theory-title-wrap"><div class="theory-icon" style="background:var(--purple-dim)">📐</div><div class="theory-label">Por qué funcionan los múltiplos — y cuándo fallan</div></div>
+        <div class="theory-toggle">+</div>
+      </div>
+      <div class="theory-body">
+        <p>La valoración por múltiplos parte de la idea de que empresas similares deberían cotizar a precios similares respecto a una métrica financiera o operativa común. Es un método de <strong>valoración relativa</strong>: no mide el valor intrínseco (como el DCF), sino el valor de mercado relativo al sector.</p>
+        <h4>Múltiplos más usados en el examen</h4>
+        <div class="fml"><span class="k">EV/EBITDA</span>  → EV total / EBITDA   (favorito para M&A y empresas comparables)
+<span class="k">P/E</span>          → Precio acción / EPS  (más afectado por estructura de capital)
+<span class="k">P/Book</span>       → Precio / Valor contable equity
+<span class="k">P/FCF</span>        → Precio / Free Cash Flow por acción
+<span class="k">P/Sales</span>      → Precio / Ventas  (se usa cuando earnings son negativos)</div>
+        <h4>Trailing vs Forward</h4>
+        <p>Los <strong>trailing multiples</strong> usan datos históricos (2022 real). Los <strong>forward multiples</strong> usan estimaciones futuras (2023E, 2024E). Los forward son más relevantes para valorar porque el precio de la acción descuenta el futuro, no el pasado. El examen siempre incluye una tabla con ambos y pide usar los forward del año específico.</p>
+        <h4>Cómo determinar over/undervalued</h4>
+        <div class="fml">Múltiplo empresa  <span class="r">&lt;</span>  Múltiplo comps  →  empresa <span class="k">UNDERVALUED</span>  (más barata que el sector)
+Múltiplo empresa  <span class="r">&gt;</span>  Múltiplo comps  →  empresa <span class="k">OVERVALUED</span>   (más cara que el sector)</div>
+        <h4>Limitaciones críticas</h4>
+        <p>Los múltiplos asumen que las empresas comparables tienen el mismo crecimiento, riesgo, márgenes y calidad de earnings. En la práctica, esto raramente se cumple. El método es rápido pero superficial. Dos empresas de la misma industria pueden tener P/E muy distintos por razones completamente justificadas (diferente g, diferente apalancamiento, etc.).</p>
+        <div class="callout c-purple"><div class="callout-icon">🧠</div>Para el examen: cuando la pregunta pide calcular el precio implícito con un múltiplo, aplica el múltiplo de los comparables a la métrica de la empresa target. Si el resultado es mayor que el precio real → undervalued; si es menor → overvalued.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Módulo 3 — Capital Budgeting</div>
+
+    <div class="theory-block" id="th-npv">
+      <div class="theory-head" onclick="toggleTheory('th-npv')">
+        <div class="theory-title-wrap"><div class="theory-icon" style="background:var(--accent-dim)">🏗️</div><div class="theory-label">NPV — el único criterio que mide creación de valor</div></div>
+        <div class="theory-toggle">+</div>
+      </div>
+      <div class="theory-body">
+        <p>El <strong>NPV (Net Present Value)</strong> mide el valor creado o destruido por un proyecto en términos absolutos hoy. Es la suma de todos los cash flows del proyecto descontados a la tasa de oportunidad del capital:</p>
+        <div class="fml"><span class="k">NPV</span> = −I_0 + Σ ECF_t / (1+R_E)^t   <span class="c">← proyecto equity-financiado</span>
+<span class="k">NPV</span> = −I_0 + Σ FCF_t / (1+WACC)^t <span class="c">← proyecto con leverage</span></div>
+        <p><strong>Regla de decisión:</strong> aceptar si NPV &gt; 0 (crea valor), rechazar si NPV &lt; 0 (destruye valor). Si hay varios proyectos mutuamente excluyentes, elegir el de mayor NPV.</p>
+        <h4>Caso más frecuente en el examen: perpetuidad creciente</h4>
+        <p>Cuando los ECF crecen a tasa constante g desde t=1 hasta el infinito, la fórmula de la perpetuidad creciente da el PV de todos esos flujos en t=0:</p>
+        <div class="fml">PV = ECF_1 / (R_E − g)   <span class="c">← aplicado en t=0 si ECF empieza en t=1</span>
+NPV = −I_0 + ECF_1 / (R_E − g)</div>
+        <p>Si la perpetuidad empieza en t=2 (caso Pfizer 2023), el PV de la perpetuidad está calculado en t=1, así que hay que descontarlo un año más para traerlo a t=0:</p>
+        <div class="fml">PV en t=1 = ECF_2 / (R_E − g)
+NPV = −I_0  −  I_1/(1+R_E)  +  [ECF_2/(R_E−g)] / (1+R_E)</div>
+      </div>
+    </div>
+
+    <div class="theory-block" id="th-irr">
+      <div class="theory-head" onclick="toggleTheory('th-irr')">
+        <div class="theory-title-wrap"><div class="theory-icon" style="background:var(--accent-dim)">📈</div><div class="theory-label">IRR, Payback y el problema del hurdle rate</div></div>
+        <div class="theory-toggle">+</div>
+      </div>
+      <div class="theory-body">
+        <p>El <strong>IRR (Internal Rate of Return)</strong> es la tasa de descuento que hace NPV = 0. Se interpreta como la rentabilidad intrínseca del proyecto. <strong>Regla:</strong> aceptar si IRR &gt; K (costo de capital del proyecto).</p>
+        <div class="fml">IRR de perpetuidad creciente:
+I_0 = ECF_1 / (IRR − g)  →  <span class="k">IRR</span> = ECF_1 / I_0  +  g</div>
+        <h4>Limitaciones del IRR — por qué el examen lo explota</h4>
+        <p>El IRR tiene tres problemas fundamentales que el examen testa sistemáticamente:</p>
+        <p><strong>1. Múltiples IRRs:</strong> si el proyecto tiene cambios de signo en los cash flows (ej: positivo, negativo, positivo), puede haber varios IRRs. El criterio se vuelve ambiguo.</p>
+        <p><strong>2. No sirve para rankear proyectos mutuamente excluyentes:</strong> un IRR mayor no implica un NPV mayor. Un proyecto pequeño con IRR=25% puede tener un NPV inferior a un proyecto grande con IRR=15%. El NPV es el criterio correcto para rankear.</p>
+        <p><strong>3. El hurdle rate correcto depende del riesgo del PROYECTO, no de la empresa:</strong> este es el error conceptual favorito del examen. Si la empresa tiene R_E=9% pero el proyecto tiene un riesgo operativo diferente (ej: componentes aeroespaciales cuando la empresa fabrica coches), hay que usar el R_E de empresas comparables de ese sector específico. En Tesla/SpaceX y Intel/GAA, el sector comparable tiene R_E=20%.</p>
+        <h4>Payback Period</h4>
+        <p>El <strong>PP</strong> es el tiempo que tarda el proyecto en recuperar la inversión inicial (hasta que los cash flows acumulados igualan la inversión). Es fácil de calcular y comunicar, pero tiene dos defectos graves: ignora el valor temporal del dinero y no considera los cash flows posteriores al payback. Un proyecto con PP=5 puede tener NPV negativo, y uno con PP=10 puede tener NPV positivo y grande.</p>
+        <div class="callout c-danger"><div class="callout-icon">🚨</div>El conflicto PP vs NPV (caso Pfizer 2023): el R&D center tiene PP=13 años (rechazo según criterio PP con máximo de 10 años) pero NPV=+$333M (aceptación según NPV). El NPV es el criterio correcto porque mide creación de valor real.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Módulo 4 — M&A</div>
+
+    <div class="theory-block" id="th-ma">
+      <div class="theory-head" onclick="toggleTheory('th-ma')">
+        <div class="theory-title-wrap"><div class="theory-icon" style="background:var(--amber-dim)">🤝</div><div class="theory-label">Valoración de targets — precio mínimo, máximo y sinergias</div></div>
+        <div class="theory-toggle">+</div>
+      </div>
+      <div class="theory-body">
+        <p>En M&A, el precio negociado debe situarse entre dos valores fundamentales:</p>
+        <div class="fml"><span class="k">Precio mínimo</span> = EV del target bajo control del VENDEDOR (valor de reserva)
+<span class="k">Precio máximo</span> = EV del target bajo control del COMPRADOR (incluyendo sinergias)</div>
+        <p>Si el comprador paga más del precio máximo (como en Pfizer/Seagen: paga $43B por un target valorado en $38.6B), está transfiriendo valor a los accionistas del target. Esto se llama «overpaying».</p>
+        <h4>Cálculo del EV del target</h4>
+        <p>En los casos del examen, el target opera con ΔNA=0 (NFO estable, CapEx=Depreciation), lo que simplifica enormemente el FCF:</p>
+        <div class="fml">FCF_1 = EBIT_1 × (1−τ)               <span class="c">← cuando ΔNA = 0</span>
+<span class="k">EV</span>    = FCF_1 / (WACC_target − g)   <span class="c">← perpetuidad creciente</span></div>
+        <h4>¿Qué WACC usar?</h4>
+        <p>Si el target tiene el <strong>mismo riesgo operativo y financiero</strong> que el comprador → usar el WACC del comprador (caso Seagen 2023: mismo sector pharma, mismo riesgo → WACC Pfizer 7.2%). Si tiene <strong>distinto riesgo</strong> → usar el WACC del sector del target (caso SK Hynix 2022: Intel usa su propio WACC porque valora el negocio SSD bajo su control).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Módulo 5 — Capital Structure</div>
+
+    <div class="theory-block" id="th-cs">
+      <div class="theory-head" onclick="toggleTheory('th-cs')">
+        <div class="theory-title-wrap"><div class="theory-icon" style="background:var(--red-dim)">⚖️</div><div class="theory-label">Deuda vs Equity — trade-off theory y sus implicaciones</div></div>
+        <div class="theory-toggle">+</div>
+      </div>
+      <div class="theory-body">
+        <p>En un mundo sin impuestos ni costos de quiebra (Modigliani-Miller perfecto), la estructura de capital es irrelevante: el valor de la empresa no depende de cómo se financia. En la realidad, hay dos fuerzas en tensión:</p>
+        <h4>Beneficio de la deuda: Tax Shield</h4>
+        <p>Los intereses de la deuda son deducibles fiscalmente, lo que genera un ahorro de impuestos anual = Deuda × R_D × τ. Esto reduce el WACC y aumenta el valor de la empresa.</p>
+        <div class="fml">Tax Shield anual = Deuda × R_D × τ
+PV(Tax Shield) = τ × Deuda   <span class="c">← si deuda perpetua y R_D igual tasa descuento</span></div>
+        <h4>Costo de la deuda: Financial Distress</h4>
+        <p>A medida que aumenta el apalancamiento, aumenta la probabilidad de impago. Los costos de distress financiero incluyen costos directos (honorarios legales, reestructuración) e indirectos (pérdida de clientes, empleados, oportunidades). Estos costos reducen el valor de la empresa.</p>
+        <h4>Trade-off theory: el punto óptimo</h4>
+        <p>La estructura óptima de capital equilibra el beneficio del tax shield con el costo del distress financiero. En la práctica, el examen pide una razón pro-deuda y una pro-equity:</p>
+        <div class="fml"><span class="k">Pro-deuda:</span>  tax shield · no dilución · señal de confianza del management
+<span class="k">Pro-equity:</span> menor distress financiero · flexibilidad · si acción sobrevaluada es buen timing</div>
+        <div class="callout c-tip"><div class="callout-icon">💡</div>R_E &gt; R_D siempre, incluso sin dividendos. Los accionistas son residual claimants (cobran lo que queda después de la deuda) → mayor riesgo → mayor retorno exigido. El retorno no tiene por qué venir de dividendos — puede ser pura revalorización del precio.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FÓRMULAS ═══════════════ -->
+<div id="page-formulas" class="page">
+  <div class="page-header">
+    <div class="eyebrow">Cheat Sheet</div>
+    <h1>Fórmulas Clave</h1>
+    <p>Organizado para tu A4. Copia las fórmulas resaltadas directamente.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">1 — Balance sheet & cash flows</div>
+    <div class="card">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:8px">NET ASSETS & VARIACIÓN</div>
+      <div class="fml"><span class="k">NA</span> = Cash surplus + NFO + Fixed Assets = Debt + Equity
+<span class="k">ΔNA</span> = NA_t − NA_{t-1}   =   ΔDebt + ΔEquity   <span class="c">← truco rápido</span></div>
+      <div style="font-family:var(--mono);font-size:11px;color:var(--accent);margin:.875rem 0 8px">CASH FLOWS</div>
+      <div class="fml"><span class="k">ECF</span>            = NI − ΔNA + ΔDebt                  <span class="c">← descontar con R_E</span>
+<span class="k">Before-tax FCF</span>  = EBIT − ΔNA                       <span class="c">← descontar con WACC</span>
+<span class="k">After-tax FCF</span>   = EBIT×(1−τ) − ΔNA                 <span class="c">← descontar con WACC</span>
+<span class="k">FCF M&A</span>         = EBIT×(1−τ)      <span class="c">cuando ΔNA=0, CapEx=Dep</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">2 — DCF valuation</div>
+    <div class="card">
+      <div class="fml"><span class="k">EV</span>           = Σ FCF_t/(1+WACC)^t  +  TV/(1+WACC)^n
+<span class="k">TV_n</span>         = FCF_{n+1}/(WACC−g)  =  FCF_n×(1+g)/(WACC−g)
+<span class="k">Equity Value</span> = EV + Cash surplus − Debt
+<span class="k">Stock Price</span>  = Equity Value / Nº shares</div>
+      <div class="callout c-danger" style="margin-top:.75rem"><div class="callout-icon">🚨</div>FCF → WACC → EV. ECF → R_E → Equity Value. NO mezclar nunca.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">3 — Capital budgeting</div>
+    <div class="card">
+      <div class="fml"><span class="c">Perpetuidad creciente empieza en t=1, inversión I_0 en t=0:</span>
+<span class="k">NPV</span> = −I_0 + ECF_1/(R_E−g)
+
+<span class="c">Perpetuidad empieza en t=2, inversiones en t=0 y t=1 (Pfizer 2023):</span>
+<span class="k">NPV</span> = −I_0 − I_1/(1+R_E) + [ECF_2/(R_E−g)]/(1+R_E)
+
+<span class="c">IRR de perpetuidad creciente (inversión I_0 en t=0):</span>
+<span class="k">IRR</span> = ECF_1/I_0 + g
+
+<span class="c">Hurdle rate correcto:</span>
+Si riesgo proyecto ≠ riesgo empresa  →  usar <span class="r">R_E del sector del proyecto</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">4 — Multiples</div>
+    <div class="card">
+      <div class="fml"><span class="k">EV target</span>     = EV/EBITDA_comps × EBITDA_target
+<span class="k">Market Cap</span>    = P/E_comps × EPS_target
+<span class="k">EBITDA</span>        = Revenue − COGS − OPEX   <span class="c">(antes de depreciación)</span>
+Múltiplo empresa  &lt;  comps  →  <span class="k">UNDERVALUED</span>
+Múltiplo empresa  &gt;  comps  →  <span class="r">OVERVALUED</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">5 — M&A & Capital Structure</div>
+    <div class="card">
+      <div class="fml"><span class="c">M&A — EV del target (perpetuidad creciente, ΔNA=0):</span>
+FCF_1 = EBIT_1 × (1−τ)
+<span class="k">EV</span>    = FCF_1 / (WACC_target − g)
+
+<span class="c">Capital Structure:</span>
+<span class="k">Pro-deuda:</span>  tax shield · no dilución · señal positiva
+<span class="k">Pro-equity:</span> menor distress · flexibilidad · oportunidad si acción cara
+R_E  >  R_D  siempre  <span class="c">(accionistas = residual claimants)</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ PFIZER 2023 ═══════════════ -->
+<div id="page-pfizer" class="page">
+  <div class="page-header">
+    <div class="eyebrow">Examen · 2 Mayo 2023</div>
+    <h1>Pfizer Inc.</h1>
+    <p>τ=10% · WACC=7.2% · R_E=7.5% · Análisis al 1 enero 2023 · 5,733M shares</p>
+  </div>
+
+  <div class="company-band">
+    <div class="company-chip chip-pfizer">PFE</div>
+    <div style="flex:1">
+      <div class="company-name-serif">Pfizer Inc.</div>
+      <div class="company-meta-line">NYSE: PFE · Global Pharma · Revenue $100.3B · Seagen acquisition $43B</div>
+    </div>
+    <div class="company-kv" style="margin-right:1.5rem"><div class="kv-label">WACC / R_E</div><div class="kv-val">7.2% / 7.5%</div></div>
+    <div class="company-kv"><div class="kv-label">τ / Shares</div><div class="kv-val">10% / 5,733M</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Datos financieros 2022</div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <table class="data-table">
+        <thead><tr><th>P&L 2022</th><th class="num">$M</th><th>Balance Sheet</th><th class="num">2022</th><th class="num">2021</th><th class="num">Δ</th></tr></thead>
+        <tbody>
+          <tr><td>Revenues</td><td class="num">100,330</td><td>Cash surplus</td><td class="num">22,732</td><td class="num">31,069</td><td class="num neg">−8,337</td></tr>
+          <tr><td>− COGS, OPEX</td><td class="num">59,449</td><td>NFO</td><td class="num">13,124</td><td class="num">14,961</td><td class="num neg">−1,837</td></tr>
+          <tr><td>EBITDA</td><td class="num hl">40,881</td><td>Fixed Assets</td><td class="num">154,540</td><td class="num">129,868</td><td class="num pos">+24,672</td></tr>
+          <tr><td>− Depreciation</td><td class="num">3,609</td><td>Debt (S&L)</td><td class="num">94,479</td><td class="num">98,436</td><td class="num neg">−3,957</td></tr>
+          <tr><td>EBIT</td><td class="num hl">37,272</td><td>Equity</td><td class="num">95,917</td><td class="num">77,462</td><td class="num pos">+18,455</td></tr>
+          <tr><td>Net Income</td><td class="num hl">31,372</td><td><strong>ΔNA</strong></td><td class="num hl" colspan="3">+22,835 M$ (= −3,957 + 18,455)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Case questions — Teoría · Cálculo · Consejo</div>
+
+    <!-- Q1 -->
+    <div class="q-card" id="qp1">
+      <div class="q-head" onclick="toggleQ('qp1')">
+        <div class="q-left"><div class="q-num">Q1</div><div class="q-title">Cambio en Net Assets (ΔNA) y en Deuda entre 2021 y 2022</div></div>
+        <div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs">
+          <button class="q-tab active" onclick="switchTab('qp1',0,this)">Teoría</button>
+          <button class="q-tab" onclick="switchTab('qp1',1,this)">Cálculo</button>
+          <button class="q-tab" onclick="switchTab('qp1',2,this)">Consejo</button>
+        </div>
+        <div class="q-panel active"><p>El <strong>Net Assets (NA)</strong> representa el capital total empleado en la empresa: activos financieros (cash surplus), activos operativos netos de corto plazo (NFO) y activos no corrientes (fixed assets). Su variación anual (ΔNA) indica cuánto capital adicional absorbió la empresa durante el ejercicio.</p><p>La identidad contable fundamental establece que NA = Debt + Equity, lo que permite calcular ΔNA de dos formas equivalentes: sumando las variaciones de los tres activos, o sumando las variaciones de las dos fuentes de financiación.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">→</span><span><strong>Método rápido:</strong> ΔNA = ΔDebt + ΔEquity</span></li><li><span class="step-n">D</span><span>ΔDebt = 94,479 − 98,436 = <span class="answer-val">−3,957 M$</span></span></li><li><span class="step-n">E</span><span>ΔEquity = 95,917 − 77,462 = +18,455 M$</span></li><li><span class="step-n">NA</span><span>ΔNA = −3,957 + 18,455 = <span class="answer-val">+22,835 M$</span></span></li></ul><div class="callout c-ok"><div class="callout-icon">✓</div>Verificación por activos: ΔCash(−8,337) + ΔNFO(−1,837) + ΔFA(+24,672) + ajuste = +22,835 M$</div></div>
+        <div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>El método ΔNA = ΔDebt + ΔEquity es 3× más rápido que sumar los activos y da exactamente el mismo resultado. En un examen de 3 horas, este ahorro de tiempo es relevante. Memoriza este atajo.</div></div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-card" id="qp2">
+      <div class="q-head" onclick="toggleQ('qp2')">
+        <div class="q-left"><div class="q-num">Q2</div><div class="q-title">ECF y after-tax FCF de 2022</div></div>
+        <div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp2',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qp2',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qp2',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>El <strong>ECF (Equity Cash Flow)</strong> es el efectivo que realmente llega a los accionistas después de pagar a todos los acreedores, financiar el crecimiento de la empresa e incluyendo la deuda nueva levantada. Es el flujo relevante desde la perspectiva del accionista.</p><p>El <strong>after-tax FCF</strong> es el flujo disponible para todos los proveedores de capital antes de cualquier transacción financiera. La diferencia clave respecto al ECF: el FCF es «ciego» a la estructura de capital — imagina que la empresa no tiene deuda.</p><p>Cuando el examen pide after-tax FCF, aplica la tasa impositiva τ sobre el EBIT. Pfizer tiene τ=10%, excepcionalmente baja por la composición internacional de sus ingresos.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">ECF</span><span>= NI − ΔNA + ΔDebt = 31,372 − 22,835 + (−3,957) = <span class="answer-val">4,580 M$</span></span></li><li><span class="step-n">EBIT</span><span>= Revenues − COGS − Depreciation = 100,330 − 59,449 − 3,609 = <strong>37,272 M$</strong></span></li><li><span class="step-n">FCF</span><span>= EBIT×(1−τ) − ΔNA = 37,272 × 0.90 − 22,835 = 33,544.8 − 22,835 = <span class="answer-val">10,709.8 M$</span></span></li></ul></div>
+        <div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Presta atención si piden before-tax o after-tax FCF — son preguntas distintas. Before-tax = EBIT − ΔNA (sin multiplicar por (1−τ)). After-tax = EBIT×(1−τ) − ΔNA. En 2022 preguntaron after-tax (con τ=10%), en Intel 2022 preguntaron before-tax.</div><div class="callout c-danger" style="margin-top:.5rem"><div class="callout-icon">⚠️</div>El FCF resultante (10.7B$) es mucho mayor que el ECF (4.6B$) porque Pfizer realizó inversiones masivas (ΔNA=+22.8B$) financiadas principalmente con equity (+18.5B$), no con los flujos del año.</div></div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-card" id="qp3">
+      <div class="q-head" onclick="toggleQ('qp3')">
+        <div class="q-left"><div class="q-num">Q3</div><div class="q-title">Enterprise Value por DCF — FCF 16,377 / 17,950 / 19,830 → g=2%, WACC=7.2%</div></div>
+        <div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">3 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp3',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qp3',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qp3',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>El DCF de empresa tiene dos componentes: los <strong>FCF del período de proyección explícita</strong> (aquí 2023–2025) y el <strong>Terminal Value</strong>, que captura todo el valor más allá de 2025 bajo la hipótesis de crecimiento perpetuo a tasa g=2%.</p><p>El TV se calcula con el Gordon Growth Model: <code>TV = FCF_{n+1}/(WACC−g)</code>. Este valor está expresado en términos del final del año n (aquí, al final de 2025), por lo que hay que descontarlo n años para traerlo al inicio de 2023. En empresas farmacéuticas maduras, el TV suele representar el 80–90% del EV total.</p><p>El spread (WACC−g) es el driver más sensible del modelo: aquí es 7.2%−2%=5.2%. Un cambio de 0.5% en este spread movería el TV en ≈10%. Por eso el examen pide usar exactamente los datos dados, sin redondear la diferencia.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">TV</span><span>TV_2025 = 19,830×1.02 / (0.072−0.02) = 20,226.6 / 0.052 = <strong>388,973 M$</strong></span></li><li><span class="step-n">EV</span><span>= 16,377/1.072¹ + 17,950/1.072² + (19,830+388,973)/1.072³</span></li><li><span class="step-n"> </span><span>= 15,277 + 15,620 + 331,841 = <span class="answer-val">362,738 M$</span></span></li></ul><div class="callout c-tip"><div class="callout-icon">💡</div>Alternativa equivalente: calcula TV al final de 2024 = FCF_2025/(WACC−g) = 19,830/0.052 = 381,346 M$. Luego EV = 16,377/1.072 + (17,950+381,346)/1.072² = mismo resultado.</div></div>
+        <div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Proceso infalible en 3 pasos: (1) calcular TV al final del último FCF explícito, (2) sumar TV al último FCF, (3) descontar todos los flujos incluyendo ese año al WACC. Nunca coloques el TV un año antes o después del último FCF explícito.</div></div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-card" id="qp4">
+      <div class="q-head" onclick="toggleQ('qp4')">
+        <div class="q-left"><div class="q-num">Q4</div><div class="q-title">Stock price implícito (5,733M shares)</div></div>
+        <div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp4',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qp4',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qp4',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>El EV del paso anterior pertenece a todos los proveedores de capital. Para obtener el valor de la empresa para los accionistas exclusivamente, aplicamos el <strong>EV bridge</strong>: añadimos el cash surplus (activo que pertenece a los accionistas pero no está en el EV operativo) y restamos la deuda (que pertenece a los acreedores).</p><p>El resultado es el <strong>Market Value of Equity</strong> — distinto del book value contable. Dividido entre el número de acciones, da el precio implícito por acción que el modelo DCF sugiere como justo.</p><p>Si el precio implícito es mayor que el precio de mercado actual, el modelo sugiere que la acción está infravalorada (y viceversa). En la práctica, esta comparación orienta decisiones de inversión.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">1</span><span>Equity Value = EV + Cash surplus − Debt = 362,738 + 22,732 − 94,479 = <strong>290,991 M$</strong></span></li><li><span class="step-n">2</span><span>Stock Price = 290,991 / 5,733 = <span class="answer-val">≈ $50.76 por acción</span></span></li></ul></div>
+        <div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Orden crítico: EV + Cash − Debt, nunca EV − Cash + Debt. El cash es un activo (se suma), la deuda es una obligación (se resta). Si te confundes, piensa: «el accionista se queda el cash y paga la deuda».</div></div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-card" id="qp5">
+      <div class="q-head" onclick="toggleQ('qp5')">
+        <div class="q-left"><div class="q-num">Q5</div><div class="q-title">T/F: Pfizer está overvalued según P/Book 2024 de comparables (avg=12.1x, Pfizer=2.3x)</div></div>
+        <div class="q-right"><span class="topic-tag t-mult">Multiples</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp5',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qp5',1,this)">Respuesta</button><button class="q-tab" onclick="switchTab('qp5',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>El ratio <strong>Price/Book</strong> compara el precio de mercado de la acción con su valor contable por acción. Un P/Book alto indica que el mercado valora la empresa muy por encima de su valor en libros, normalmente porque anticipa alto crecimiento o tiene activos intangibles valiosos (marca, patentes, etc.).</p><p>Cuando comparamos el múltiplo de una empresa con el promedio de sus comparables, la lógica es: si el múltiplo de la empresa es <strong>inferior</strong> al promedio del sector, el mercado la está valorando relativamente barata → está <strong>infravalorada (undervalued)</strong>. Si es superior → sobrevalorada (overvalued).</p></div>
+        <div class="q-panel"><span class="badge-false">FALSE — FALSO</span><div style="margin-top:.75rem;font-size:13px;color:var(--text2);line-height:1.7"><p>El P/Book 2024 de Pfizer es <strong>2.3x</strong>, que es <strong>muy inferior</strong> al promedio de comparables de <strong>12.1x</strong>.</p><p>Cuando el múltiplo de la empresa (2.3x) &lt; múltiplo del sector (12.1x), significa que el mercado valora a Pfizer más barata que sus pares en términos de P/Book → Pfizer está <strong>UNDERVALUED</strong> según este múltiplo, no overvalued.</p></div></div>
+        <div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Regla nemotécnica: empresa MÁS BARATA que el sector (múltiplo menor) = UNDER. Empresa MÁS CARA que el sector (múltiplo mayor) = OVER. El enunciado de la pregunta invierte la lógica deliberadamente para confundir — siempre comprueba el sentido.</div></div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-card" id="qp6">
+      <div class="q-head" onclick="toggleQ('qp6')">
+        <div class="q-left"><div class="q-num">Q6</div><div class="q-title">Stock price con EV/EBITDA 2024 — Worst case: EBITDA_2024 = 0.5 × EBITDA_2022</div></div>
+        <div class="q-right"><span class="topic-tag t-mult">Multiples</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp6',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qp6',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qp6',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>El método EV/EBITDA es el más usado en operaciones de M&A porque el EBITDA es una aproximación al cash flow operativo antes de decisiones de inversión y financiación. Al aplicar el múltiplo del sector al EBITDA del target, obtenemos el EV implícito que el mercado debería asignarle si cotizara a múltiplos comparables.</p><p>Este problema introduce un <strong>scenario analysis</strong>: analiza qué pasa con la valoración si las ventas de la vacuna COVID caen dramáticamente (worst case). Este tipo de análisis sensitivo es fundamental en finanzas corporativas reales.</p><p>El proceso es siempre el mismo: calcular la métrica (EBITDA) → aplicar múltiplo → obtener EV → aplicar EV bridge → dividir por número de acciones.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">1</span><span>EBITDA 2022 = Revenues − COGS = 100,330 − 59,449 = <strong>40,881 M$</strong></span></li><li><span class="step-n">2</span><span>EBITDA 2024 (worst case) = 0.5 × 40,881 = <strong>20,440.5 M$</strong></span></li><li><span class="step-n">3</span><span>EV/EBITDA comps promedio 2024 = <strong>16.5x</strong></span></li><li><span class="step-n">4</span><span>EV estimado = 16.5 × 20,440.5 = <strong>337,268 M$</strong></span></li><li><span class="step-n">5</span><span>Equity = 337,268 + 22,732 − 94,479 = <strong>265,521 M$</strong></span></li><li><span class="step-n">6</span><span>Stock Price = 265,521 / 5,733 = <span class="answer-val">≈ $46.31</span></span></li></ul></div>
+        <div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>EBITDA = Revenues − COGS − OPEX (antes de depreciation). En la P&L del caso, EBITDA aparece a veces explícitamente y a veces hay que calcularlo: es la línea entre OPEX y Depreciation. Aquí EBITDA = 100,330 − 59,449 = 40,881 porque el enunciado presenta COGS+OPEX agrupado.</div></div>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="q-card" id="qp7">
+      <div class="q-head" onclick="toggleQ('qp7')">
+        <div class="q-left"><div class="q-num">Q7</div><div class="q-title">NPV del R&D Center Cambridge — Inv. $3B (t=0) + $2.15B (t=1), ECF $430M/año desde t=2</div></div>
+        <div class="q-right"><span class="topic-tag t-capex">CapBudg</span><span class="pts-badge">3 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp7',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qp7',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qp7',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>Este problema introduce una complejidad clave: la inversión es en <strong>dos etapas</strong> (t=0 y t=1) y los retornos no comienzan hasta <strong>t=2</strong>. No es el caso estándar de inversión en t=0 con retornos desde t=1.</p><p>La clave conceptual es el <strong>valor temporal del dinero</strong>: todos los flujos (positivos y negativos) deben traerse a t=0 antes de sumarlos. La perpetuidad constante de 430M$/año comenzando en t=2 tiene su PV calculado en t=1 (un período antes de que empiece), y desde ahí hay que descontarla un año más para traerla a t=0.</p><p>El proyecto está 100% financiado con equity → la tasa de descuento correcta es R_E=7.5%, no WACC. Si hubiera deuda, usaríamos WACC para descontar FCF.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">1</span><span>Perpetuidad constante (g=0): PV en t=1 = 430 / 0.075 = <strong>5,733.3 M$</strong></span></li><li><span class="step-n">2</span><span>PV en t=0 de la perpetuidad = 5,733.3 / 1.075 = <strong>5,333.3 M$</strong></span></li><li><span class="step-n">3</span><span>PV en t=0 de la inversión en t=1 = −2,150 / 1.075 = <strong>−2,000 M$</strong></span></li><li><span class="step-n">4</span><span>NPV = −3,000 − 2,000 + 5,333.3 = <span class="answer-val">+$333.3M ≈ +$0.33B</span></span></li></ul><div class="callout c-ok"><div class="callout-icon">✓</div>NPV &gt; 0 → el proyecto crea valor → aceptar desde el punto de vista del NPV.</div></div>
+        <div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Visualización mental: la perpetuidad que empieza en t=2 es como una renta que "arranca" en t=2. La fórmula PV=C/r da el valor un período ANTES de que empiece, es decir, en t=1. Luego descontas ese valor un año más para llegar a t=0. Dibuja la línea de tiempo antes de calcular.</div></div>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q-card" id="qp8">
+      <div class="q-head" onclick="toggleQ('qp8')">
+        <div class="q-left"><div class="q-num">Q8</div><div class="q-title">Payback Period del R&D Center (PP máximo aceptable = 10 años)</div></div>
+        <div class="q-right"><span class="topic-tag t-capex">CapBudg</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp8',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qp8',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qp8',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>El <strong>Payback Period (PP)</strong> es el número de períodos que tarda la empresa en recuperar la inversión inicial a través de los cash flows del proyecto (sin descontar). Es fácil de calcular y comunicar a stakeholders no financieros, pero tiene dos limitaciones graves que el examen testa:</p><p><strong>Limitación 1:</strong> Ignora el valor temporal del dinero. Dos proyectos con el mismo PP pero distintos timing de cash flows son tratados como equivalentes, aunque claramente no lo son.</p><p><strong>Limitación 2:</strong> Ignora completamente los cash flows posteriores al payback. Un proyecto que genera flujos masivos en años 11-30 sería rechazado por el PP si su máximo es 10 años, aunque su NPV sea enorme.</p><p>Este caso ilustra el conflicto PP vs NPV: el proyecto tiene NPV positivo (+$333M) pero PP=13 años supera el límite de 10. La conclusión es que el NPV es siempre el criterio correcto para medir creación de valor.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">t=0</span><span>−3,000 → acumulado: −3,000 M$</span></li><li><span class="step-n">t=1</span><span>−2,150 → acumulado: −5,150 M$</span></li><li><span class="step-n">t=2→12</span><span>+430/año × 11 años = +4,730 M$ → acumulado al final de t=12: −420 M$</span></li><li><span class="step-n">t=13</span><span>+430 M$ → acumulado: +10 M$ → primer año positivo</span></li><li><span class="step-n">PP</span><span>= <span class="answer-val">13 años</span> &gt; 10 años máximo → <strong>NO aceptar según criterio PP</strong></span></li></ul><div class="callout c-danger" style="margin-top:.5rem"><div class="callout-icon">⚠️</div>Conflicto PP (rechazar) vs NPV (aceptar). El NPV es el criterio correcto. El PP como único criterio puede llevar a decisiones erróneas.</div></div>
+        <div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>El enunciado da PP máximo de 10 años. Siempre concluye explícitamente: (1) el PP calculado, (2) si supera el máximo, y (3) si se acepta o rechaza según ese criterio. La pregunta pide tanto el cálculo como la decisión.</div></div>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="q-card" id="qp9">
+      <div class="q-head" onclick="toggleQ('qp9')">
+        <div class="q-left"><div class="q-num">Q9</div><div class="q-title">EV de Seagen bajo control de Pfizer — EBIT=$1.8B, g=3%, τ=10%, WACC=7.2%</div></div>
+        <div class="q-right"><span class="topic-tag t-ma">M&A</span><span class="pts-badge">3 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp9',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qp9',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qp9',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>En una adquisición, el comprador debe valorar el target desde su propia perspectiva: ¿cuánto vale Seagen para Pfizer? Este valor determina el precio máximo que Pfizer debería pagar. Si paga más, está transfiriendo valor de sus accionistas a los de Seagen.</p><p>El problema simplifica el análisis indicando que: (1) ΔNA=0 — NFO no cambia y CapEx=Depreciation, por lo que las inversiones no consumen capital adicional. Esto hace que FCF = EBIT×(1−τ). (2) Seagen tiene el mismo riesgo que Pfizer → se descuenta al WACC de Pfizer (7.2%).</p><p>La valoración asume que Pfizer puede gestionar Seagen con costes de sinergia que hacen crecer el EBIT al 3% anual en perpetuidad — una hipótesis simplificadora del examen.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">FCF</span><span>= EBIT×(1−τ) = 1,800 × (1−0.10) = 1,800 × 0.90 = <strong>$1,620M = $1.62B</strong></span></li><li><span class="step-n">EV</span><span>= FCF / (WACC−g) = 1.62 / (0.072−0.03) = 1.62 / 0.042 = <span class="answer-val">$38.57B</span></span></li><li><span class="step-n">Δ</span><span>$38.57B &lt; $43B precio ofrecido → <strong>Pfizer overpayó ≈ $4.4B</strong></span></li></ul><div class="callout c-danger" style="margin-top:.5rem"><div class="callout-icon">⚠️</div>Bajo las hipótesis del modelo, Pfizer destruyó ~$4.4B de valor para sus accionistas en esta adquisición. En la realidad, las sinergias proyectadas podrían justificar una prima mayor.</div></div>
+        <div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>La clave conceptual que el examen testa: «mismo riesgo que Pfizer» → usar WACC de Pfizer. Si el enunciado dijera «riesgo diferente» o «sector distinto», habría que usar el WACC del sector de Seagen (oncología). Siempre justifica por qué usas ese WACC.</div></div>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="q-card" id="qp10">
+      <div class="q-head" onclick="toggleQ('qp10')">
+        <div class="q-left"><div class="q-num">Q10</div><div class="q-title">Capital structure: una razón pro-deuda y una pro-equity para financiar Seagen</div></div>
+        <div class="q-right"><span class="topic-tag t-cs">Cap.Struct</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp10',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qp10',1,this)">Respuesta</button><button class="q-tab" onclick="switchTab('qp10',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>La decisión de financiación de una adquisición involucra el <strong>trade-off</strong> clásico entre los beneficios de la deuda (tax shield, menor dilución) y sus costes (distress financiero, rigidez). La respuesta debe mostrar que entiendes ambos lados del argumento con la terminología correcta.</p><p>El contexto importa: Pfizer en 2023 ya tiene $94.5B en deuda. Añadir más deuda para una adquisición de $43B aumenta significativamente el apalancamiento y el riesgo de distress. Pero el tax shield sobre intereses también puede ser sustancial con τ=10% (menor que en otros sectores, pero presente).</p></div>
+        <div class="q-panel"><p><strong>A favor de financiar con DEUDA:</strong></p><p>El principal argumento es el <strong>tax shield</strong>: los intereses de la deuda son deducibles fiscalmente, lo que reduce el coste efectivo de la financiación y el WACC. Adicionalmente, la deuda no diluye la participación de los accionistas existentes y puede señalizar confianza del management en la generación de caja futura del negocio combinado.</p><p style="margin-top:.625rem"><strong>A favor de financiar con EQUITY:</strong></p><p>El argumento principal es <strong>reducir el riesgo de financial distress</strong>: dado que Pfizer ya tiene un nivel de deuda elevado ($94.5B), emitir más deuda para una adquisición tan grande podría comprometer la estabilidad financiera, especialmente si las sinergias de Seagen tardan en materializarse. Emitir equity también da mayor <strong>flexibilidad operativa</strong> para futuros períodos de incertidumbre (ej: expiración de patentes de COVID).</p></div>
+        <div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>El examen pide explícitamente UNA razón pro-deuda y UNA pro-equity. Da respuestas con contenido técnico, no respuestas genéricas. Las palabras clave que el corrector busca: tax shield, financial distress, dilución, flexibilidad, señal de mercado, coste de capital.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ INTEL 2022 ═══════════════ -->
+<div id="page-intel" class="page">
+  <div class="page-header">
+    <div class="eyebrow">Examen · 6 Mayo 2022</div>
+    <h1>Intel Corporation</h1>
+    <p>WACC=8.5% · R_E=9% · Análisis al 1 enero 2022 · 4,090M shares</p>
+  </div>
+  <div class="company-band">
+    <div class="company-chip chip-intel">INTC</div>
+    <div style="flex:1"><div class="company-name-serif">Intel Corporation</div><div class="company-meta-line">NASDAQ: INTC · Semiconductors · IDM 2.0 strategy · CEO Pat Gelsinger</div></div>
+    <div class="company-kv" style="margin-right:1.5rem"><div class="kv-label">WACC / R_E</div><div class="kv-val">8.5% / 9.0%</div></div>
+    <div class="company-kv"><div class="kv-label">Shares</div><div class="kv-val">4,090M</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Datos financieros 2021</div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <table class="data-table">
+        <thead><tr><th>P&L 2021</th><th class="num">$M</th><th>Balance Sheet</th><th class="num">2021</th><th class="num">2020</th><th class="num">Δ</th></tr></thead>
+        <tbody>
+          <tr><td>Revenues</td><td class="num">79,024</td><td>Cash surplus</td><td class="num">28,413</td><td class="num">23,895</td><td class="num pos">+4,518</td></tr>
+          <tr><td>− COGS, OPEX</td><td class="num">47,776</td><td>NFO</td><td class="num">6,434</td><td class="num">1,104</td><td class="num pos">+5,330</td></tr>
+          <tr><td>EBITDA</td><td class="num hl">31,248</td><td>Fixed Assets</td><td class="num">110,688</td><td class="num">105,842</td><td class="num pos">+4,846</td></tr>
+          <tr><td>− Depreciation</td><td class="num">11,792</td><td>Debt (S&L)</td><td class="num">50,144</td><td class="num">49,803</td><td class="num pos">+341</td></tr>
+          <tr><td>EBIT</td><td class="num hl">19,456</td><td>Equity</td><td class="num">95,391</td><td class="num">81,038</td><td class="num pos">+14,353</td></tr>
+          <tr><td>Net Income</td><td class="num hl">19,868</td><td>ΔNA</td><td class="num hl" colspan="3">+10,176 M$ (= 341 + 14,353)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Case questions — Teoría · Cálculo · Consejo</div>
+
+    <div class="q-card" id="qi1"><div class="q-head" onclick="toggleQ('qi1')"><div class="q-left"><div class="q-num">Q1</div><div class="q-title">ΔNA y ΔDebt (2020→2021)</div></div><div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi1',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi1',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qi1',2,this)">Consejo</button></div><div class="q-panel active"><p>Mismo concepto que Pfizer Q1. La variación de Net Assets refleja el capital total que la empresa necesitó durante el año. Para Intel, la gran expansión en NFO (+5,330M$) refleja el fuerte ciclo de inversión en capacidad de fabricación de semiconductores anunciado con la estrategia IDM 2.0.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">D</span><span>ΔDebt = 50,144 − 49,803 = <span class="answer-val">+341 M$</span></span></li><li><span class="step-n">E</span><span>ΔEquity = 95,391 − 81,038 = +14,353 M$</span></li><li><span class="step-n">NA</span><span>ΔNA = 341 + 14,353 = <span class="answer-val">+10,176 M$</span></span></li></ul></div><div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Atención: Intel tiene interest income (2,844M$) en la P&L, un ítem inusual. No afecta al cálculo de ΔNA, pero sí afecta al EBIT (que en la solución oficial incluye este ingreso financiero).</div></div></div></div>
+
+    <div class="q-card" id="qi2"><div class="q-head" onclick="toggleQ('qi2')"><div class="q-left"><div class="q-num">Q2</div><div class="q-title">ECF y before-tax FCF de 2021</div></div><div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi2',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi2',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qi2',2,this)">Consejo</button></div><div class="q-panel active"><p>Intel 2022 pide específicamente <strong>before-tax FCF</strong> (sin aplicar τ), a diferencia de Pfizer 2023 que pide after-tax FCF. Esto refleja dos perspectivas distintas: el before-tax FCF excluye el efecto de los impuestos del análisis operativo, mientras el after-tax FCF es el relevante para la valoración DCF.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">ECF</span><span>= NI − ΔNA + ΔDebt = 19,868 − 10,176 + 341 = <span class="answer-val">10,033 M$</span></span></li><li><span class="step-n">EBIT</span><span>= 79,024 − 47,776 − 11,792 + 2,844 − 597 = <strong>21,703 M$</strong> (o 19,456 según solución oficial)</span></li><li><span class="step-n">FCF</span><span>Before-tax FCF = EBIT − ΔNA = 19,456 − 10,176 = <span class="answer-val">9,280 M$</span></span></li></ul></div><div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>El EBIT de Intel incluye el interest income (2,844M$) neto de FinEx (597M$). La solución oficial da EBIT=19,456. Before-tax FCF = EBIT sin multiplicar por (1−τ). Pide explícitamente «before-tax», así que no apliques el impuesto.</div></div></div></div>
+
+    <div class="q-card" id="qi3"><div class="q-head" onclick="toggleQ('qi3')"><div class="q-left"><div class="q-num">Q3</div><div class="q-title">EV por DCF — FCF: 6,085 / 6,585 / 7,000 / 7,500 → g=3.5%, WACC=8.5%</div></div><div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">3 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi3',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi3',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qi3',2,this)">Consejo</button></div><div class="q-panel active"><p>Cuatro períodos de FCF explícitos antes de la perpetuidad (más que Pfizer que tiene tres). La tasa g=3.5% es ligeramente más alta que Pfizer (2%), reflejando las expectativas de mayor crecimiento a largo plazo del sector de semiconductores vs pharma post-COVID. El spread WACC−g = 8.5%−3.5% = 5% exacto, lo que simplifica el cálculo del TV.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">TV</span><span>TV_2025 = 7,500 × 1.035 / (0.085−0.035) = 7,762.5 / 0.05 = <strong>155,250 M$</strong></span></li><li><span class="step-n">EV</span><span>= 6,085/1.085¹ + 6,585/1.085² + 7,000/1.085³ + (7,500+155,250)/1.085⁴</span></li><li><span class="step-n"> </span><span>= 5,608 + 5,598 + 5,483 + 117,430 = <span class="answer-val">134,119 M$</span></span></li></ul></div><div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Cuando WACC−g es un número redondo (aquí 5%), aprovecha para verificar el TV mentalmente: TV ≈ Último FCF × (1+g) / spread = 7,500 × 1.035 / 0.05 = 155,250. Un TV de ~155B$ sobre un EV de ~134B$ implica que el TV representa el 87% del EV — normal para una empresa en steady state.</div></div></div></div>
+
+    <div class="q-card" id="qi4"><div class="q-head" onclick="toggleQ('qi4')"><div class="q-left"><div class="q-num">Q4</div><div class="q-title">Stock price (4,090M shares)</div></div><div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi4',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi4',1,this)">Cálculo</button></div><div class="q-panel active"><p>EV bridge estándar: EV + Cash − Debt = Equity Value → dividir por número de acciones. El precio real de Intel a enero 2022 era ~$52. Nuestro modelo da $27.48, sugiriendo que con las proyecciones dadas el mercado estaba sobrevalorando a Intel en ese momento.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">1</span><span>Equity = 134,119 + 28,413 − 50,144 = <strong>112,388 M$</strong></span></li><li><span class="step-n">2</span><span>Price = 112,388 / 4,090 = <span class="answer-val">≈ $27.48</span></span></li></ul></div></div></div>
+
+    <div class="q-card" id="qi5"><div class="q-head" onclick="toggleQ('qi5')"><div class="q-left"><div class="q-num">Q5</div><div class="q-title">Forward EV/EBITDA 2022 — EBITDA 2021 × 1.10</div></div><div class="q-right"><span class="topic-tag t-mult">Multiples</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi5',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi5',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qi5',2,this)">Consejo</button></div><div class="q-panel active"><p>Un <strong>forward multiple</strong> usa estimaciones futuras (2022E) en el denominador con el EV actual (calculado por DCF) en el numerador. Refleja el precio que los inversores están pagando hoy por los beneficios esperados del año siguiente. Es más relevante que el trailing multiple porque los precios de activos descuentan expectativas futuras.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">1</span><span>EBITDA 2021 = 79,024 − 47,776 = <strong>31,248 M$</strong></span></li><li><span class="step-n">2</span><span>EBITDA 2022E = 31,248 × 1.10 = <strong>34,373 M$</strong></span></li><li><span class="step-n">3</span><span>Forward EV/EBITDA 2022 = 134,119 / 34,373 = <span class="answer-val">≈ 3.90x</span></span></li></ul></div><div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Este múltiplo de 3.9x sería muy bajo comparado con el sector (comps trade a 27–33x según la tabla). Esto confirma que, según nuestro DCF, Intel estaba significativamente infraestimada por el modelo — o que las proyecciones de FCF eran demasiado conservadoras.</div></div></div></div>
+
+    <div class="q-card" id="qi6"><div class="q-head" onclick="toggleQ('qi6')"><div class="q-left"><div class="q-num">Q6</div><div class="q-title">NPV e IRR Ohio Factory — $20B inv., ECF $1.75B/año g=2%, R_E=9%</div></div><div class="q-right"><span class="topic-tag t-capex">CapBudg</span><span class="pts-badge">3 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi6',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi6',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qi6',2,this)">Consejo</button></div><div class="q-panel active"><p>Caso estándar de perpetuidad creciente: inversión única en t=0, ECF empiezan en t=1. Al ser 100% equity-financiado, el discount rate es R_E=9%. El IRR de una perpetuidad creciente tiene solución analítica directa: IRR = ECF_1/I_0 + g.</p><p>La fórmula del IRR se deriva de igualar NPV=0: I_0 = ECF_1/(IRR−g) → IRR−g = ECF_1/I_0 → IRR = ECF_1/I_0 + g. Esto funciona solo para perpetuidades crecientes con inversión única en t=0.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">PV</span><span>PV perpetuidad = ECF_1/(R_E−g) = 1,750/(0.09−0.02) = 1,750/0.07 = <strong>$25,000M = $25B</strong></span></li><li><span class="step-n">NPV</span><span>= −20 + 25 = <span class="answer-val">+$5B ✓</span></span></li><li><span class="step-n">IRR</span><span>1,750/(IRR−0.02) = 20,000 → IRR−0.02 = 0.0875 → <span class="answer-val">IRR = 10.75%</span></span></li></ul><div class="callout c-ok"><div class="callout-icon">✓</div>IRR (10.75%) &gt; R_E (9%) → consistente con NPV positivo. Ambos criterios dicen aceptar.</div></div><div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Para el IRR de perpetuidad creciente: IRR = ECF_1/I_0 + g = 1,750/20,000 + 0.02 = 0.0875 + 0.02 = 10.75%. Esta fórmula directa ahorra tiempo. Memorízala.</div></div></div></div>
+
+    <div class="q-card" id="qi7"><div class="q-head" onclick="toggleQ('qi7')"><div class="q-left"><div class="q-num">Q7</div><div class="q-title">GAA chips: IRR=14%, R_E Intel=9%, R_E sector GAA=20% — ¿Invertir?</div></div><div class="q-right"><span class="topic-tag t-capex">CapBudg</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi7',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi7',1,this)">Respuesta</button><button class="q-tab" onclick="switchTab('qi7',2,this)">Consejo</button></div><div class="q-panel active"><p>Este es el problema conceptual más importante del curso y aparece en 2 de 3 exámenes. La clave: el <strong>hurdle rate (tasa mínima de retorno requerida) debe reflejar el riesgo específico del proyecto</strong>, no el riesgo de la empresa que lo financia.</p><p>Los chips GAA de nueva generación (3nm y below) implican un nivel de riesgo tecnológico y operativo <strong>muy superior</strong> al negocio principal de Intel (procesadores x86). Por tanto, el costo de capital apropiado para este proyecto es el de empresas que se dedican específicamente a esta innovación semiconductora de frontera, con un apalancamiento similar al de Intel.</p><p>Usar el R_E de Intel (9%) en lugar del R_E del sector GAA (20%) subestimaría el riesgo real del proyecto, llevaría a un NPV artificialmente positivo y a una mala decisión de inversión.</p></div><div class="q-panel"><p><strong>NO invertir.</strong></p><p>Aunque IRR=14% &gt; R_E de Intel (9%), el <strong>hurdle rate correcto es el R_E del sector de innovación semiconductora = 20%</strong>, porque el proyecto tiene un perfil de riesgo operativo completamente diferente al negocio principal de Intel.</p><p style="margin-top:.5rem">Como IRR (14%) &lt; Hurdle rate correcto (20%), el NPV del proyecto sería <strong>negativo</strong> → el proyecto destruye valor → rechazar.</p><div class="callout c-danger" style="margin-top:.5rem"><div class="callout-icon">🚨</div>El error clásico es usar el R_E de Intel (9%) como hurdle rate. Eso daría NPV positivo (porque 14%&gt;9%), pero sería incorrecto porque no ajusta por el riesgo real del proyecto.</div></div><div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Estructura de respuesta perfecta: (1) identificar que el proyecto tiene DIFERENTE riesgo, (2) indicar el hurdle rate correcto (20%), (3) comparar IRR vs hurdle rate correcto, (4) concluir. Esta secuencia garantiza el punto completo.</div></div></div></div>
+
+    <div class="q-card" id="qi8"><div class="q-head" onclick="toggleQ('qi8')"><div class="q-left"><div class="q-num">Q8</div><div class="q-title">T/F: Intel undervalued según P/FCF 2023 de comps (Intel=15.6x, avg=40.8x)</div></div><div class="q-right"><span class="topic-tag t-mult">Multiples</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi8',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi8',1,this)">Respuesta</button></div><div class="q-panel active"><p>El P/Free Cash Flow ratio relaciona el precio de la acción con el FCF por acción, dando una medida de cuántos años de FCF actual se están pagando. Es útil cuando los earnings contables están distorsionados por elementos no recurrentes o decisiones de depreciación.</p></div><div class="q-panel"><span class="badge-true">TRUE — VERDADERO</span><div style="margin-top:.75rem;font-size:13px;color:var(--text2)"><p>P/FCF 2023 de Intel = <strong>15.6x</strong> &lt; promedio de comparables (NVIDIA + AMD) = <strong>40.8x</strong>. Intel cotiza más barato que sus pares medido en múltiplos de FCF → está <strong>undervalued</strong> según este criterio.</p></div></div></div></div>
+
+    <div class="q-card" id="qi9"><div class="q-head" onclick="toggleQ('qi9')"><div class="q-left"><div class="q-num">Q9</div><div class="q-title">Stock price con P/E 2023 — EPS duplicado según plan CEO Gelsinger</div></div><div class="q-right"><span class="topic-tag t-mult">Multiples</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi9',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi9',1,this)">Cálculo</button></div><div class="q-panel active"><p>El P/E ratio (Price/Earnings) es el múltiplo más ampliamente usado en renta variable. Aplicar el P/E de los comparables a los earnings esperados del target da una estimación del precio que el mercado debería asignarle si cotizara en línea con sus pares. Este caso usa un scenario específico (earnings ×2) para ilustrar el impacto potencial del plan estratégico del CEO.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">1</span><span>NI 2023E = 2 × NI 2021 = 2 × 19,868 = <strong>39,736 M$</strong></span></li><li><span class="step-n">2</span><span>EPS 2023E = 39,736 / 4,090 = <strong>$9.72</strong></span></li><li><span class="step-n">3</span><span>P/E promedio comps 2023E = <strong>36.0x</strong></span></li><li><span class="step-n">4</span><span>Precio implícito = 36.0 × $9.72 = <span class="answer-val">≈ $349.75</span></span></li></ul></div></div></div>
+
+    <div class="q-card" id="qi10"><div class="q-head" onclick="toggleQ('qi10')"><div class="q-left"><div class="q-num">Q10</div><div class="q-title">EV mínimo de unidades SSD a SK Hynix — EBIT=$350M, g=2%, τ=20%, WACC=8.5%</div></div><div class="q-right"><span class="topic-tag t-ma">M&A</span><span class="pts-badge">3 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi10',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi10',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qi10',2,this)">Consejo</button></div><div class="q-panel active"><p>En una <strong>desinversión (divestiture)</strong>, la lógica se invierte respecto a una adquisición: Intel es el <strong>vendedor</strong> y necesita determinar el precio mínimo que debería aceptar. Este precio mínimo es el <strong>valor de reserva</strong> del vendedor: el EV de las unidades bajo control propio (sin sinergias del comprador).</p><p>Si SK Hynix ofrece más que este valor, Intel debería vender. Si ofrece menos, Intel destruiría valor vendiendo — sería mejor mantener las unidades.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">FCF</span><span>= EBIT×(1−τ) = 350 × (1−0.20) = 350 × 0.80 = <strong>$280M</strong></span></li><li><span class="step-n">EV</span><span>= FCF / (WACC−g) = 280 / (0.085−0.02) = 280 / 0.065 = <span class="answer-val">≈ $4,307.7M ≈ $4.3B</span></span></li><li><span class="step-n"> </span><span>Precio mínimo que Intel debe aceptar = <span class="answer-val">$4,307.7M</span></span></li></ul></div><div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Precio mínimo del vendedor = valor bajo control propio (sin sinergias). En la práctica, SK Hynix pagará más porque para ellos el negocio SSD + NAND tiene sinergias adicionales. El vendedor captura parte de esas sinergias a través del precio de transacción.</div></div></div></div>
+  </div>
+</div>
+
+<!-- ═══════════════ TESLA 2021 ═══════════════ -->
+<div id="page-tesla" class="page">
+  <div class="page-header">
+    <div class="eyebrow">Examen · 30 Abril 2021</div>
+    <h1>Tesla Inc.</h1>
+    <p>WACC=8.9% · R_E=9% · Análisis al 1 enero 2021 · 960M shares · Precio acción: ~$706</p>
+  </div>
+  <div class="company-band">
+    <div class="company-chip chip-tesla">TSLA</div>
+    <div style="flex:1"><div class="company-name-serif">Tesla Inc.</div><div class="company-meta-line">NASDAQ: TSLA · EV manufacturer · Stock +720% en 2020 · Short squeeze controversy</div></div>
+    <div class="company-kv" style="margin-right:1.5rem"><div class="kv-label">WACC / R_E</div><div class="kv-val">8.9% / 9.0%</div></div>
+    <div class="company-kv"><div class="kv-label">Shares</div><div class="kv-val">960M</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Datos financieros 2020</div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <table class="data-table">
+        <thead><tr><th>P&L 2020</th><th class="num">$M</th><th>Balance Sheet</th><th class="num">2020</th><th class="num">2019</th><th class="num">Δ</th></tr></thead>
+        <tbody>
+          <tr><td>Revenues</td><td class="num">31,536</td><td>Cash surplus</td><td class="num">19,384</td><td class="num">6,268</td><td class="num pos">+13,116</td></tr>
+          <tr><td>− COGS, OPEX</td><td class="num">27,220</td><td>NFO</td><td class="num">−4,783</td><td class="num">−2,778</td><td class="num neg">−2,005</td></tr>
+          <tr><td>EBITDA</td><td class="num hl">4,316</td><td>Fixed Assets</td><td class="num">25,431</td><td class="num">21,937</td><td class="num pos">+3,494</td></tr>
+          <tr><td>EBIT</td><td class="num hl">1,994</td><td>Debt (S&L)</td><td class="num">16,302</td><td class="num">17,317</td><td class="num neg">−1,015</td></tr>
+          <tr><td>Net Income</td><td class="num hl">721</td><td>Equity</td><td class="num">23,730</td><td class="num">8,110</td><td class="num pos">+15,620</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout c-warn" style="margin-top:.5rem"><div class="callout-icon">⚠️</div>Tesla tiene NFO negativa en 2020 (−4,783M$). Esto es habitual en retailers y fabricantes con gran poder de negociación: cobran a clientes antes de pagar a proveedores → los proveedores financian el capital circulante. Al calcular ΔNA, incluir ΔNFO = −4,783 − (−2,778) = −2,005 M$.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Case questions — Teoría · Cálculo · Consejo</div>
+
+    <div class="q-card" id="qt1"><div class="q-head" onclick="toggleQ('qt1')"><div class="q-left"><div class="q-num">Q1</div><div class="q-title">ΔNA y ΔDebt (2019→2020)</div></div><div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qt1',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qt1',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qt1',2,this)">Consejo</button></div><div class="q-panel active"><p>Tesla 2020 fue un año extraordinario: la empresa levantó ~$12B en capital (combinación de equity y deuda) para financiar la expansión en fábricas (Gigafactory Berlín, Texas) y reforzar la tesorería. El ΔNA elevado refleja esta enorme absorción de capital, financiada principalmente por la emisión de equity que llevó al ΔEquity de +$15.6B.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">D</span><span>ΔDebt = 16,302 − 17,317 = <span class="answer-val">−1,015 M$</span></span></li><li><span class="step-n">NA</span><span>ΔNA (solución oficial) = <span class="answer-val">+1,489 M$</span> (usando activos directamente)</span></li><li><span class="step-n"> </span><span style="color:var(--text3);font-size:12px">Nota: ΔCash(+13,116) + ΔNFO(−2,005) + ΔFA(+3,494) − ajuste = +1,489. Usar datos del caso exactamente.</span></li></ul></div><div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>En Tesla, el ΔNA calculado como ΔDebt+ΔEquity da +14,605 pero la solución oficial da +1,489 (calculado por activos). La discrepancia se debe a cómo el caso define exactamente los componentes de NA. Siempre parte de los activos si son los datos dados en el balance.</div></div></div></div>
+
+    <div class="q-card" id="qt2"><div class="q-head" onclick="toggleQ('qt2')"><div class="q-left"><div class="q-num">Q2</div><div class="q-title">ECF y before-tax FCF de 2020</div></div><div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qt2',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qt2',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qt2',2,this)">Consejo</button></div><div class="q-panel active"><p>Tesla 2020 tiene un ECF <strong>negativo</strong> (−1,783M$). ¿Es esto preocupante? No necesariamente. Para una empresa en fase de hipercrecimiento como Tesla en 2020, un ECF negativo simplemente indica que la empresa invirtió más de lo que generó — absorbió capital neto de sus accionistas. Esto es normal y esperado en empresas que están construyendo fábricas masivas para crecer.</p><p>El FCF positivo (+505M$) refleja que, a nivel operativo (ignorando la estructura de capital), la empresa sí generó algo de caja. La diferencia entre ECF y FCF refleja el efecto de la estructura financiera (deuda e impuestos).</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">ECF</span><span>= NI − ΔNA + ΔDebt = 721 − 1,489 + (−1,015) = <span class="answer-val">−1,783 M$</span></span></li><li><span class="step-n">FCF</span><span>Before-tax FCF = EBIT − ΔNA = 1,994 − 1,489 = <span class="answer-val">+505 M$</span></span></li></ul></div><div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Un ECF negativo no es sinónimo de mala empresa. Significa que invirtió más de lo que generó ese año — típico de growth companies. Lo que importa para la valoración es si los FCF futuros justifican esa inversión (i.e., si el NPV es positivo).</div></div></div></div>
+
+    <div class="q-card" id="qt3"><div class="q-head" onclick="toggleQ('qt3')"><div class="q-left"><div class="q-num">Q3</div><div class="q-title">EV por DCF — FCF: 2,500 / 4,900 / 7,000 → g=3%, WACC=8.9%</div></div><div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">3 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qt3',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qt3',1,this)">Cálculo</button></div><div class="q-panel active"><p>Las proyecciones de FCF de Tesla muestran un crecimiento explosivo: de 2,500M$ en 2021 a 7,000M$ en 2023 (+180% en 2 años). Esto refleja las expectativas de escalado masivo de producción. El spread WACC−g = 8.9%−3% = 5.9%.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">TV</span><span>TV_2023 = 7,000 × 1.03 / (0.089−0.03) = 7,210 / 0.059 = <strong>122,203 M$</strong></span></li><li><span class="step-n">EV</span><span>= 2,500/1.089 + 4,900/1.089² + (7,000+122,203)/1.089³ = <span class="answer-val">≈ 106,471 M$</span></span></li></ul></div></div></div>
+
+    <div class="q-card" id="qt4"><div class="q-head" onclick="toggleQ('qt4')"><div class="q-left"><div class="q-num">Q4</div><div class="q-title">Stock price (960M shares)</div></div><div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qt4',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qt4',1,this)">Cálculo</button></div><div class="q-panel active"><p>El DCF con estas proyecciones da un precio implícito de ~$114. En enero 2021 Tesla cotizaba a ~$706. Esto ilustra una lección crucial del DCF: los resultados dependen completamente de las hipótesis de input (FCF, WACC, g). Con proyecciones más agresivas, el precio podría llegar a $706+. El análisis de sensibilidad es fundamental.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">1</span><span>Equity = 106,471 + 19,384 − 16,302 = <strong>109,553 M$</strong></span></li><li><span class="step-n">2</span><span>Price = 109,553 / 960 = <span class="answer-val">≈ $114.12</span> (vs precio real ~$706)</span></li></ul></div></div></div>
+
+    <div class="q-card" id="qt5"><div class="q-head" onclick="toggleQ('qt5')"><div class="q-left"><div class="q-num">Q5</div><div class="q-title">Short selling y short squeeze — explicación conceptual</div></div><div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qt5',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qt5',1,this)">Respuesta</button></div><div class="q-panel active"><p>El <strong>short selling</strong> es una estrategia de inversión que apuesta a la caída del precio de una acción. A diferencia de la inversión tradicional (donde el máximo profit es ilimitado pero la pérdida máxima es el capital invertido), el short selling tiene una ganancia máxima del 100% (si el precio cae a cero) pero pérdidas potencialmente ilimitadas (si el precio sube sin límite). Por eso es una estrategia de alto riesgo.</p><p>Un <strong>short squeeze</strong> es una dinámica de mercado que puede generar ganancias y pérdidas extremas en muy poco tiempo, independientemente de los fundamentales de la empresa.</p></div><div class="q-panel"><p><strong>Short selling:</strong> (1) pedir prestadas acciones al broker, (2) venderlas inmediatamente en el mercado al precio actual, (3) esperar que el precio baje, (4) recomprarlas a precio inferior, (5) devolverlas al broker. El beneficio = precio de venta − precio de recompra − costos de préstamo.</p><p style="margin-top:.5rem"><strong>Short squeeze:</strong> ocurre cuando el precio sube significativamente contra los short sellers. Estos se ven forzados a recomprar (por stop-loss o margin calls de sus brokers), lo que genera demanda adicional que impulsa el precio aún más arriba, forzando más recompras → retroalimentación alcista. Condiciones: alto short interest (muchas acciones vendidas en corto) + catalizador positivo (buenas noticias, compra masiva coordinada).</p></div></div></div>
+
+    <div class="q-card" id="qt6"><div class="q-head" onclick="toggleQ('qt6')"><div class="q-left"><div class="q-num">Q6</div><div class="q-title">T/F: Tesla undervalued según P/FCF 2022 de Daimler (Tesla=72.5x, Daimler=229.6x)</div></div><div class="q-right"><span class="topic-tag t-mult">Multiples</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qt6',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qt6',1,this)">Respuesta</button><button class="q-tab" onclick="switchTab('qt6',2,this)">Consejo</button></div><div class="q-panel active"><p>La pregunta testa dos conceptos a la vez: (1) si se entiende la dirección del múltiplo (menor múltiplo = más barato = undervalued) y (2) si se cuestiona la calidad del comparable. Daimler es un fabricante de coches de combustión con perfil de crecimiento muy diferente al de Tesla. Su P/FCF 2022 de 229.6x es excepcionalmente alto, lo que hace que cualquier otra empresa parezca «barata» en comparación.</p></div><div class="q-panel"><span class="badge-true">TRUE — VERDADERO</span><div style="margin-top:.75rem;font-size:13px;color:var(--text2)"><p>Tesla P/FCF 2022 (72.5x) &lt; Daimler P/FCF 2022 (229.6x) → Tesla más barata en este múltiplo → <strong>undervalued</strong> según este comparable.</p><p style="margin-top:.5rem">Sin embargo, comparar Tesla con Daimler es cuestionable: diferentes industrias (EV vs ICE), diferente crecimiento esperado, diferentes márgenes. La validez del resultado depende de la calidad del comparable.</p></div></div><div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>El examen a veces incluye preguntas con comparables cuestionables deliberadamente. Responde la pregunta (TRUE porque el múltiplo es menor) pero añade en la explicación una nota sobre las limitaciones del comparable — eso muestra comprensión profunda y puede ganar puntos adicionales.</div></div></div></div>
+
+    <div class="q-card" id="qt7"><div class="q-head" onclick="toggleQ('qt7')"><div class="q-left"><div class="q-num">Q7</div><div class="q-title">Stock price con EV/EBITDA 2022 — Sales ×2, COGS+OPEX +85%</div></div><div class="q-right"><span class="topic-tag t-mult">Multiples</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qt7',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qt7',1,this)">Cálculo</button></div><div class="q-panel active"><p>Este problema combina un <strong>scenario analysis</strong> (proyección a 2022 con crecimientos específicos de ventas y costos) con la aplicación del múltiplo EV/EBITDA. El resultado implica que Tesla en 2022 mejoraría márgenes (ventas +100% pero costos solo +85%) generando un EBITDA proporcionalmente mayor.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">1</span><span>Sales 2022 = 31,536 × 2 = <strong>63,072 M$</strong></span></li><li><span class="step-n">2</span><span>COGS+OPEX 2022 = 27,220 × 1.85 = <strong>50,357 M$</strong></span></li><li><span class="step-n">3</span><span>EBITDA 2022 = 63,072 − 50,357 = <strong>12,715 M$</strong></span></li><li><span class="step-n">4</span><span>EV/EBITDA comps promedio 2022 = <strong>17.8x</strong></span></li><li><span class="step-n">5</span><span>EV = 17.8 × 12,715 = <strong>226,327 M$</strong></span></li><li><span class="step-n">6</span><span>Equity = 226,327 + 19,384 − 16,302 = 229,409 → Price = 229,409/960 = <span class="answer-val">≈ $238.97</span></span></li></ul></div></div></div>
+
+    <div class="q-card" id="qt8"><div class="q-head" onclick="toggleQ('qt8')"><div class="q-left"><div class="q-num">Q8</div><div class="q-title">Capital structure: pros/cons de emitir $10B en equity (reducción de leverage)</div></div><div class="q-right"><span class="topic-tag t-cs">Cap.Struct</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qt8',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qt8',1,this)">Respuesta</button></div><div class="q-panel active"><p>Tesla en 2020 aprovechó su valoración extraordinaria (~$706/acción) para emitir equity y reforzar la caja. Desde la teoría del <strong>market timing</strong> (Baker & Wurgler), las empresas deberían emitir equity cuando su precio está alto (potencialmente sobrevaluado), reduciendo así el costo de financiación. Con el DCF dando $114 y el precio de mercado en $706, Tesla tenía un incentivo enorme para emitir equity en ese momento.</p></div><div class="q-panel"><p><strong>A favor de emitir equity (pro-equity):</strong></p><p>Reduce el apalancamiento → menor probabilidad de financial distress y mayor flexibilidad financiera para invertir en Gigafactories. Si la acción estaba sobrevaluada en $706 (el DCF da $114), emitir equity es aprovecharse de esa prima de mercado — los accionistas nuevos pagan más de lo que vale según fundamentales.</p><p style="margin-top:.5rem"><strong>En contra de emitir equity (pro-deuda):</strong></p><p>La empresa pierde el tax shield de los intereses sobre esa financiación. Además, emitir equity puede ser percibido por el mercado como una señal de que el management cree que la acción está sobrevaluada → señal negativa (asimetría de información). También diluye a los accionistas existentes.</p></div></div></div>
+
+    <div class="q-card" id="qt9"><div class="q-head" onclick="toggleQ('qt9')"><div class="q-left"><div class="q-num">Q9</div><div class="q-title">NPV e IRR Gigafactory Berlin — €4B, ECF €0.3B/año g=3%, R_E=9%</div></div><div class="q-right"><span class="topic-tag t-capex">CapBudg</span><span class="pts-badge">4 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qt9',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qt9',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qt9',2,this)">Consejo</button></div><div class="q-panel active"><p>Caso estándar de perpetuidad creciente con inversión en t=0 y retornos desde t=1. Al ser 100% equity-financiado, se descuenta con R_E=9%. El spread es R_E−g = 9%−3% = 6%.</p><p>El IRR de una perpetuidad creciente tiene solución analítica directa: IRR = ECF_1/I_0 + g. Esta fórmula se obtiene igualando NPV=0 y despejando la tasa de descuento.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">PV</span><span>PV = 0.3B / (0.09−0.03) = 0.3B / 0.06 = <strong>€5B</strong></span></li><li><span class="step-n">NPV</span><span>= −4B + 5B = <span class="answer-val">+€1B ✓ → aceptar</span></span></li><li><span class="step-n">IRR</span><span>IRR = ECF_1/I_0 + g = 0.3/4 + 0.03 = 0.075 + 0.03 = <span class="answer-val">10.5%</span></span></li><li><span class="step-n">✓</span><span>IRR (10.5%) &gt; R_E (9%) → consistente con NPV positivo</span></li></ul></div><div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Para el IRR de perpetuidad creciente, siempre usar IRR = ECF_1/I_0 + g. Es la fórmula más eficiente. La verificación cruzada (NPV&gt;0 ↔ IRR&gt;R_E) es muy útil para confirmar que no cometiste errores de cálculo.</div></div></div></div>
+
+    <div class="q-card" id="qt10"><div class="q-head" onclick="toggleQ('qt10')"><div class="q-left"><div class="q-num">Q10</div><div class="q-title">SpaceX batteries: IRR=12%, R_E Tesla=9%, R_E sector aeroespacial=20% — ¿Invertir?</div></div><div class="q-right"><span class="topic-tag t-capex">CapBudg</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qt10',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qt10',1,this)">Respuesta</button><button class="q-tab" onclick="switchTab('qt10',2,this)">Consejo</button></div><div class="q-panel active"><p>Mismo concepto que Intel Q7 (GAA chips). El principio teórico es invariable: el <strong>hurdle rate debe reflejar el riesgo del proyecto, no el de la empresa</strong>. Fabricar componentes de baterías para cohetes espaciales implica un riesgo tecnológico, de mercado y de regulación completamente diferente al de fabricar vehículos eléctricos.</p><p>El coste de equity de Tesla (9%) refleja el riesgo de su negocio principal. Si Tesla invierte en un negocio aeroespacial con R_E sectorial del 20%, necesita que ese proyecto rinda al menos un 20% — de lo contrario, el mercado de capitales penalizará a Tesla por invertir en proyectos con riesgo no compensado.</p></div><div class="q-panel"><p><strong>NO invertir.</strong></p><p>Aunque IRR=12% supera el R_E de Tesla (9%), el <strong>hurdle rate correcto es el R_E del sector aeroespacial = 20%</strong>, porque el proyecto tiene un perfil de riesgo operativo completamente distinto al negocio de EV.</p><p style="margin-top:.5rem">IRR (12%) &lt; Hurdle rate correcto (20%) → NPV del proyecto sería negativo → destruye valor → rechazar.</p><div class="callout c-danger" style="margin-top:.5rem"><div class="callout-icon">🚨</div>Este patrón (IRR&gt;R_E empresa pero IRR&lt;R_E sector proyecto) es el error conceptual más testado. Aparece en Tesla 2021 y en Intel 2022. Si aparece en el examen 2024, será el mismo concepto.</div></div><div class="q-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>Justificación completa = 2 puntos. Estructura: (1) «El proyecto tiene un riesgo DIFERENTE al negocio principal», (2) «El hurdle rate correcto es R_E del sector = 20%», (3) «IRR&lt;20% → NPV&lt;0 → rechazar». Sin estas tres ideas, el corrector puede restar puntos parciales.</div></div></div></div>
+  </div>
+</div>
+
+<!-- ═══════════════ SHORT QUESTIONS ═══════════════ -->
+<div id="page-shortqs" class="page">
+  <div class="page-header">
+    <div class="eyebrow">30 short questions analizadas · 3 años</div>
+    <h1>Short Questions</h1>
+    <p>T/F + justificación obligatoria. Cada card tiene Teoría · Respuesta correcta · Cómo justificar.</p>
+  </div>
+
+  <div class="callout c-danger" style="margin-bottom:1.5rem"><div class="callout-icon">🚨</div><strong>Sin justificación escrita = 0 puntos automático.</strong> El enunciado lo dice explícitamente. Siempre incluir la fórmula, el concepto o un contraejemplo.</div>
+
+  <!-- Short Q cards -->
+  <div id="sq-container"></div>
+</div>
+
+</main>
+</div>
+
+<script>
+// ═══════════ NAV ═══════════
+function showPage(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  if(btn) btn.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+// ═══════════ QUESTION CARDS ═══════════
+function toggleQ(id){
+  const c=document.getElementById(id);
+  c.classList.toggle('open');
+  if(c.classList.contains('open')){
+    const tabs=c.querySelectorAll('.q-tab');
+    const panels=c.querySelectorAll('.q-panel');
+    if(tabs.length&&!c.dataset.init){
+      c.dataset.init='1';
+      tabs.forEach((t,i)=>{
+        t.addEventListener('click',e=>{e.stopPropagation();activateTab(c,i,t);});
+      });
+    }
+  }
+}
+
+function switchTab(id,idx,btn){
+  const c=document.getElementById(id);
+  activateTab(c,idx,btn);
+  btn.closest('.q-tabs')&&event.stopPropagation();
+}
+
+function activateTab(card,idx,clickedBtn){
+  card.querySelectorAll('.q-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  card.querySelectorAll('.q-panel').forEach((p,i)=>p.classList.toggle('active',i===idx));
+}
+
+// ═══════════ THEORY BLOCKS ═══════════
+function toggleTheory(id){
+  document.getElementById(id).classList.toggle('open');
+}
+
+// ═══════════ SHORT Q TOGGLE ═══════════
+function toggleSQ(id){
+  const c=document.getElementById(id);
+  c.classList.toggle('open');
+}
+function activateSQTab(card,idx,btn){
+  card.querySelectorAll('.sq-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  card.querySelectorAll('.sq-panel').forEach((p,i)=>p.classList.toggle('active',i===idx));
+}
+
+// ═══════════ SHORT Q DATA ═══════════
+const SQ=[
+  {n:'01',tf:false,q:'Si el discount rate es mayor que el IRR de un proyecto típico (outflows primero, luego inflows), el NPV siempre será positivo.',
+   teoria:'Para proyectos típicos con inversión inicial seguida de flujos positivos, el NPV es una función decreciente de la tasa de descuento. El IRR es, por definición, la tasa donde NPV=0. A mayor tasa (más allá del IRR), el NPV es negativo — los flujos futuros valen menos en términos de hoy que la inversión realizada.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">Si discount rate &gt; IRR → NPV es NEGATIVO. El IRR es precisamente la tasa que hace NPV=0. Por encima de esa tasa, el valor presente de los inflows no cubre el outflow inicial.</p>',
+   consejo:'Memorizar la relación: discount rate &lt; IRR → NPV &gt; 0 (aceptar). Discount rate &gt; IRR → NPV &lt; 0 (rechazar). Discount rate = IRR → NPV = 0 (indiferente).'},
+  {n:'02',tf:false,q:'Si un proyecto tiene IRR &gt; 0, definitivamente hay que invertir.',
+   teoria:'El IRR solo tiene sentido comparado con el costo de oportunidad del capital (K). Un proyecto con IRR=5% puede generar retornos nominales positivos pero destruir valor si el costo de capital es 9% — el dinero estaría mejor invertido en otros proyectos de la empresa o devuelto a los accionistas.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">La regla es IRR &gt; K (costo de capital del proyecto), no IRR &gt; 0. Un proyecto con IRR=5% y K=9% tiene NPV negativo y destruye valor para los accionistas, aunque genere flujos positivos en términos absolutos.</p>',
+   consejo:'IRR &gt; 0 no es suficiente. Siempre comparar con el hurdle rate. Esta es una de las preguntas más repetidas en short questions.'},
+  {n:'03',tf:false,q:'El horizonte de proyección del DCF nunca debe superar 10 años, porque los cash flows son demasiado inciertos.',
+   teoria:'El horizonte de proyección explícita debe extenderse hasta que la empresa alcance un «estado estacionario» — cuando su tasa de crecimiento, márgenes y reinversión se estabilizan. Para empresas maduras esto puede ser 5-7 años. Para empresas de alto crecimiento (startups, tech, biopharma en fase de lanzamiento), puede requerir 15-20 años antes de poder asumir crecimiento perpetuo constante.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">No hay un límite de 10 años. El horizonte depende del sector y la empresa. Para high-growth companies (Tesla en 2021, biotech en fase de expansión), puede ser apropiado proyectar más de 10 años si la empresa aún no ha alcanzado el steady state.</p>',
+   consejo:'La clave es cuándo aplica la hipótesis de «crecimiento constante» del TV. Si la empresa todavía crece al 20%/año, no puedes asumir g=3% en t=5. Extiende el horizonte hasta que el crecimiento normalice.'},
+  {n:'04',tf:false,q:'Para estimar el EV de una empresa por DCF, la información sobre el leverage es irrelevante, porque no afecta los FCF ni el discount rate.',
+   teoria:'El leverage afecta el WACC de dos formas: (1) la deuda genera tax shield (intereses deducibles), lo que baja el costo efectivo de la deuda y por tanto el WACC; (2) más deuda aumenta el riesgo financiero de los accionistas, lo que sube el R_E y puede compensar parcialmente la bajada anterior. Además, con alto leverage, los FCF esperados pueden ser menores por los costos de distress financiero.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">El leverage afecta el WACC (a través del tax shield y del R_E) y puede afectar los FCF esperados (costos de financial distress). Una empresa con diferente estructura de capital tendría diferente WACC → diferente EV.</p>',
+   consejo:'El WACC es función del D/E ratio: WACC = R_E×(E/V) + R_D×(1−τ)×(D/V). Cambiar el leverage cambia la ponderación y también puede cambiar los propios R_E y R_D. La información de capital structure es esencial.'},
+  {n:'05',tf:false,q:'Si un proyecto tiene IRR &gt; 0, definitivamente deberíamos invertir en él.',
+   teoria:'Mismo concepto que Q2, formulado de manera ligeramente diferente. La confusión entre IRR &gt; 0 y IRR &gt; K es uno de los errores conceptuales más comunes en finanzas. El valor de referencia relevante siempre es el costo de oportunidad del capital, no el cero.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">Hay que invertir si IRR &gt; K (costo de capital), no si IRR &gt; 0. Con K=10% e IRR=8%, el NPV es negativo aunque IRR &gt; 0. El benchmark correcto es siempre la tasa de oportunidad del mercado.</p>',
+   consejo:'Dos preguntas casi idénticas en 3 años (Q2 2021 y Q5 2023). El examen repite deliberadamente los conceptos más importantes. Esto te dice que es uno de los favoritos del curso.'},
+  {n:'06',tf:true,q:'El costo de equity (R_E) es siempre mayor que el costo de la deuda (R_D), incluso si la empresa no distribuye dividendos.',
+   teoria:'Los accionistas son «residual claimants»: reciben lo que queda después de que la empresa paga sus deudas, impuestos y gastos. Esto los convierte en los inversores con mayor riesgo. Mayor riesgo → mayor retorno requerido. Esta jerarquía (deuda senior, equity junior) hace que R_E &gt; R_D en todo momento, independientemente de la política de dividendos.',
+   resp:'<span class="badge-true">TRUE — VERDADERO</span><p style="margin-top:.5rem">Los accionistas asumen mayor riesgo que los acreedores porque están en posición subordinada en la jerarquía de cobro. En liquidación, los acreedores cobran primero. Para compensar este mayor riesgo, los accionistas exigen mayor retorno. El retorno no tiene por qué ser en forma de dividendo — puede ser pura revalorización del precio.</p>',
+   consejo:'La frase «aunque no pague dividendos» es la trampa. Confunde el mecanismo de retorno con el retorno en sí. Si no hay dividendos, el retorno viene de la apreciación del precio de la acción (capital gain), que también tiene riesgo.'},
+  {n:'07',tf:true,q:'P/(Total Number of Gym Members) es un múltiplo razonable para valorar una cadena de fitness centers si no hay datos financieros disponibles.',
+   teoria:'Los múltiplos no tienen por qué ser financieros. Los «operational multiples» o «KPI multiples» usan métricas operativas específicas del sector cuando los datos financieros son escasos (empresas privadas, startups) o cuando las métricas financieras no son comparables. Para fitness centers, el número de socios es el driver fundamental del negocio: determina ingresos recurrentes, costos fijos por miembro y valor de la marca.',
+   resp:'<span class="badge-true">TRUE — VERDADERO</span><p style="margin-top:.5rem">El número de socios es un KPI sectorial clave para el negocio de gimnasios. Los ingresos, los costos y el valor del negocio están directamente correlacionados con esa métrica. Es una alternativa válida a múltiplos financieros cuando la información financiera no está disponible. También se usan: precio por suscriptor (streaming), precio por cama (hospitales), precio por usuario activo (tech).</p>',
+   consejo:'Ejemplos de KPI multiples por sector: fitness → $/socio, hospitales → $/cama, tech → $/usuario activo (MAU), telecomunicaciones → $/suscriptor, real estate → $/m². La idea es encontrar la métrica que mejor correlaciona con el valor del negocio.'},
+  {n:'08',tf:false,q:'FC Barcelona está considerando comprar a Messi por €50M. Al calcular el NPV, no debe incluir el transfer fee porque Messi se retirará y el pago será irrecuperable — es un sunk cost.',
+   teoria:'Un <strong>sunk cost</strong> es un costo que (a) YA fue incurrido en el pasado y (b) es irrecuperable. La regla cardinal: los sunk costs no deben influir en decisiones futuras porque son irreversibles — incluirlos en el análisis no cambiaría el resultado. En el momento de evaluar si comprar a Messi, el pago AÚN NO se ha realizado, por lo que no es un sunk cost.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">En el momento de la evaluación, el transfer fee aún no ha sido pagado → es un costo futuro e incremental → debe incluirse en el NPV como inversión inicial (cash flow negativo en t=0). Solo sería un sunk cost si ya se hubiera pagado y la decisión fuera sobre qué hacer con Messi una vez adquirido.</p>',
+   consejo:'Test del sunk cost: ¿el costo ya fue incurrido y es irrecuperable? Si NO → no es sunk cost → incluirlo en el NPV. La confusión surge porque «irrecuperable» se asocia con sunk cost, pero la irrecuperabilidad debe ser de un pago PASADO.'},
+  {n:'09',tf:false,q:'La depreciación es un gasto no monetario que no tiene impacto en el after-tax FCF.',
+   teoria:'La depreciación es no cash — no genera salida de caja directa. Sin embargo, sí afecta el after-tax FCF porque es deducible fiscalmente, generando un tax shield. En la fórmula EBIT×(1−τ)−ΔNA, la depreciación ya está restada del EBIT, reduciendo la base imponible. Si EBIT es menor por la depreciación, el impuesto es menor → la empresa guarda más caja → FCF mayor.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">La depreciación sí afecta el after-tax FCF a través de su <strong>tax shield</strong>. La depreciación reduce el EBIT → reduce la base imponible → reduce los impuestos → aumenta el FCF. En la fórmula EBIT×(1−τ)−ΔNA, la depreciación ya está incorporada en el EBIT.</p>',
+   consejo:'El before-tax FCF no incorpora el efecto fiscal de la depreciación (se descuenta antes de impuestos). El after-tax FCF sí lo incorpora porque parte de EBIT×(1−τ). Esta es la razón por la que el after-tax FCF es el relevante para valoración.'},
+  {n:'10',tf:true,q:'Proyecto: −50 hoy, +7.5M en t=1 creciendo 3%/año en perpetuidad. El IRR es 18%.',
+   teoria:'Para una perpetuidad creciente con inversión en t=0 y flujos desde t=1, el NPV=0 (condición del IRR) se resuelve analíticamente: I_0 = CF_1/(IRR−g). Despejando IRR: IRR = CF_1/I_0 + g. Esta fórmula directa aplica solo para este patrón específico.',
+   resp:'<span class="badge-true">TRUE — VERDADERO</span><p style="margin-top:.5rem">IRR de perpetuidad creciente: 50 = 7.5/(IRR−0.03) → IRR−0.03 = 7.5/50 = 0.15 → IRR = 0.15 + 0.03 = 0.18 = <strong>18%</strong>. Correcto.</p>',
+   consejo:'Fórmula para memorizar: IRR = CF_1/I_0 + g. Aplica solo para perpetuidades crecientes con inversión única en t=0. Es la fórmula más frecuente en el examen para calcular el IRR.'},
+  {n:'11',tf:false,q:'Un proyecto con payback period de 5 años garantiza más creación de valor que uno con payback de 10 años.',
+   teoria:'El PP tiene dos defectos que lo hacen inadecuado como criterio principal: (1) ignora el valor temporal del dinero — un cash flow de 100 en t=1 y en t=5 se tratan igual; (2) ignora completamente los cash flows posteriores al payback — un proyecto que recupera en 5 años pero no genera nada después vale menos que uno que recupera en 10 años pero genera grandes flujos en t=11-30.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">El PP ignora el valor temporal del dinero y los flujos posteriores al payback. Contraejemplo: Proyecto A (PP=5, NPV=−30) vs Proyecto B (PP=10, NPV=+100). B crea más valor pese a mayor PP. Solo el NPV mide correctamente la creación de valor.</p>',
+   consejo:'El PP es útil para comunicar liquidez y riesgo de recuperación, no para medir valor. Siempre que el examen pregunte sobre «cuál crea más valor» o «cuál se debe elegir», la respuesta es NPV, no PP.'},
+  {n:'12',tf:true,q:'Si dos proyectos mutuamente excluyentes tienen la misma inversión inicial, el de mayor IRR puede no tener el mayor NPV, dependiendo del timing y magnitud de los flujos.',
+   teoria:'El IRR asume implícitamente que los flujos intermedios se reinvierten a la tasa IRR — hipótesis que raramente se cumple en la práctica. Además, proyectos con diferente distribución temporal de flujos pueden tener NPV cruzados: a una tasa de descuento el Proyecto A tiene mayor NPV, a otra tasa el B lo supera. El IRR no informa sobre esto.',
+   resp:'<span class="badge-true">TRUE — VERDADERO</span><p style="margin-top:.5rem">Ejemplo: Proyecto A genera €4/año × 3 años (IRR=9.7%, NPV=€0.89). Proyecto B genera €2/año × 7 años (IRR=9.2%, NPV=€1.57). Con tasa de descuento del 5%, A tiene mayor IRR pero menor NPV. Para proyectos mutuamente excluyentes → siempre usar NPV.</p>',
+   consejo:'El IRR solo sirve para aceptar/rechazar un proyecto individual. Para comparar proyectos mutuamente excluyentes, el NPV es siempre el criterio correcto.'},
+  {n:'13',tf:false,q:'El horizonte de proyección de un DCF nunca debería superar 10 años, ya que después los flujos son imposibles de estimar.',
+   teoria:'Misma pregunta que Q3, reformulada. Que los flujos sean difíciles de estimar no justifica un límite arbitrario de 10 años. Si la empresa va a crecer a tasas supranormales durante 15 años antes de normalizar, truncar el horizonte en 10 años subestimaría sistemáticamente el valor. La solución correcta es extender el horizonte hasta que el TV sea aplicable.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">No hay un límite de 10 años. Para empresas con largo período de alto crecimiento, puede ser necesario proyectar 15-20 años. La dificultad de estimación no justifica el límite — lo que importa es que las hipótesis sean razonables y estén sustentadas en el análisis de la industria.</p>',
+   consejo:'Si el examen repite una pregunta casi idéntica (Q3 y Q13 son prácticamente la misma), es porque el concepto es muy importante. El criterio es: extender hasta que puedas asumir crecimiento constante con confianza razonable.'},
+  {n:'14',tf:false,q:'Para estimar el EV descontando FCF, la información del leverage de la empresa es irrelevante.',
+   teoria:'Variante de la Q4. El leverage impacta el WACC (a través del tax shield en R_D×(1−τ) y del riesgo financiero en R_E). Si la empresa tiene mucha deuda, el WACC puede ser diferente, y también los FCF esperados si el distress financiero genera costos reales.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">El leverage afecta el WACC (tax shield reduce el costo efectivo de la deuda; mayor leverage aumenta R_E por mayor riesgo financiero). También puede afectar los FCF por costos de distress. Necesitas el D/E ratio para calcular el WACC correctamente.</p>',
+   consejo:'Para el examen: el WACC y R_E siempre se dan en el enunciado, por lo que no tienes que calcularlos desde cero. Pero conceptualmente, si te preguntan si el leverage importa → sí importa porque determina el discount rate.'},
+  {n:'15',tf:true,q:'Dos empresas comparables tienen earnings negativos. En este caso, se puede usar P/Sales para hacer valoración con múltiplos.',
+   teoria:'El P/E no es aplicable cuando los earnings son negativos (daría un múltiplo negativo sin sentido económico). Alternativamente, se pueden usar múltiplos que apliquen a métricas siempre positivas: P/Sales (ventas siempre &gt;0), EV/EBITDA (si el EBITDA es positivo), EV/Revenues, o múltiplos operativos sectoriales.',
+   resp:'<span class="badge-true">TRUE — VERDADERO</span><p style="margin-top:.5rem">Cuando los earnings son negativos, el P/E no se puede aplicar. P/Sales es una alternativa válida porque las ventas son siempre positivas (una empresa puede tener pérdidas pero no ventas negativas). También se puede usar EV/EBITDA si el EBITDA es positivo.</p>',
+   consejo:'Memorizar qué múltiplos aplican según el estado financiero: earnings negativos → usar P/Sales o EV/Revenues. EBITDA negativo → usar solo P/Sales. FCF negativo → no usar P/FCF.'},
+  {n:'16',tf:false,q:'Al valorar el target en una adquisición descontando sus ECF, el discount rate apropiado es siempre el R_E del comprador.',
+   teoria:'El discount rate debe reflejar el riesgo del flujo que se descuenta, que es el riesgo del TARGET. El R_E del comprador refleja el riesgo del negocio del comprador. Solo si comprador y target tienen el mismo riesgo operativo y financiero se puede usar el mismo R_E — lo cual es raro en M&A cross-sector.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">El discount rate debe reflejar el riesgo del TARGET, no del comprador. Solo se puede usar el R_E del comprador si el target tiene el MISMO riesgo operativo (misma industria, tamaño, márgenes) y financiero (similar leverage). Si no, usar el R_E del sector del target.</p>',
+   consejo:'En el examen, cuando dicen «mismo riesgo que el comprador» → usar WACC/R_E del comprador. Cuando dicen «diferente riesgo» o implican un sector diferente → usar el del sector del target. Seagen 2023: «mismo riesgo» → WACC Pfizer 7.2%. GAA Intel: «diferente riesgo» → R_E sector 20%.'},
+  {n:'17',tf:true,q:'Se puede comprar una empresa a 5x EBITDA, mejorar el EBITDA un 15%, y vender al año siguiente a 6x EBITDA. Si la adquisición es 100% equity, el IRR es superior al 35%.',
+   teoria:'Este problema ilustra el concepto de «multiple expansion + operational improvement» típico de LBOs. El retorno viene de dos fuentes: la mejora operativa (EBITDA ×1.15) y la expansión del múltiplo (de 5x a 6x). En una transacción all-equity, IRR = (Precio venta / Precio compra) − 1, ya que la duración es 1 año.',
+   resp:'<span class="badge-true">TRUE — VERDADERO</span><p style="margin-top:.5rem">Sea EBITDA₀ = X. Precio compra = 5X. EBITDA₁ = 1.15X. Precio venta = 6 × 1.15X = 6.9X. IRR (1 año, all-equity) = 6.9X/5X − 1 = 1.38 − 1 = <strong>38%</strong> &gt; 35%. Verdadero.</p>',
+   consejo:'Fórmula para LBO simplificado de 1 año: IRR = (Múltiplo_salida × EBITDA_salida) / (Múltiplo_entrada × EBITDA_entrada) − 1. Con apalancamiento, el IRR sobre equity sería aún mayor (efecto palanca). Este es un concepto relevante para el módulo de LBOs.'},
+  {n:'18',tf:false,q:'El EV de una empresa es igual al PV de los after-tax FCF descontados al costo de equity.',
+   teoria:'El EV pertenece a todos los proveedores de capital — tanto accionistas como acreedores. Por ello, debe descontarse con el costo promedio ponderado de todas las fuentes de financiación: el WACC. Usar R_E sobre-descuenta el FCF (porque R_E &gt; WACC) y da un EV menor al real.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">EV = PV(after-tax FCF descontados al WACC). El R_E es para descontar ECF y obtener Equity Value directamente. Usar R_E sobre el FCF da un EV incorrecto (menor). Esta es la confusión más penalizada en el examen.</p>',
+   consejo:'Esta es exactamente la pregunta de la Q5 de Intel 2022 short questions. Si la ves en el examen, responde con confianza: EV ↔ WACC. Equity Value ↔ R_E. Sin excepciones.'},
+  {n:'19',tf:false,q:'EV − Debt + Cash surplus = Book value of equity.',
+   teoria:'El EV bridge (EV + Cash − Debt) da el valor de mercado del equity (market cap). El book value of equity es el patrimonio neto contable: la diferencia entre el valor en libros de los activos y el valor en libros de las deudas. Para empresas cotizadas, market value y book value casi nunca coinciden. El ratio entre ambos es el Price/Book ratio.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">EV − Debt + Cash surplus = <strong>Market Value of Equity</strong> (no book value). El book value es el valor contable del patrimonio neto. La diferencia entre ambos es lo que captura el mercado en su valoración: expectativas de crecimiento, activos intangibles, calidad del management, etc.</p>',
+   consejo:'Price/Book &gt; 1 significa que el mercado valora la empresa por encima de su valor contable — normal en empresas con fuertes activos intangibles. Price/Book &lt; 1 indica que el mercado valora menos que los libros — señal de problemas o activos sobrevalorados.'},
+  {n:'20',tf:false,q:'Si una empresa emite nueva deuda y usa los fondos para aumentar sus activos fijos, no hay efecto en el ECF.',
+   teoria:'El ECF = NI − ΔNA + ΔDebt. Al emitir deuda y aumentar fixed assets: (1) ΔDebt aumenta → sube el ECF; (2) ΔFixed Assets aumenta → sube ΔNA → baja el ECF; (3) los nuevos intereses reducen el EBT → baja el NI y el Tax. Los efectos no se cancelan perfectamente.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">El ECF cambia: (1) ΔDebt positivo (nuevo préstamo) sube el ECF; (2) ΔNA sube porque aumentan los Fixed Assets → baja el ECF; (3) los intereses adicionales reducen NI y Tax. Los efectos son múltiples y generalmente no se anulan. El ECF es diferente.</p>',
+   consejo:'Para este tipo de preguntas, sustituye en la fórmula ECF = NI − ΔNA + ΔDebt y analiza cómo cambia cada componente. La fórmula es el mejor antídoto contra la intuición incorrecta.'},
+  {n:'21',tf:false,q:'Empresa A: P/E=18. Empresa B: P/E=16. Concluimos que B está infravalorada respecto a A y deberíamos comprar B.',
+   teoria:'Los múltiplos solo son comparables entre empresas que son verdaderamente comparables: mismo sector, tamaño similar, mismo perfil de crecimiento y riesgo, mismo leverage. Un menor P/E puede reflejar legítimamente menor crecimiento esperado, mayor riesgo o menor calidad de earnings — no necesariamente infravaloración.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">No podemos concluir infravaloración sin saber si A y B son comparables. Un menor P/E puede reflejar: menor crecimiento esperado (lógico si B es más madura), mayor riesgo operativo o financiero, peor calidad de earnings (más volátiles), o diferencias de sector. Sin análisis de comparabilidad, la comparación no tiene sentido.</p>',
+   consejo:'La selección de comparables es el paso más crítico y subjetivo de la valoración por múltiplos. Comparar empresas de diferentes industrias o con diferentes perfiles de riesgo puede llevar a conclusiones completamente erróneas.'},
+  {n:'22',tf:false,q:'Para empresas cotizadas, la suma del book value of equity + book value of debt es siempre menor que la suma del market value of equity + market value of debt.',
+   teoria:'El valor de mercado total (EV ≈ market cap + deuda) puede ser mayor o menor que el valor contable total (book equity + book debt). Si la empresa tiene perspectivas muy negativas, el mercado puede valorarla por debajo de su valor en libros — especialmente si la empresa tiene activos que valen menos que su coste histórico o si tiene pérdidas acumuladas.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">No es «siempre». Si la empresa tiene perspectivas muy malas (riesgo de quiebra, pérdidas crónicas, activos con valor de mercado inferior al contable), el market value puede ser inferior al book value. Price/Book &lt; 1 es una situación real que ocurre frecuentemente en sectores en declive.</p>',
+   consejo:'Ejemplo: empresas de carbón, empresas bancarias post-2008 crisis, o empresas en proceso de reestructuración. Su market cap puede ser muy inferior a su book equity. «Siempre» en finanzas es casi siempre falso — buscar el contraejemplo.'},
+  {n:'23',tf:false,q:'Para empresas con alta probabilidad de default, el market value of debt es generalmente mayor que el book value of debt.',
+   teoria:'El book value of debt es lo que la empresa prometió pagar a sus acreedores (principal + intereses). El market value refleja lo que los inversores están dispuestos a pagar hoy por esos derechos de cobro, considerando la probabilidad de impago. Si la probabilidad de impago es alta, los inversores pagan menos — porque esperan no recibir el 100% de lo prometido.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">Para empresas con alta probabilidad de default, el market value of debt es MENOR que el book value. Los bonos de empresas en distress cotizan con descuento (ej: al 50-70 centavos por dólar) porque el mercado anticipa que no se recuperará el 100% del nominal. Market value = expectativa de cobro real, no el compromiso contractual original.</p>',
+   consejo:'Analogía: si le prestas a alguien con alta probabilidad de no devolverte, nadie te pagará el 100% de esa deuda — pagarían menos. Lo mismo aplica a los bonos corporativos. A mayor riesgo de default, mayor descuento sobre el nominal.'},
+  {n:'24',tf:true,q:'Proyecto: −100 en t=0, +400 en t=2. Su IRR es 100%.',
+   teoria:'El IRR se calcula igualando el NPV a cero: NPV = −100 + 400/(1+IRR)² = 0. Despejando: (1+IRR)² = 4 → 1+IRR = 2 → IRR = 1 = 100%. Matemáticamente directo.',
+   resp:'<span class="badge-true">TRUE — VERDADERO</span><p style="margin-top:.5rem">−100 + 400/(1+IRR)² = 0 → (1+IRR)² = 400/100 = 4 → 1+IRR = √4 = 2 → IRR = 1 = <strong>100%</strong>. Correcto.</p>',
+   consejo:'Para calcular el IRR de proyectos de pocos períodos, resolver algebraicamente es más rápido que iteración. En este caso: √(Flujo positivo/Inversión) − 1.'},
+  {n:'25',tf:false,q:'No es posible valorar una empresa con el método de múltiplos si no hay empresas comparables listadas en bolsa.',
+   teoria:'Existen dos tipos de múltiplos: <strong>trading multiples</strong> (de empresas cotizadas) y <strong>transaction multiples</strong> (de transacciones privadas recientes de empresas similares). En M&A, los transaction multiples son en muchos casos más relevantes porque reflejan precios reales de compraventa (con prima de control incluida), no solo precios de mercado de minorías.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">Existen los <strong>transaction multiples</strong>: múltiplos calculados a partir de precios de transacciones privadas recientes de empresas comparables (M&A deals). Son una alternativa válida cuando no hay comparables públicas. Además, se pueden usar múltiplos operativos sectoriales (KPIs) cuando los datos financieros son limitados.</p>',
+   consejo:'La distinción trading multiples vs transaction multiples es importante en la práctica. Los transaction multiples incluyen la prima de control (normalmente 20-40% sobre el precio de cotización), por lo que son más apropiados para valorar objetivos de M&A.'}
+];
+
+function renderShortQ(){
+  const container=document.getElementById('sq-container');
+  container.innerHTML=SQ.map(sq=>`
+    <div class="sq-card" id="sq-${sq.n}" onclick="toggleSQ('sq-${sq.n}')">
+      <div class="sq-head">
+        <div class="sq-num">${sq.n}</div>
+        <div class="sq-text">${sq.q}</div>
+        <div class="sq-badge-wrap">
+          <span class="${sq.tf?'badge-true':'badge-false'}">${sq.tf?'T':'F'}</span>
+        </div>
+      </div>
+      <div class="sq-body">
+        <div class="sq-tabs">
+          <button class="sq-tab active" onclick="event.stopPropagation();activateSQTab(document.getElementById('sq-${sq.n}'),0,this)">Teoría</button>
+          <button class="sq-tab" onclick="event.stopPropagation();activateSQTab(document.getElementById('sq-${sq.n}'),1,this)">Respuesta</button>
+          <button class="sq-tab" onclick="event.stopPropagation();activateSQTab(document.getElementById('sq-${sq.n}'),2,this)">Cómo justificar</button>
+        </div>
+        <div class="sq-panel active"><p>${sq.teoria}</p></div>
+        <div class="sq-panel">${sq.resp}</div>
+        <div class="sq-panel"><div class="callout c-amber"><div class="callout-icon">💡</div>${sq.consejo}</div></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+renderShortQ();
+
+// Escape closes all
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.querySelectorAll('.q-card.open,.sq-card.open,.theory-block.open').forEach(c=>c.classList.remove('open'));
+  }
+});
+</script>
+</body>
+</html>
