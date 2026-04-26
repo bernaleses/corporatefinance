@@ -233,15 +233,16 @@ code{font-family:var(--mono);font-size:12px;color:#8A6000;background:rgba(138,96
   </div>
   <div class="nav-section" style="margin-top:.5rem">
     <div class="nav-label">Exámenes resueltos</div>
+    <button class="nav-item" onclick="showPage('byd',this)"><span class="nav-dot"></span>2025 · BYD ★ 37/37</button>
     <button class="nav-item" onclick="showPage('pfizer',this)"><span class="nav-dot"></span>2023 · Pfizer</button>
     <button class="nav-item" onclick="showPage('intel',this)"><span class="nav-dot"></span>2022 · Intel</button>
     <button class="nav-item" onclick="showPage('tesla',this)"><span class="nav-dot"></span>2021 · Tesla</button>
   </div>
   <div class="nav-section" style="margin-top:.5rem">
     <div class="nav-label">Práctica</div>
-    <button class="nav-item" onclick="showPage('shortqs',this)"><span class="nav-dot"></span>Short Questions (25)</button>
+    <button class="nav-item" onclick="showPage('shortqs',this)"><span class="nav-dot"></span>Short Questions (32)</button>
   </div>
-  <div class="sidebar-footer">MBA I · 3rd Term<br>30 pts · 3 horas<br>Cheat sheet A4 doble cara<br><br>Click en pregunta → ver respuesta<br>Tabs: Teoría · Cálculo · Consejo</div>
+  <div class="sidebar-footer">MBA I · 3rd Term<br>30 pts · 3 horas<br>Cheat sheet A4 doble cara<br><br>Click en pregunta → ver respuesta<br>Tabs: Teoría · Cálculo · Consejo<br><br>★ 2025 BYD = 37/37 real</div>
 </nav>
 
 <main class="main">
@@ -280,7 +281,7 @@ code{font-family:var(--mono);font-size:12px;color:#8A6000;background:rgba(138,96
     <div class="card">
       <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">FCF ↔ R_E / ECF ↔ WACC</div><div class="pdesc">FCF se descuenta con WACC → EV. ECF se descuenta con R_E → Equity Value. No son intercambiables nunca.</div></div>
       <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">Hurdle rate del proyecto</div><div class="pdesc">Si el proyecto tiene distinto riesgo operativo, el hurdle rate es R_E del SECTOR del proyecto, no de la empresa.</div></div>
-      <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">NFO en ΔNA</div><div class="pdesc">ΔNA = ΔCash + ΔNFO + ΔFixed Assets. Olvidar ΔNFO es el error más frecuente en Q1.</div></div>
+      <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">Definición de ΔNA</div><div class="pdesc">ΔNA = ΔNFO + ΔFixed Assets. Atajo: ΔDebt + ΔEquity − ΔCash. NO es simplemente ΔDebt+ΔEquity (falta restar ΔCash).</div></div>
       <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">Before-tax vs After-tax FCF</div><div class="pdesc">Before-tax = EBIT − ΔNA. After-tax = EBIT×(1−τ) − ΔNA. Leer qué pide el enunciado.</div></div>
       <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">TV en tiempo correcto</div><div class="pdesc">TV_n = FCF_{n+1}/(WACC−g) se pone al FINAL del año n, luego se descuenta n años.</div></div>
       <div class="pattern-row"><div class="pdot dr"></div><div class="plabel">EV − Debt + Cash = Market Equity</div><div class="pdesc">Resultado del EV bridge es el market value of equity, NO el book value. Conceptos distintos.</div></div>
@@ -290,7 +291,8 @@ code{font-family:var(--mono);font-size:12px;color:#8A6000;background:rgba(138,96
 
   <div class="section">
     <div class="section-title">Empresas por año</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:.75rem">
+      <div class="card" style="border-color:rgba(0,160,80,.25);background:rgba(0,160,80,.03)"><div style="font-family:var(--mono);font-size:10px;color:var(--accent);margin-bottom:6px;letter-spacing:.08em">2025 · BYD ★ REAL · 37/37</div><div style="font-family:var(--serif);font-size:17px;margin-bottom:6px">BYD Company</div><div style="font-size:12px;color:var(--text2);line-height:1.6">WACC=9.7% · R_E=12% · τ=16% · 2.9B shares<br>EV líder mundial · Hedin M&A · R&D Shenzhen · 8 comps</div></div>
       <div class="card"><div style="font-family:var(--mono);font-size:10px;color:var(--accent);margin-bottom:6px;letter-spacing:.08em">2023 · Pfizer</div><div style="font-family:var(--serif);font-size:17px;margin-bottom:6px">Pfizer Inc.</div><div style="font-size:12px;color:var(--text2);line-height:1.6">τ=10% · WACC=7.2% · R_E=7.5% · 5,733M shares<br>COVID revenue · Seagen M&A · R&D Cambridge · Payback</div></div>
       <div class="card"><div style="font-family:var(--mono);font-size:10px;color:var(--accent);margin-bottom:6px;letter-spacing:.08em">2022 · Intel</div><div style="font-family:var(--serif);font-size:17px;margin-bottom:6px">Intel Corp.</div><div style="font-size:12px;color:var(--text2);line-height:1.6">WACC=8.5% · R_E=9% · 4,090M shares<br>IDM 2.0 · Ohio factory · SK Hynix · GAA chips IRR</div></div>
       <div class="card"><div style="font-family:var(--mono);font-size:10px;color:var(--accent);margin-bottom:6px;letter-spacing:.08em">2021 · Tesla</div><div style="font-family:var(--serif);font-size:17px;margin-bottom:6px">Tesla Inc.</div><div style="font-size:12px;color:var(--text2);line-height:1.6">WACC=8.9% · R_E=9% · 960M shares<br>Stock surge · Short squeeze · Gigafactory Berlin · SpaceX</div></div>
@@ -325,7 +327,7 @@ code{font-family:var(--mono);font-size:12px;color:#8A6000;background:rgba(138,96
 <span class="k">After-tax FCF</span>  = EBIT×(1−τ) − ΔNA   <span class="c">← disponible para todos los providers</span></div>
         <h4>Intuición clave</h4>
         <p>El ECF refleja el punto de vista del accionista: parte del beneficio neto, ajusta por la inversión realizada (ΔNA), y suma la deuda nueva levantada (porque esa deuda también contribuyó a financiar las inversiones). El FCF es «pre-deuda»: lo que generaría la empresa si no tuviera ninguna estructura de financiación.</p>
-        <div class="callout c-tip"><div class="callout-icon">💡</div>Truco de velocidad: ΔNA = ΔDebt + ΔEquity. Es exactamente lo mismo que sumar los tres activos, pero más rápido porque solo usas el lado derecho del balance.</div>
+        <div class="callout c-tip"><div class="callout-icon">💡</div>ΔNA = ΔNFO + ΔFA (sumando los activos operativos). Atajo equivalente desde el pasivo: ΔNA = ΔDebt + ΔEquity − ΔCash. Ojo: no es simplemente ΔDebt+ΔEquity — hay que restar ΔCash porque el cash surplus no forma parte del NA operativo.</div>
       </div>
     </div>
 
@@ -417,6 +419,21 @@ NPV = −I_0  −  I_1/(1+R_E)  +  [ECF_2/(R_E−g)] / (1+R_E)</div>
       </div>
     </div>
 
+    <div class="theory-block" id="th-pi">
+      <div class="theory-head" onclick="toggleTheory('th-pi')">
+        <div class="theory-title-wrap"><div class="theory-icon" style="background:var(--accent-dim)">📊</div><div class="theory-label">Profitability Index (PI) — ranking proyectos con presupuesto limitado</div></div>
+        <div class="theory-toggle">+</div>
+      </div>
+      <div class="theory-body">
+        <p>El <strong>Profitability Index (PI)</strong> es el ratio entre el PV de los cash flows futuros y la inversión inicial. Mide la creación de valor por unidad de capital invertido — es un indicador relativo (ratio), no absoluto (€).</p>
+        <div class="fml"><span class="k">PI</span> = PV de flujos futuros / Inversión inicial  =  1 + NPV / Inversión inicial</div>
+        <p><strong>Regla:</strong> PI &gt; 1 → aceptar (equivalente a NPV &gt; 0). Cuando hay presupuesto de capital limitado y hay que elegir entre proyectos no mutuamente excluyentes, elegir los de <strong>mayor PI</strong> (no mayor NPV absoluto).</p>
+        <h4>¿Por qué PI en lugar de NPV cuando hay restricción de capital?</h4>
+        <p>Si tienes 100M€ de presupuesto: Proyecto A (inversión 100M, NPV=30M, PI=1.30) vs Proyecto B (inversión 50M, NPV=20M, PI=1.40) + Proyecto C (inversión 50M, NPV=15M, PI=1.30). Si usas NPV eliges A. Si usas PI eliges B+C (NPV total=35M &gt; 30M). El PI es más eficiente cuando el capital es escaso.</p>
+        <div class="callout c-tip"><div class="callout-icon">💡</div>El PI NO funciona para proyectos mutuamente excluyentes (ahí usa siempre NPV). Solo es útil para rankear proyectos independientes cuando hay restricción de presupuesto.</div>
+      </div>
+    </div>
+
     <div class="theory-block" id="th-irr">
       <div class="theory-head" onclick="toggleTheory('th-irr')">
         <div class="theory-title-wrap"><div class="theory-icon" style="background:var(--accent-dim)">📈</div><div class="theory-label">IRR, Payback y el problema del hurdle rate</div></div>
@@ -481,6 +498,12 @@ PV(Tax Shield) = τ × Deuda   <span class="c">← si deuda perpetua y R_D igual
         <p>La estructura óptima de capital equilibra el beneficio del tax shield con el costo del distress financiero. En la práctica, el examen pide una razón pro-deuda y una pro-equity:</p>
         <div class="fml"><span class="k">Pro-deuda:</span>  tax shield · no dilución · señal de confianza del management
 <span class="k">Pro-equity:</span> menor distress financiero · flexibilidad · si acción sobrevaluada es buen timing</div>
+        <h4>Tabla de decisión — cuándo preferir deuda vs equity</h4>
+        <div class="fml"><span class="c">Si te preocupa…          + Deuda / - Equity    + Equity / - Deuda</span>
+… los impuestos           <span class="k">X</span>  (tax shield)
+… el riesgo de quiebra                           <span class="k">X</span>  (equity reduce distress)
+… la flexibilidad futura                         <span class="k">X</span>  (menos covenants)
+… el control de la empresa <span class="k">X</span>  (no dilución)</div>
         <div class="callout c-tip"><div class="callout-icon">💡</div>R_E &gt; R_D siempre, incluso sin dividendos. Los accionistas son residual claimants (cobran lo que queda después de la deuda) → mayor riesgo → mayor retorno exigido. El retorno no tiene por qué venir de dividendos — puede ser pura revalorización del precio.</div>
       </div>
     </div>
@@ -500,7 +523,8 @@ PV(Tax Shield) = τ × Deuda   <span class="c">← si deuda perpetua y R_D igual
     <div class="card">
       <div style="font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:8px">NET ASSETS & VARIACIÓN</div>
       <div class="fml"><span class="k">NA</span> = Cash surplus + NFO + Fixed Assets = Debt + Equity
-<span class="k">ΔNA</span> = NA_t − NA_{t-1}   =   ΔDebt + ΔEquity   <span class="c">← truco rápido</span></div>
+<span class="k">ΔNA</span> = ΔNFO + ΔFixed Assets              <span class="c">← definición directa</span>
+<span class="k">ΔNA</span> = ΔDebt + ΔEquity − ΔCash         <span class="c">← atajo desde pasivo</span></div>
       <div style="font-family:var(--mono);font-size:11px;color:var(--accent);margin:.875rem 0 8px">CASH FLOWS</div>
       <div class="fml"><span class="k">ECF</span>            = NI − ΔNA + ΔDebt                  <span class="c">← descontar con R_E</span>
 <span class="k">Before-tax FCF</span>  = EBIT − ΔNA                       <span class="c">← descontar con WACC</span>
@@ -534,6 +558,15 @@ PV(Tax Shield) = τ × Deuda   <span class="c">← si deuda perpetua y R_D igual
 
 <span class="c">Hurdle rate correcto:</span>
 Si riesgo proyecto ≠ riesgo empresa  →  usar <span class="r">R_E del sector del proyecto</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">3b — Profitability Index</div>
+    <div class="card">
+      <div class="fml"><span class="k">PI</span> = PV(flujos futuros) / Inversión  =  1 + NPV/Inversión
+Aceptar si PI &gt; 1  (equivale a NPV &gt; 0)
+Usar para <span class="k">rankear</span> proyectos independientes con presupuesto limitado <span class="c">(NO para mutuamente excluyentes)</span></div>
     </div>
   </div>
 
@@ -614,8 +647,8 @@ R_E  >  R_D  siempre  <span class="c">(accionistas = residual claimants)</span><
           <button class="q-tab" onclick="switchTab('qp1',2,this)">Consejo</button>
         </div>
         <div class="q-panel active"><p>El <strong>Net Assets (NA)</strong> representa el capital total empleado en la empresa: activos financieros (cash surplus), activos operativos netos de corto plazo (NFO) y activos no corrientes (fixed assets). Su variación anual (ΔNA) indica cuánto capital adicional absorbió la empresa durante el ejercicio.</p><p>La identidad contable fundamental establece que NA = Debt + Equity, lo que permite calcular ΔNA de dos formas equivalentes: sumando las variaciones de los tres activos, o sumando las variaciones de las dos fuentes de financiación.</p></div>
-        <div class="q-panel"><ul class="step-list"><li><span class="step-n">→</span><span><strong>Método rápido:</strong> ΔNA = ΔDebt + ΔEquity</span></li><li><span class="step-n">D</span><span>ΔDebt = 94,479 − 98,436 = <span class="answer-val">−3,957 M$</span></span></li><li><span class="step-n">E</span><span>ΔEquity = 95,917 − 77,462 = +18,455 M$</span></li><li><span class="step-n">NA</span><span>ΔNA = −3,957 + 18,455 = <span class="answer-val">+22,835 M$</span></span></li></ul><div class="callout c-ok"><div class="callout-icon">✓</div>Verificación por activos: ΔCash(−8,337) + ΔNFO(−1,837) + ΔFA(+24,672) + ajuste = +22,835 M$</div></div>
-        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>El método ΔNA = ΔDebt + ΔEquity es 3× más rápido que sumar los activos y da exactamente el mismo resultado. En un examen de 3 horas, este ahorro de tiempo es relevante. Memoriza este atajo.</div></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">→</span><span><strong>Método directo:</strong> ΔNA = ΔNFO + ΔFA</span></li><li><span class="step-n">NA</span><span>ΔNFO = 13,124 − 14,961 = −1,837 M$</span></li><li><span class="step-n"> </span><span>ΔFA = 154,540 − 129,868 = +24,672 M$</span></li><li><span class="step-n"> </span><span>ΔNA = −1,837 + 24,672 = <span class="answer-val">+22,835 M$</span></span></li><li><span class="step-n">D</span><span>ΔDebt = 94,479 − 98,436 = <span class="answer-val">−3,957 M$</span></span></li></ul><div class="callout c-ok"><div class="callout-icon">✓</div>Verificación atajo: ΔDebt(−3,957) + ΔEquity(+18,455) − ΔCash(−8,337) = −3,957+18,455+8,337 = 22,835 ✓</div></div>
+        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>Definición: ΔNA = ΔNFO + ΔFA. Atajo desde el pasivo: ΔNA = ΔDebt + ΔEquity − ΔCash. El error más frecuente es usar ΔDebt+ΔEquity sin restar ΔCash. En Pfizer: −3,957+18,455−(−8,337)=22,835 ✓. En BYD 2025: 10.3+4.2−3.3=11.2 ✓.</div></div>
       </div>
     </div>
 
@@ -781,7 +814,7 @@ R_E  >  R_D  siempre  <span class="c">(accionistas = residual claimants)</span><
   <div class="section">
     <div class="section-title">Case questions — Teoría · Cálculo · Consejo</div>
 
-    <div class="q-card" id="qi1"><div class="q-head" onclick="toggleQ('qi1')"><div class="q-left"><div class="q-num">Q1</div><div class="q-title">ΔNA y ΔDebt (2020→2021)</div></div><div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi1',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi1',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qi1',2,this)">Consejo</button></div><div class="q-panel active"><p>Mismo concepto que Pfizer Q1. La variación de Net Assets refleja el capital total que la empresa necesitó durante el año. Para Intel, la gran expansión en NFO (+5,330M$) refleja el fuerte ciclo de inversión en capacidad de fabricación de semiconductores anunciado con la estrategia IDM 2.0.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">D</span><span>ΔDebt = 50,144 − 49,803 = <span class="answer-val">+341 M$</span></span></li><li><span class="step-n">E</span><span>ΔEquity = 95,391 − 81,038 = +14,353 M$</span></li><li><span class="step-n">NA</span><span>ΔNA = 341 + 14,353 = <span class="answer-val">+10,176 M$</span></span></li></ul></div><div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>Atención: Intel tiene interest income (2,844M$) en la P&L, un ítem inusual. No afecta al cálculo de ΔNA, pero sí afecta al EBIT (que en la solución oficial incluye este ingreso financiero).</div></div></div></div>
+    <div class="q-card" id="qi1"><div class="q-head" onclick="toggleQ('qi1')"><div class="q-left"><div class="q-num">Q1</div><div class="q-title">ΔNA y ΔDebt (2020→2021)</div></div><div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi1',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi1',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qi1',2,this)">Consejo</button></div><div class="q-panel active"><p>ΔNA = ΔNFO + ΔFA. Para Intel: ΔNFO=+5,330 + ΔFA=+4,846 = +10,176 M$. El atajo: ΔDebt+ΔEquity−ΔCash = 341+14,353−4,518 = 10,176 ✓. La gran expansión en NFO refleja el fuerte ciclo de inversión en semiconductores anunciado con IDM 2.0.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">NA</span><span>ΔNA = ΔNFO + ΔFA = 5,330 + 4,846 = <span class="answer-val">+10,176 M$</span></span></li><li><span class="step-n">D</span><span>ΔDebt = 50,144 − 49,803 = <span class="answer-val">+341 M$</span></span></li><li><span class="step-n">✓</span><span>Atajo: 341 + 14,353 − 4,518 = 10,176 ✓</span></li></ul></div><div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>Atención: Intel tiene interest income (2,844M$) en la P&L, un ítem inusual. No afecta al cálculo de ΔNA, pero sí afecta al EBIT (que en la solución oficial incluye este ingreso financiero).</div></div></div></div>
 
     <div class="q-card" id="qi2"><div class="q-head" onclick="toggleQ('qi2')"><div class="q-left"><div class="q-num">Q2</div><div class="q-title">ECF y before-tax FCF de 2021</div></div><div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div></div><div class="q-body"><div class="q-tabs"><button class="q-tab active" onclick="switchTab('qi2',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qi2',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qi2',2,this)">Consejo</button></div><div class="q-panel active"><p>Intel 2022 pide específicamente <strong>before-tax FCF</strong> (sin aplicar τ), a diferencia de Pfizer 2023 que pide after-tax FCF. Esto refleja dos perspectivas distintas: el before-tax FCF excluye el efecto de los impuestos del análisis operativo, mientras el after-tax FCF es el relevante para la valoración DCF.</p></div><div class="q-panel"><ul class="step-list"><li><span class="step-n">ECF</span><span>= NI − ΔNA + ΔDebt = 19,868 − 10,176 + 341 = <span class="answer-val">10,033 M$</span></span></li><li><span class="step-n">EBIT</span><span>= 79,024 − 47,776 − 11,792 + 2,844 − 597 = <strong>21,703 M$</strong> (o 19,456 según solución oficial)</span></li><li><span class="step-n">FCF</span><span>Before-tax FCF = EBIT − ΔNA = 19,456 − 10,176 = <span class="answer-val">9,280 M$</span></span></li></ul></div><div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>El EBIT de Intel incluye el interest income (2,844M$) neto de FinEx (597M$). La solución oficial da EBIT=19,456. Before-tax FCF = EBIT sin multiplicar por (1−τ). Pide explícitamente «before-tax», así que no apliques el impuesto.</div></div></div></div>
 
@@ -873,6 +906,221 @@ R_E  >  R_D  siempre  <span class="c">(accionistas = residual claimants)</span><
   <div id="sq-container"></div>
 </div>
 
+
+<!-- ═══════════════ BYD 2025 ═══════════════ -->
+<div id="page-byd" class="page">
+  <div class="page-header">
+    <div class="eyebrow">Examen Real · 29 Abril 2025 · Resultado: 37/37 🏆</div>
+    <h1>BYD Company Limited</h1>
+    <p>RE=12% · WACC=9.7% · τ=16% · Análisis al 1 enero 2025 · 2.9B shares · Precio real: CNY 271</p>
+  </div>
+
+  <div class="company-band">
+    <div class="company-chip" style="background:rgba(0,160,80,.2);color:#00C850;border:.5px solid rgba(0,160,80,.3);">BYD</div>
+    <div style="flex:1">
+      <div class="company-name-serif" style="color:#EAEDE8;">BYD Company Limited</div>
+      <div class="company-meta-line">HKEX: 1211 · Shenzhen EV & Batteries · Revenue CNY 602.3B · Fortune Global 500 #212</div>
+    </div>
+    <div class="company-kv" style="margin-right:1.5rem"><div class="kv-label">WACC / R_E</div><div class="kv-val">9.7% / 12%</div></div>
+    <div class="company-kv"><div class="kv-label">τ / Shares</div><div class="kv-val">16% / 2.9B</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Datos financieros 2024</div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <table class="data-table">
+        <thead><tr><th>P&L 2024</th><th class="num">CNY B</th><th>Balance Sheet</th><th class="num">2024</th><th class="num">2023</th><th class="num">Δ</th></tr></thead>
+        <tbody>
+          <tr><td>Revenues</td><td class="num">602.3</td><td>Cash surplus</td><td class="num">91.7</td><td class="num">88.4</td><td class="num pos">+3.3</td></tr>
+          <tr><td>− COGS, OPEX</td><td class="num">564.0</td><td>NFO</td><td class="num">−187.0</td><td class="num">−151.5</td><td class="num neg">−35.5</td></tr>
+          <tr><td>− Depreciation</td><td class="num">0.0</td><td>Fixed Assets</td><td class="num">423.8</td><td class="num">377.1</td><td class="num pos">+46.7</td></tr>
+          <tr><td>EBITDA = EBIT</td><td class="num hl">38.3</td><td>Debt (S&L)</td><td class="num">57.2</td><td class="num">46.9</td><td class="num pos">+10.3</td></tr>
+          <tr><td>− FinEx</td><td class="num">2.1</td><td>Equity</td><td class="num">271.3</td><td class="num">267.1</td><td class="num pos">+4.2</td></tr>
+          <tr><td>Net Income</td><td class="num hl">30.1</td><td><strong>ΔNA</strong></td><td class="num hl" colspan="3">+11.2 B (= ΔNFO(−35.5)+ΔFA(+46.7))</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout c-tip" style="margin-top:.5rem"><div class="callout-icon">💡</div>BYD tiene NFO negativa (−187B): cobra a clientes antes de pagar a proveedores → los proveedores financian el capital circulante. Atajo ΔNA: ΔDebt+ΔEquity−ΔCash = 10.3+4.2−3.3 = 11.2 ✓</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Comparable companies (multiples)</div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <table class="data-table">
+        <thead><tr><th>Company</th><th class="num">P/E 2025</th><th class="num">P/E 2026</th><th class="num">EV/EBITDA 2025</th><th class="num">EV/EBITDA 2026</th></tr></thead>
+        <tbody>
+          <tr><td>Tesla</td><td class="num">111.1</td><td class="num">103.32</td><td class="num">92.8</td><td class="num">86.30</td></tr>
+          <tr><td>Mercedes-Benz</td><td class="num">5.4</td><td class="num">5.24</td><td class="num">5.3</td><td class="num">5.14</td></tr>
+          <tr><td>Toyota</td><td class="num">9.2</td><td class="num">10.12</td><td class="num">7.1</td><td class="num">7.81</td></tr>
+          <tr><td>Honda</td><td class="num">7.3</td><td class="num">7.15</td><td class="num">2.4</td><td class="num">2.35</td></tr>
+          <tr><td>Ford</td><td class="num">11.5</td><td class="num">9.43</td><td class="num">15.6</td><td class="num">12.79</td></tr>
+          <tr><td>General Motors</td><td class="num">5.7</td><td class="num">4.67</td><td class="num">6.1</td><td class="num">5.00</td></tr>
+          <tr><td>Li Auto</td><td class="num">17.6</td><td class="num">17.07</td><td class="num">9.6</td><td class="num">9.31</td></tr>
+          <tr><td>CATL</td><td class="num">20.3</td><td class="num">22.74</td><td class="num">14.9</td><td class="num">16.69</td></tr>
+          <tr style="font-weight:600"><td>Average</td><td class="num hl">23.5</td><td class="num hl">22.5</td><td class="num hl">19.2</td><td class="num hl">18.2</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Preguntas del examen — Teoría · Cálculo · Consejo</div>
+
+    <!-- Q1 BYD -->
+    <div class="q-card" id="qb1">
+      <div class="q-head" onclick="toggleQ('qb1')">
+        <div class="q-left"><div class="q-num">Q1</div><div class="q-title">ΔNA y ΔDebt entre 2023 y 2024</div></div>
+        <div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qb1',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qb1',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qb1',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>En esta versión del curso, <strong>NA = NFO + Fixed Assets</strong> (sin incluir el cash surplus, que se trata como activo financiero separado). Por tanto ΔNA = ΔNFO + ΔFA. El atajo desde el pasivo es: <strong>ΔNA = ΔDebt + ΔEquity − ΔCash</strong> (hay que restar el cambio en cash, no sumarlo).</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">NA</span><span>ΔNA = ΔNFO + ΔFA = (−35.5) + (+46.7) = <span class="answer-val">+11.2 B CNY</span></span></li><li><span class="step-n">D</span><span>ΔDebt = 57.2 − 46.9 = <span class="answer-val">+10.3 B CNY</span></span></li><li><span class="step-n">✓</span><span>Atajo: ΔDebt+ΔEquity−ΔCash = 10.3+4.2−3.3 = 11.2 ✓ → Respuesta B</span></li></ul></div>
+        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>El error más común: usar ΔDebt+ΔEquity = 14.5 sin restar ΔCash = 3.3. DA ΔNA = 14.5 (opción A) en lugar de 11.2 (opción B). Siempre restar ΔCash surplus.</div></div>
+      </div>
+    </div>
+
+    <!-- Q2 BYD -->
+    <div class="q-card" id="qb2">
+      <div class="q-head" onclick="toggleQ('qb2')">
+        <div class="q-left"><div class="q-num">Q2</div><div class="q-title">ECF y after-tax FCF de 2024 (τ=16%)</div></div>
+        <div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qb2',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qb2',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qb2',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>ECF = NI − ΔNA + ΔDebt (perspectiva del accionista). After-tax FCF = EBIT×(1−τ) − ΔNA (perspectiva de todos los proveedores de capital, ignorando estructura financiera). BYD tiene Depreciation=0 → EBITDA=EBIT=38.3.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">ECF</span><span>= NI − ΔNA + ΔDebt = 30.1 − 11.2 + 10.3 = <span class="answer-val">29.2 B CNY</span></span></li><li><span class="step-n">EBIT</span><span>= Revenue − COGS = 602.3 − 564.0 = 38.3 B CNY (Dep=0)</span></li><li><span class="step-n">FCF</span><span>= 38.3 × (1−0.16) − 11.2 = 38.3×0.84 − 11.2 = 32.172 − 11.2 = <span class="answer-val">≈ 21.0 B CNY</span></span></li></ul><div class="callout c-ok"><div class="callout-icon">✓</div>Respuesta B: ECF=29.2 ; FCF=21.0</div></div>
+        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>El trap: la opción A invierte ECF y FCF (21.0 y 29.2 al revés). El ECF siempre parte del Net Income. El FCF parte del EBIT×(1−τ). No confundirlos.</div></div>
+      </div>
+    </div>
+
+    <!-- Q3 BYD -->
+    <div class="q-card" id="qb3">
+      <div class="q-head" onclick="toggleQ('qb3')">
+        <div class="q-left"><div class="q-num">Q3</div><div class="q-title">Enterprise Value por DCF — FCF 38.2/40.1/44.6 → g=3%, WACC=9.7%</div></div>
+        <div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">3 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qb3',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qb3',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qb3',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>Tres años de FCF explícitos, luego perpetuidad creciente. El TV se calcula al final del año 2027 (año 3) y se descuenta 3 períodos. El spread WACC−g = 9.7%−3% = 6.7%.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">TV</span><span>TV_2027 = 44.6 × 1.03 / (0.097−0.03) = 45.938 / 0.067 = <strong>685.6 B CNY</strong></span></li><li><span class="step-n">EV</span><span>= 38.2/1.097 + 40.1/1.097² + (44.6+685.6)/1.097³</span></li><li><span class="step-n"> </span><span>= 34.8 + 33.3 + 554.5 = <span class="answer-val">≈ 621.3 B CNY → Opción D</span></span></li></ul></div>
+        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>Spread 6.7% es la clave. TV = 45.938/0.067 ≈ 685.6. El TV representa el ~89% del EV total, típico en empresas en crecimiento sostenido.</div></div>
+      </div>
+    </div>
+
+    <!-- Q4 BYD -->
+    <div class="q-card" id="qb4">
+      <div class="q-head" onclick="toggleQ('qb4')">
+        <div class="q-left"><div class="q-num">Q4</div><div class="q-title">Stock price implícito (2.9B shares)</div></div>
+        <div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">1 pt</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qb4',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qb4',1,this)">Cálculo</button></div>
+        <div class="q-panel active"><p>EV bridge: MVE = EV + Cash − Debt → Price = MVE / Nº shares. El precio real de BYD era CNY 271. El DCF con estas proyecciones da CNY 226 → modelo sugiere ligera sobrevaluación según estas hipótesis.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">1</span><span>MVE = 621.3 + 91.7 − 57.2 = <strong>655.8 B CNY</strong></span></li><li><span class="step-n">2</span><span>Price = 655.8 / 2.9 = <span class="answer-val">CNY 226.14 → Opción D</span></span></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Q5 BYD -->
+    <div class="q-card" id="qb5">
+      <div class="q-head" onclick="toggleQ('qb5')">
+        <div class="q-left"><div class="q-num">Q5</div><div class="q-title">Stock price con P/E 2025 de todos los comps (avg=23.5x) — ¿overvalued o undervalued?</div></div>
+        <div class="q-right"><span class="topic-tag t-mult">Multiples</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qb5',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qb5',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qb5',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>P/E múltiplo: Price = (P/E_comps) × EPS. Si el precio implícito &lt; precio real → empresa está cara → <strong>overvalued</strong>. Si precio implícito &gt; precio real → empresa está barata → undervalued.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">EPS</span><span>= NI 2024 / Shares = 30.1 / 2.9 = <strong>10.379 CNY</strong></span></li><li><span class="step-n">P</span><span>= 23.5 × 10.379 = <span class="answer-val">CNY 243.91 → Opción A</span></span></li><li><span class="step-n">vs</span><span>Precio real = CNY 271 &gt; 243.91 → BYD está <strong>OVERVALUED</strong> según este múltiplo</span></li></ul></div>
+        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>Tesla distorsiona el promedio (P/E=111.1). En un análisis real excluiríamos outliers. Aquí el examen pide incluir todos. El P/E de BYD implícito con su precio real = 271/10.379 = 26.1x &gt; avg 23.5x → overvalued.</div></div>
+      </div>
+    </div>
+
+    <!-- Q6 BYD -->
+    <div class="q-card" id="qb6">
+      <div class="q-head" onclick="toggleQ('qb6')">
+        <div class="q-left"><div class="q-num">Q6</div><div class="q-title">EV usando solo Li Auto y CATL como comparables (P/E 2025)</div></div>
+        <div class="q-right"><span class="topic-tag t-mult">Multiples</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qb6',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qb6',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qb6',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>Seleccionar comparables del mismo país y sector (empresas chinas de EV/baterías) elimina distorsiones por diferencias macroeconómicas y regulatorias. Li Auto y CATL son los comparables más homogéneos a BYD.</p><p>Importante: la pregunta pide calcular el <strong>EV</strong> de BYD (no el stock price). Hay que aplicar el P/E para obtener la Market Cap (MVE) y luego convertir a EV.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">P/E</span><span>Avg Li Auto(17.6) + CATL(20.3) = 37.9/2 = <strong>18.95x</strong></span></li><li><span class="step-n">MVE</span><span>= 18.95 × NI = 18.95 × 30.1 = <strong>570.4 B CNY</strong></span></li><li><span class="step-n">EV</span><span>= MVE + Debt − Cash = 570.4 + 57.2 − 91.7 = <span class="answer-val">535.9 B CNY → Opción C</span></span></li></ul></div>
+        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>El trap: confundir MVE con EV. MVE = 570.4 (opción A). EV = MVE + Debt − Cash = 535.9 (opción C). Recuerda: EV = MVE + Net Debt, y Net Debt = Debt − Cash.</div></div>
+      </div>
+    </div>
+
+    <!-- Q7 BYD -->
+    <div class="q-card" id="qb7">
+      <div class="q-head" onclick="toggleQ('qb7')">
+        <div class="q-left"><div class="q-num">Q7</div><div class="q-title">Stock price con EV/EBITDA 2025 — Best case: EBITDA_2025 = 1.3 × EBITDA_2024</div></div>
+        <div class="q-right"><span class="topic-tag t-mult">Multiples</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qb7',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qb7',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qb7',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>EV/EBITDA múltiplo: EV = EV/EBITDA_comps × EBITDA_target. Luego convertir a MVE: MVE = EV − Debt + Cash. Finalmente Price = MVE/shares. La BYD tiene Dep=0 → EBITDA=EBIT=38.3 en 2024.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">EBITDA</span><span>2024 = 602.3 − 564.0 = <strong>38.3 B CNY</strong></span></li><li><span class="step-n">2025</span><span>EBITDA 2025 = 1.3 × 38.3 = <strong>49.79 B CNY</strong></span></li><li><span class="step-n">EV</span><span>= 19.2 × 49.79 = <strong>955.97 B CNY</strong></span></li><li><span class="step-n">MVE</span><span>= 955.97 + 91.7 − 57.2 = <strong>990.47 B CNY</strong></span></li><li><span class="step-n">P</span><span>= 990.47 / 2.9 = <span class="answer-val">CNY 341.54 → Opción D</span></span></li></ul></div>
+        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>La opción B (955.97) es el EV, no el stock price. Trap clásico. Siempre seguir el proceso completo: EV → MVE (±cash/debt) → Price (÷shares). 4 pasos, no 3.</div></div>
+      </div>
+    </div>
+
+    <!-- Q8 BYD -->
+    <div class="q-card" id="qb8">
+      <div class="q-head" onclick="toggleQ('qb8')">
+        <div class="q-left"><div class="q-num">Q8</div><div class="q-title">NPV del R&D Center Shenzhen — Inv. 3B (t=0) + 5B (t=1), ECF 1B/año desde t=2 (g=0, R_E=12%)</div></div>
+        <div class="q-right"><span class="topic-tag t-capex">CapBudg</span><span class="pts-badge">3 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qb8',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qb8',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qb8',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>La perpetuidad (g=0) empieza en t=2, no en t=1. Por tanto su PV calculado con la fórmula C/R nos da el valor en t=1 (un período antes de que arranque). Luego hay que traer ese valor y la inversión de t=1 al presente (t=0).</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">PV_perp</span><span>en t=1 = 1/0.12 = <strong>8.333 B</strong></span></li><li><span class="step-n">PV en t=0</span><span>= 8.333/1.12 = <strong>7.440 B</strong></span></li><li><span class="step-n">PV(5B)</span><span>en t=0 = −5/1.12 = <strong>−4.464 B</strong></span></li><li><span class="step-n">NPV</span><span>= −3 − 4.464 + 7.440 = <span class="answer-val">−0.024 B ≈ 0 → Ninguna de las opciones → C</span></span></li></ul><div class="callout c-danger" style="margin-top:.5rem"><div class="callout-icon">⚠️</div>NPV ≈ −0.02 (levemente negativo). Ninguna de las opciones A, B, D corresponde → respuesta C (None of the above). El trap: la opción A (7.44) es el PV de la perpetuidad, no el NPV total.</div></div>
+        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>Cuando el resultado no coincide exactamente con ninguna opción, buscar si hay "None of the above". El examen indica que si tu resultado está muy cerca de una opción, es por redondeo. Aquí el resultado (≈0) no está cerca de ninguna opción → C es correcto.</div></div>
+      </div>
+    </div>
+
+    <!-- Q9 BYD -->
+    <div class="q-card" id="qb9">
+      <div class="q-head" onclick="toggleQ('qb9')">
+        <div class="q-left"><div class="q-num">Q9</div><div class="q-title">Payback Period del R&D Center (PP max = 12 años)</div></div>
+        <div class="q-right"><span class="topic-tag t-capex">CapBudg</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qb9',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qb9',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qb9',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>El Payback Period mide cuántos períodos tarda el proyecto en recuperar la inversión. Hay outflows en t=0 (3B) y t=1 (5B), acumulando −8B. Luego inflows de 1B/año a partir de t=2. Se acepta si PP ≤ PP_max.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">t=0</span><span>−3B → acum: −3B</span></li><li><span class="step-n">t=1</span><span>−5B → acum: −8B</span></li><li><span class="step-n">t=2→9</span><span>+1B/año × 8 años → acum al final de t=9: −8+8 = 0B → break-even exacto</span></li><li><span class="step-n">PP</span><span>= <span class="answer-val">9 años</span> ≤ 12 años → <strong>Aceptar → Opción B</strong></span></li></ul></div>
+        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>Hay que contar desde t=0: el período de "break-even" es cuando el acumulado llega a 0 por primera vez. Con 8B de deuda acumulada al final de t=1, y 1B/año desde t=2, se necesitan 8 años más (t=2 a t=9) para llegar a 0. PP=9.</div></div>
+      </div>
+    </div>
+
+    <!-- Q10 BYD -->
+    <div class="q-card" id="qb10">
+      <div class="q-head" onclick="toggleQ('qb10')">
+        <div class="q-left"><div class="q-num">Q10</div><div class="q-title">EV de Hedin bajo control de BYD — EBIT=€200M, g=3%, τ=11%, WACC=9.7%</div></div>
+        <div class="q-right"><span class="topic-tag t-ma">M&A</span><span class="pts-badge">3 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qb10',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qb10',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qb10',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>Mismo concepto que Seagen (Pfizer 2023) y SK Hynix (Intel 2022). ΔNA=0 → FCF = EBIT×(1−τ). Mismo riesgo que BYD → usar WACC de BYD (9.7%). Calcular si BYD overpagó ofreciendo €5B.</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">FCF</span><span>= EBIT×(1−τ) = 200 × (1−0.11) = 200 × 0.89 = <strong>€178M</strong></span></li><li><span class="step-n">EV</span><span>= FCF / (WACC−g) = 178 / (0.097−0.03) = 178 / 0.067 = <span class="answer-val">€2,657M → Opción A</span></span></li><li><span class="step-n">Δ</span><span>€2,657M &lt; €5,000M ofrecidos → <strong>BYD overpaga masivamente (€2.3B de más)</strong></span></li></ul></div>
+        <div class="q-panel"><div class="callout c-danger"><div class="callout-icon">🚨</div>El resultado de €2,657M es muy inferior al precio ofrecido de €5,000M. BYD destruye ~€2.3B de valor para sus accionistas en esta adquisición bajo estas hipótesis conservadoras. Las sinergias proyectadas deberían ser enormes para justificar ese precio.</div></div>
+      </div>
+    </div>
+
+    <!-- Q11 BYD - Capital Structure -->
+    <div class="q-card" id="qb11">
+      <div class="q-head" onclick="toggleQ('qb11')">
+        <div class="q-left"><div class="q-num">Q11</div><div class="q-title">Capital structure: ¿qué razones son VÁLIDAS para financiar Hedin con deuda o equity?</div></div>
+        <div class="q-right"><span class="topic-tag t-cs">Cap.Struct</span><span class="pts-badge">2 pts</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qb11',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qb11',1,this)">Respuesta</button><button class="q-tab" onclick="switchTab('qb11',2,this)">Consejo</button></div>
+        <div class="q-panel active"><p>Las razones para usar más deuda: tax shield, no dilución, señal de confianza, control de la empresa. Las razones para usar más equity: menor riesgo de quiebra, mayor flexibilidad, aprovechar acción sobrevaluada.</p><p>Atención: que R_D &lt; R_E es verdad (los acreedores tienen menos riesgo → piden menos rentabilidad), pero NO es una razón para usar más deuda indefinidamente porque aumentar deuda también aumenta R_E y puede aumentar R_D.</p></div>
+        <div class="q-panel"><p><strong>A (Intereses deducibles fiscalmente)</strong> → VERDADERO. Es el tax shield argument: más deuda → menos impuestos → más valor.</p><p class="mt-sm"><strong>C (R_D &lt; R_E)</strong> → VERDADERO. Los acreedores cobran antes que los accionistas → asumen menos riesgo → exigen menor retorno. Esto es una razón para considerar deuda.</p><p class="mt-sm"><strong>D (Más equity aumenta el riesgo de quiebra)</strong> → FALSO. Es exactamente al revés: más equity <strong>reduce</strong> el riesgo de quiebra. Esta opción es incorrecta.</p><p class="mt-sm"><strong>B (All of the above)</strong> → FALSO porque D es falso. Respuestas correctas: <strong>A y C</strong>.</p></div>
+        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">💡</div>La trampa habitual en capital structure: confundir la dirección del efecto. Más equity → menor leverage → menor P(quiebra), no mayor. Que R_D &lt; R_E es siempre verdad, pero no significa que máximo apalancamiento sea óptimo (los bankruptcy costs anulan ese beneficio).</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
 </main>
 </div>
 
@@ -1030,6 +1278,35 @@ const SQ=[
    teoria:'Existen dos tipos de múltiplos: <strong>trading multiples</strong> (de empresas cotizadas) y <strong>transaction multiples</strong> (de transacciones privadas recientes de empresas similares). En M&A, los transaction multiples son en muchos casos más relevantes porque reflejan precios reales de compraventa (con prima de control incluida), no solo precios de mercado de minorías.',
    resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">Existen los <strong>transaction multiples</strong>: múltiplos calculados a partir de precios de transacciones privadas recientes de empresas comparables (M&A deals). Son una alternativa válida cuando no hay comparables públicas. Además, se pueden usar múltiplos operativos sectoriales (KPIs) cuando los datos financieros son limitados.</p>',
    consejo:'La distinción trading multiples vs transaction multiples es importante en la práctica. Los transaction multiples incluyen la prima de control (normalmente 20-40% sobre el precio de cotización), por lo que son más apropiados para valorar objetivos de M&A.'}
+,
+  {n:'26',tf:false,q:'Un proyecto de compra de terrenos agrícolas por £10M genera un CF de £0.8M en t=1 creciendo al 2%/año en perpetuidad. Con un costo de equity del 10%, el NPV del proyecto es £28 millones.',
+   teoria:'NPV = PV de flujos − inversión inicial. PV = CF_1/(R−g) = 0.8/(0.10−0.02) = 0.8/0.08 = 10M. NPV = 10 − 10 = 0. El enunciado cita g=2% pero luego usa el factor 1.03 — en cualquier caso, ni con g=3% (NPV=1.43M) ni con g=2% (NPV=0) se llega a £28M.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">Con g=2%: NPV = 0.8/(0.10−0.02) − 10 = 10 − 10 = <strong>0</strong>. Con g=3%: NPV = 0.8/(0.10−0.03) − 10 = 11.43 − 10 = <strong>1.43M</strong>. En ningún caso NPV = £28M.</p>',
+   consejo:'Siempre aplicar la fórmula PV = CF_1/(R−g) y restar la inversión. Si el enunciado tiene inconsistencia entre el g mencionado y el factor usado en el ejemplo (2% vs 1.03), elige el g explícitamente declarado.'},
+  {n:'27',tf:true,q:'Si dos proyectos mutuamente excluyentes tienen inversiones iniciales muy diferentes (ej. €1M vs €100M), el IRR no puede ser el único criterio utilizado para tomar la decisión.',
+   teoria:'El IRR es una tasa de retorno relativa — no distingue entre el tamaño de la inversión. Un proyecto pequeño con IRR=25% puede crear menos valor absoluto que uno grande con IRR=15%. El NPV mide valor absoluto y siempre domina al IRR para comparar proyectos mutuamente excluyentes con distintas escalas.',
+   resp:'<span class="badge-true">TRUE — VERDADERO</span><p style="margin-top:.5rem">Con inversiones muy diferentes, el IRR solo mide la rentabilidad relativa. Ej: Proyecto A (€1M, IRR=25%, NPV=€0.2M) vs Proyecto B (€100M, IRR=15%, NPV=€5M). El IRR elegiría A pero el NPV (criterio correcto) elegiría B.</p>',
+   consejo:'Regla general: IRR sirve para aceptar/rechazar un proyecto individual (si IRR>K, aceptar). Para COMPARAR proyectos mutuamente excluyentes, siempre usar NPV. Esta limitación del IRR es un favorito del examen.'},
+  {n:'28',tf:false,q:'Una empresa farmacéutica considera crear un nuevo laboratorio. Para calcular el NPV, debe restar el costo de patentes no transferibles creadas en el pasado que también se usarán en el laboratorio.',
+   teoria:'Un sunk cost es un costo ya incurrido en el pasado que es irrecuperable. Las patentes no transferibles (no se pueden vender) ya fueron pagadas y no se pueden recuperar → su costo es un sunk cost. Los sunk costs nunca deben incluirse en el análisis NPV porque no son incrementales a la decisión actual.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">El costo de las patentes fue incurrido en el PASADO y son no transferibles (no recuperables). Es un sunk cost. Solo deben incluirse en el NPV los costos FUTUROS e INCREMENTALES a la decisión de crear el laboratorio.</p>',
+   consejo:'Test del sunk cost: ¿El costo ya fue pagado? ¿No se puede recuperar? Si ambas respuestas son SÍ → sunk cost → excluir del NPV. Si el costo AÚN NO se ha pagado (como el transfer fee de Messi) → no es sunk cost → incluirlo.'},
+  {n:'29',tf:false,q:'WalMart y Apple deben compararse usando el múltiplo EV/EBITDA porque su apalancamiento es muy diferente.',
+   teoria:'La condición más importante para seleccionar comparables es que sean similares en OPERACIONES (misma industria, modelo de negocio, márgenes). WalMart es retail; Apple es technology/consumer electronics. Son sectores completamente distintos con drivers de valor totalmente diferentes. El apalancamiento diferente es una razón para preferir EV/EBITDA sobre P/E (porque EV/EBITDA es pre-deuda), pero no justifica comparar empresas de industrias distintas.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">WalMart y Apple no son comparables porque no pertenecen a la misma industria. Sus operaciones y modelos de negocio son completamente distintos. La condición fundamental para comparables es la similitud operativa (misma industria).</p>',
+   consejo:'Jerarquía para seleccionar comparables: (1) misma industria, (2) tamaño similar, (3) ROA/márgenes similares, (4) similar leverage (para equity multiples). WalMart vs Apple falla en el criterio 1 (más importante) → no son comparables.'},
+  {n:'30',tf:false,q:'Un aumento continuo en el apalancamiento siempre beneficia a la empresa porque el costo de la deuda (R_D) es siempre menor que el costo del equity (R_E).',
+   teoria:'Aunque R_D &lt; R_E (los acreedores tienen menos riesgo → piden menos retorno), esto no implica que más deuda siempre sea mejor. A medida que aumenta el apalancamiento, aumenta el riesgo de quiebra (bankruptcy costs: costos directos como honorarios legales e indirectos como pérdida de clientes). Además, el propio R_D y R_E aumentan con el apalancamiento. La trade-off theory establece que hay un punto óptimo de leverage que maximiza el valor.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">Con alto leverage, el valor de la empresa puede DISMINUIR por los costos de distress financiero (directos: legales; indirectos: pérdida de clientes, empleados, proveedores). El leverage óptimo equilibra el beneficio del tax shield con el costo del distress.</p>',
+   consejo:'Este concepto relacionado con la trade-off theory es pregunta frecuente. La curva de valor vs leverage es una parábola: sube hasta el punto óptimo (tax shield gana) y luego cae (bankruptcy costs ganan).'},
+  {n:'31',tf:true,q:'El Profitability Index (PI) es especialmente útil para rankear proyectos cuando hay un presupuesto de capital limitado, ya que mide el valor creado por unidad de inversión.',
+   teoria:'El PI = PV(flujos futuros)/Inversión = 1+NPV/Inversión. Es un ratio, no un valor absoluto. Cuando el capital es escaso y hay múltiples proyectos independientes disponibles, el PI maximiza el NPV total dentro del presupuesto disponible. No sirve para proyectos mutuamente excluyentes.',
+   resp:'<span class="badge-true">TRUE — VERDADERO</span><p style="margin-top:.5rem">PI = PV de flujos / Inversión = 1 + NPV/Inversión. Con presupuesto limitado, elegir proyectos con mayor PI maximiza el valor total creado. Ej: presupuesto=100, Proyecto A (PI=1.30, inv=100) vs B+C (PI=1.40+1.30, inv=50+50): B+C genera NPV=35 vs A genera NPV=30.</p>',
+   consejo:'PI > 1 equivale a NPV > 0. PI solo supera al NPV como criterio de selección cuando hay restricción de presupuesto y proyectos son independientes. Para proyectos mutuamente excluyentes → siempre NPV.'},
+  {n:'32',tf:false,q:'El ΔNA de una empresa se calcula como ΔDebt + ΔEquity (variación de deuda más variación de equity).',
+   teoria:'En el framework de este curso, NA = NFO + Fixed Assets (el cash surplus se trata como activo financiero separado, NO parte del NA operativo). Por tanto ΔNA = ΔNFO + ΔFA. Desde el pasivo: ΔNA = ΔDebt + ΔEquity − ΔCash. La fórmula ΔNA = ΔDebt + ΔEquity es incorrecta porque incluye la variación del cash surplus.',
+   resp:'<span class="badge-false">FALSE — FALSO</span><p style="margin-top:.5rem">ΔNA = ΔNFO + ΔFA. El atajo correcto desde el pasivo es: ΔDebt + ΔEquity − ΔCash. Incluir ΔCash en ΔNA sería un error porque el cash surplus se trata por separado en el EV bridge. Ejemplo BYD 2025: ΔNA = ΔNFO(−35.5)+ΔFA(+46.7) = +11.2, no ΔDebt(10.3)+ΔEquity(4.2) = 14.5.</p>',
+   consejo:'Este es el error conceptual más frecuente en Q1 de los exámenes. La fórmula correcta: ΔNA = ΔNFO + ΔFA. Atajo: ΔDebt + ΔEquity − ΔCash. El cash surplus fluye al EV bridge (EV+Cash−Debt), NO a ΔNA.'}
 ];
 
 function renderShortQ(){
