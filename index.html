@@ -145,6 +145,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:14
 .chip-shell{background:rgba(255,193,7,.2);color:#ffd54f;border:.5px solid rgba(255,193,7,.3);}
 .chip-disney{background:rgba(0,102,204,.2);color:#4da6ff;border:.5px solid rgba(0,102,204,.3);}
 .chip-harley{background:rgba(204,0,0,.2);color:#ff6666;border:.5px solid rgba(204,0,0,.3);}
+.chip-palantir{background:rgba(0,191,255,.2);color:#00bfff;border:.5px solid rgba(0,191,255,.3);}
 .company-name-serif{font-family:var(--serif);font-size:20px;color:#EAEDE8;}
 .company-meta-line{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.45);margin-top:2px;}
 .company-kv{text-align:right;}
@@ -206,6 +207,7 @@ code{font-family:var(--mono);font-size:12px;color:#8A6000;background:rgba(138,96
   </div>
   <div class="nav-section" style="margin-top:.5rem">
     <div class="nav-label">Exámenes finales</div>
+    <button class="nav-item" onclick="showPage('palantir',this)"><span class="nav-dot"></span>2025 · Palantir ★</button>
     <button class="nav-item" onclick="showPage('shell',this)"><span class="nav-dot"></span>2022 · Shell</button>
     <button class="nav-item" onclick="showPage('disney',this)"><span class="nav-dot"></span>2021 · Walt Disney</button>
     <button class="nav-item" onclick="showPage('harley',this)"><span class="nav-dot"></span>2020 · Harley-Davidson</button>
@@ -1587,7 +1589,358 @@ Dividends_target = Payout_industry × NI_expected
 
   </div>
 </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palantir 2025 — Corporate Finance Final Exam · IESE MBA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F9F5;--surface:#FFFFFF;--surface2:#F1F5F0;--surface3:#E8EDE6;
+  --border:rgba(0,0,0,.08);--border2:rgba(0,0,0,.14);
+  --text:#1A201A;--text2:#4E574D;--text3:#8C978A;
+  --accent:#1D7A10;--accent2:#2A9E1A;
+  --accent-dim:rgba(29,122,16,.09);--accent-dim2:rgba(29,122,16,.05);
+  --amber:#8A6000;--amber-dim:rgba(138,96,0,.09);
+  --red:#B82020;--red-dim:rgba(184,32,32,.09);
+  --blue:#1648B2;--blue-dim:rgba(22,72,178,.09);
+  --purple:#5A28B5;--purple-dim:rgba(90,40,181,.09);
+  --mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif;--serif:'DM Serif Display',serif;
+  --radius:8px;--radius-lg:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;min-height:100vh;padding:2.5rem 3rem;max-width:960px;margin:0 auto;}
+.page-header{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.page-header .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;margin-bottom:6px;font-weight:600;}
+.page-header h1{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--text);line-height:1.2;margin-bottom:8px;}
+.page-header p{color:var(--text2);font-size:13px;}
+.section{margin-bottom:2rem;}
+.section-title{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:8px;}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin-bottom:.75rem;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+.fml{background:#1C201C;border:none;border-radius:var(--radius);padding:.875rem 1rem;font-family:var(--mono);font-size:12.5px;line-height:1.9;margin:.5rem 0;overflow-x:auto;box-shadow:0 1px 4px rgba(0,0,0,.12);color:#D4D8D2;white-space:pre;}
+.fml .k{color:#86EFAC;font-weight:500;}
+.fml .v{color:#FDE68A;}
+.fml .c{color:#9CA89A;font-size:11px;}
+.fml .r{color:#FCA5A5;}
+.q-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);margin-bottom:.5rem;overflow:hidden;transition:border-color .15s,box-shadow .15s;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.q-card:hover{border-color:var(--border2);box-shadow:0 2px 8px rgba(0,0,0,.07);}
+.q-card.open{border-color:rgba(29,122,16,.25);box-shadow:0 0 0 1px rgba(29,122,16,.08);}
+.q-head{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;cursor:pointer;user-select:none;gap:12px;}
+.q-left{display:flex;align-items:center;gap:10px;flex:1;min-width:0;}
+.q-num{font-family:var(--mono);font-size:11px;color:var(--text3);flex-shrink:0;width:24px;}
+.q-title{font-size:13px;font-weight:500;color:var(--text);}
+.q-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.pts-badge{font-family:var(--mono);font-size:11px;background:var(--surface2);border:1px solid var(--border2);color:var(--text2);padding:2px 8px;border-radius:20px;}
+.topic-tag{font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:10px;font-weight:500;}
+.t-dcf{background:rgba(22,72,178,.09);color:#0E3A8C;}
+.t-capm{background:rgba(22,72,178,.09);color:#0E3A8C;}
+.t-ma{background:rgba(138,96,0,.09);color:#6B4800;}
+.t-pay{background:rgba(90,40,181,.09);color:#3A1585;}
+.t-gov{background:rgba(138,96,0,.09);color:#6B4800;}
+.toggle-icon{width:18px;height:18px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:11px;transition:all .2s;flex-shrink:0;}
+.q-card.open .toggle-icon{background:rgba(29,122,16,.12);border-color:var(--accent);color:var(--accent);transform:rotate(45deg);}
+.q-body{display:none;border-top:1px solid var(--border);}
+.q-card.open .q-body{display:block;}
+.q-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--surface2);}
+.q-tab{padding:.5rem 1rem;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);cursor:pointer;border:none;background:none;transition:all .15s;border-bottom:2px solid transparent;margin-bottom:-1px;font-weight:500;}
+.q-tab:hover{color:var(--text2);}
+.q-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600;}
+.q-panel{display:none;padding:1.125rem 1.25rem;}
+.q-panel.active{display:block;}
+.callout{border-radius:var(--radius);padding:.625rem .875rem;font-size:12.5px;margin-top:.625rem;display:flex;gap:8px;line-height:1.6;}
+.callout-icon{flex-shrink:0;font-weight:600;}
+.c-tip{background:rgba(22,72,178,.07);border:.5px solid rgba(22,72,178,.2);color:#0E3A8C;}
+.c-warn{background:rgba(138,96,0,.08);border:.5px solid rgba(138,96,0,.2);color:#6B4800;}
+.c-danger{background:rgba(184,32,32,.07);border:.5px solid rgba(184,32,32,.2);color:#8C1414;}
+.c-ok{background:rgba(29,122,16,.08);border:.5px solid rgba(29,122,16,.2);color:#155F0C;}
+.answer-val{color:#155F0C;font-family:var(--mono);font-weight:600;}
+.step-list{list-style:none;display:flex;flex-direction:column;gap:5px;margin:.5rem 0;}
+.step-list li{display:flex;gap:10px;font-size:13px;line-height:1.6;}
+.step-n{font-family:var(--mono);font-size:10px;color:var(--accent);min-width:32px;padding-top:3px;font-weight:600;flex-shrink:0;}
+.data-table{width:100%;border-collapse:collapse;font-size:12.5px;font-family:var(--mono);}
+.data-table th{text-align:left;padding:6px 10px;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border2);font-size:11px;letter-spacing:.04em;}
+.data-table td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;}
+.data-table tr:last-child td{border:none;}
+.data-table .num{text-align:right;}
+.data-table .hl{color:var(--accent);font-weight:500;}
+.data-table .neg{color:var(--red);}
+.company-band{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding:1.25rem 1.5rem;background:#1A201A;border:none;border-radius:var(--radius-lg);flex-wrap:wrap;}
+.company-chip{width:44px;height:44px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:500;flex-shrink:0;}
+.chip-palantir{background:rgba(0,191,255,.2);color:#00bfff;border:.5px solid rgba(0,191,255,.3);}
+.company-name-serif{font-family:var(--serif);font-size:20px;color:#EAEDE8;}
+.company-meta-line{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.45);margin-top:2px;}
+.company-kv{text-align:right;}
+.company-kv .kv-label{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.05em;}
+.company-kv .kv-val{font-family:var(--mono);font-size:15px;color:#86EFAC;}
+.pattern-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:.5px solid var(--border);font-size:13px;}
+.pattern-row:last-child{border:none;}
+.pdot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px;}
+.dg{background:#2A9E1A;}.da{background:var(--amber);}.dr{background:var(--red);}
+.plabel{font-weight:500;min-width:170px;flex-shrink:0;}
+.pdesc{color:var(--text2);}
+p{margin-bottom:.5rem;}p:last-child{margin-bottom:0;}
+strong{font-weight:600;color:var(--text);}
+::selection{background:rgba(29,122,16,.15);}
+@media(max-width:768px){body{padding:1.5rem;}}
+</style>
+</head>
+<body>
 
+<!-- ═══════════════ PALANTIR 2025 ═══════════════ -->
+<div id="page-palantir" class="page">
+  <div class="page-header">
+    <div class="eyebrow">Final Exam · 27 Mayo 2025 · 32/36</div>
+    <h1>Palantir Technologies Inc.</h1>
+    <p>WACC=11.3% · R_E=11.3% · τ=21% · Análisis al 1 Enero 2025 · 2,572.6M FD shares · Precio mercado: $119.16 (Feb 14 2025)</p>
+  </div>
+
+  <div class="company-band">
+    <div class="company-chip chip-palantir">PLTR</div>
+    <div style="flex:1">
+      <div class="company-name-serif">Palantir Technologies Inc.</div>
+      <div class="company-meta-line">Nasdaq · AI / Big Data Analytics · All-Equity (D/E=0%) · Morgan Stanley report · +585% since Jan 2024</div>
+    </div>
+    <div class="company-kv" style="margin-right:1.5rem"><div class="kv-label">WACC / R_E</div><div class="kv-val">11.3% / 11.3%</div></div>
+    <div class="company-kv"><div class="kv-label">τ / FD Shares</div><div class="kv-val">21% / 2,572.6M</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Contexto y datos clave (Morgan Stanley, Jan 6 2025 — Exhibit 8)</div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <table class="data-table">
+        <thead><tr><th>Concepto</th><th class="num">Valor</th><th>Notas</th></tr></thead>
+        <tbody>
+          <tr><td>Adjusted Beta (MS)</td><td class="num hl">1.74</td><td>Raw Beta × 0.67 + 1.00 × 0.33</td></tr>
+          <tr><td>Beta Yahoo Finance (5Y monthly)</td><td class="num hl">2.81</td><td>Yahoo Finance, Feb 14 2025</td></tr>
+          <tr><td>Expected Return on Market</td><td class="num">8.3%</td><td>Exhibit 8 box</td></tr>
+          <tr><td>Rf (10Y Treasury)</td><td class="num hl">4.2%</td><td>Exhibit 8 box</td></tr>
+          <tr><td>Current Equity Risk Premium</td><td class="num">4.1%</td><td>= 8.3% − 4.2%</td></tr>
+          <tr><td>LR Average Equity Risk Premium</td><td class="num hl">6.1%</td><td>Usado para CAPM propio (Q4)</td></tr>
+          <tr><td>Cost of Equity (MS)</td><td class="num">11.3%</td><td>Exhibit 8 box</td></tr>
+          <tr><td>Cost of LT Debt / Debt/Capital</td><td class="num">0.0% / 0.0%</td><td>All-equity company → WACC = R_E</td></tr>
+          <tr><td>WACC</td><td class="num hl">11.3%</td><td>= R_E (porque D=0)</td></tr>
+          <tr><td>Terminal Growth Rate</td><td class="num hl">6.5%</td><td>Exhibit 8 box</td></tr>
+          <tr><td>Cash surplus 2023 / 2024</td><td class="num">$2,800M / $4,000M</td><td>Notes del enunciado</td></tr>
+          <tr><td>FD Shares Outstanding</td><td class="num">2,572.6M</td><td>Exhibit 8 box</td></tr>
+          <tr><td>Share price (Yahoo, Feb 14 2025)</td><td class="num hl">$119.16</td><td>Market Cap ≈ $306,551M</td></tr>
+          <tr><td>MS target price</td><td class="num">$75/share</td><td>Exhibit 8: Current Intrinsic Value</td></tr>
+          <tr><td>Operating Income FY24E (EBIT)</td><td class="num hl">$1,057.1M</td><td>Exhibit 12</td></tr>
+          <tr><td>FCF 2025E / 2026E (Exhibit 8)</td><td class="num hl">$1,312M / $1,600M</td><td>uFree Cash Flow row</td></tr>
+          <tr><td>Total SE FY23 / FY24E</td><td class="num">$3,561.0M / $4,900.3M</td><td>Exhibit 13</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Diferencias clave vs exámenes anteriores</div>
+    <div class="card">
+      <div class="pattern-row"><div class="pdot dg"></div><div class="plabel">All-Equity company</div><div class="pdesc">D/E=0% → WACC = R_E = R_A = 11.3%. No hay unlevering. No hay tax shield. No hay financial risk premium.</div></div>
+      <div class="pattern-row"><div class="pdot dg"></div><div class="plabel">Dos betas distintos</div><div class="pdesc">MS usa β=1.74 (adjusted) → R_E=11.3%. Yahoo da β=2.81 (raw) → con LR EMRP=6.1% da R_E=21.34%. Divergencia masiva.</div></div>
+      <div class="pattern-row"><div class="pdot da"></div><div class="plabel">Gap precio enorme</div><div class="pdesc">Fair value DCF $15.11 vs mercado $119.16 → 7.9× gap. El mercado descuenta un growth extremo no capturado por el modelo.</div></div>
+      <div class="pattern-row"><div class="pdot da"></div><div class="plabel">Relevering hipotético</div><div class="pdesc">El examen introduce leverage hipotético con rating A3/A− (Damodaran: D/(D+E)≈30%). Requiere relever R_A de 11.3%.</div></div>
+      <div class="pattern-row"><div class="pdot da"></div><div class="plabel">M&A con múltiplos inversos</div><div class="pdesc">Dado un budget fijo ($39B), calcular EBITDA máximo del target usando EV/EBITDA del sector (15.6x). Reverse multiple.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Case questions — 14 preguntas · 36 pts · Nota: 32/36</div>
+
+    <!-- Q1 -->
+    <div class="q-card" id="qp1">
+      <div class="q-head" onclick="toggleQ('qp1')">
+        <div class="q-left"><div class="q-num">Q1</div><div class="q-title">ΔNA entre 2023 y 2024 (short balance sheet)</div></div>
+        <div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge" style="background:var(--red-dim);color:var(--red)">0/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp1',0,this)">Teoría</button><button class="q-tab" onclick="switchTab('qp1',1,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qp1',2,this)">Error analysis</button></div>
+        <div class="q-panel active"><p>Construir short balance sheet para FY23 y FY24E usando Exhibits 12 y 13 (page 13). Notes: Cash surplus 2023=$2,800M, 2024=$4,000M. All CA exc. surplus cash = NFO. All liabilities exc. ST/LT Debt = NFO.</p><p>Como Palantir tiene D/E=0% (sin deuda financiera), el shortcut es: <strong>NA = Equity − Surplus Cash</strong> (porque NA + Surplus Cash = Debt + Equity y Debt=0).</p></div>
+        <div class="q-panel"><ul class="step-list"><li><span class="step-n">FY23</span><span>Total SE = $3,561.0M (Exhibit 13, FY23 column)</span></li><li><span class="step-n">NA₂₃</span><span>NA = 3,561.0 − 2,800 = <strong>$761.0M</strong></span></li><li><span class="step-n">FY24E</span><span>Total SE = $4,900.3M (Exhibit 13, 12/24E = FY24E column)</span></li><li><span class="step-n">NA₂₄</span><span>NA = 4,900.3 − 4,000 = <strong>$900.3M</strong></span></li><li><span class="step-n">ΔNA</span><span>ΔNA = 900.3 − 761.0 = <span class="answer-val">139.3</span></span></li></ul></div>
+        <div class="q-panel"><div class="callout c-danger"><div class="callout-icon">!</div>Respondimos 305.9 (incorrecto). Probable error: incluir cambio en surplus cash dentro del NA, o confundir columnas del balance sheet (FY23 vs FY22). El atajo NA = Equity − Surplus Cash (cuando Debt=0) habría evitado el error.</div><div class="callout c-tip" style="margin-top:.5rem"><div class="callout-icon">i</div>Verificación: Total Assets FY23 = 4,522.4 = NA(761.0) + Surplus Cash(2,800) + NFO_liabilities(961.4) — cuadra.</div></div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-card" id="qp2">
+      <div class="q-head" onclick="toggleQ('qp2')">
+        <div class="q-left"><div class="q-num">Q2</div><div class="q-title">FCF after-tax de Palantir FY24E</div></div>
+        <div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge" style="background:var(--red-dim);color:var(--red)">0/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp2',0,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qp2',1,this)">Error analysis</button></div>
+        <div class="q-panel active"><ul class="step-list"><li><span class="step-n">EBIT</span><span>Operating Income FY24E = $1,057.1M (Exhibit 12)</span></li><li><span class="step-n">NOPAT</span><span>EBIT × (1−τ) = 1,057.1 × 0.79 = <strong>$835.1M</strong></span></li><li><span class="step-n">ΔNA</span><span>ΔNA = 139.3M (de Q1)</span></li><li><span class="step-n">FCF</span><span>FCF = 835.1 − 139.3 = <span class="answer-val">$695.8M ≈ 696</span></span></li></ul></div>
+        <div class="q-panel"><div class="callout c-danger"><div class="callout-icon">!</div>Respondimos 529 (incorrecto). Error cascada desde Q1 (ΔNA=305.9 en vez de 139.3): 835.1 − 305.9 = 529.2 ≈ 529. El NOPAT estaba bien; el error era exclusivamente en ΔNA.</div><div class="callout c-warn" style="margin-top:.5rem"><div class="callout-icon">!</div>Nota: Exhibit 8 muestra uFCF FY24E = $857M usando su propia metodología (EBIT(1−t)+Dep−CapEx−ΔNWC). La pregunta pide el método del curso: FCF = EBIT×(1−t) − ΔNA.</div></div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-card" id="qp3">
+      <div class="q-head" onclick="toggleQ('qp3')">
+        <div class="q-left"><div class="q-num">Q3</div><div class="q-title">Market Risk Premium que usa Morgan Stanley</div></div>
+        <div class="q-right"><span class="topic-tag t-capm">CAPM</span><span class="pts-badge">2/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp3',0,this)">Cálculo</button></div>
+        <div class="q-panel active"><ul class="step-list"><li><span class="step-n">→</span><span>Exhibit 8 box: "Current Equity Risk Premium" = <span class="answer-val">4.1%</span></span></li></ul><p style="margin-top:.5rem">Verify: R_E = Rf + β × EMRP → 11.3% = 4.2% + 1.74 × EMRP → EMRP = 7.1%/1.74 = 4.08% ≈ 4.1% ✓</p></div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-card" id="qp4">
+      <div class="q-head" onclick="toggleQ('qp4')">
+        <div class="q-left"><div class="q-num">Q4</div><div class="q-title">R_E propio con β=2.81 (Yahoo) y LR Average EMRP=6.1%</div></div>
+        <div class="q-right"><span class="topic-tag t-capm">CAPM</span><span class="pts-badge">2/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp4',0,this)">Cálculo</button></div>
+        <div class="q-panel active"><ul class="step-list"><li><span class="step-n">CAPM</span><span>R_E = Rf + β × EMRP = 4.2% + 2.81 × 6.1%</span></li><li><span class="step-n">→</span><span>= 4.2% + 17.141% = <span class="answer-val">21.34%</span></span></li></ul><div class="callout c-warn" style="margin-top:.5rem"><div class="callout-icon">!</div>Usa LR Average EMRP (6.1%), NO Current EMRP (4.1%). Y β Yahoo (2.81), NO adjusted (1.74). R_E resultante (21.34%) es casi el doble del de MS (11.3%) — refleja la enorme volatilidad/riesgo sistemático de PLTR.</div></div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-card" id="qp5">
+      <div class="q-head" onclick="toggleQ('qp5')">
+        <div class="q-left"><div class="q-num">Q5</div><div class="q-title">True/False: Con tu R_E más alto, ¿el fair value del analista es too low?</div></div>
+        <div class="q-right"><span class="topic-tag t-capm">CAPM</span><span class="pts-badge">2/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp5',0,this)">Respuesta</button></div>
+        <div class="q-panel active"><p><span class="answer-val">FALSE</span></p><p style="margin-top:.5rem">Nuestro R_E (21.34%) > analista (11.3%) → mayor tasa de descuento → EV más bajo → fair value MÁS BAJO. El analyst's fair value ($75) es <strong>too HIGH</strong>, no too low. Mayor descuento = menos valor presente.</p></div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-card" id="qp6">
+      <div class="q-head" onclick="toggleQ('qp6')">
+        <div class="q-left"><div class="q-num">Q6</div><div class="q-title">Enterprise Value por DCF (WACC=11.3%, g=6.5%, 2 períodos)</div></div>
+        <div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">2/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp6',0,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qp6',1,this)">Consejo</button></div>
+        <div class="q-panel active"><ul class="step-list"><li><span class="step-n">FCF</span><span>2025: $1,312M / 2026: $1,600M (Exhibit 8, uFree Cash Flow)</span></li><li><span class="step-n">TV</span><span>TV₂₆ = FCF₂₇/(WACC−g) = 1,600 × 1.065/(0.113−0.065) = 1,704/0.048 = <strong>$35,500M</strong></span></li><li><span class="step-n">PV</span><span>EV = 1,312/1.113 + (1,600 + 35,500)/1.113²</span></li><li><span class="step-n"> </span><span>= 1,179 + 37,100/1.2388 = 1,179 + 29,949</span></li><li><span class="step-n"> </span><span>≈ <span class="answer-val">$34,871M</span></span></li></ul></div>
+        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">!</div>Solo 2 períodos de FCF explícitos (más corto que Shell/Disney/Harley que tenían 4). El TV ($35,500M) domina: representa ~96% del EV. Con g=6.5% y WACC=11.3%, el spread es solo 4.8% — muy sensible a g.</div></div>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="q-card" id="qp7">
+      <div class="q-head" onclick="toggleQ('qp7')">
+        <div class="q-left"><div class="q-num">Q7</div><div class="q-title">Fair value per share (equity bridge)</div></div>
+        <div class="q-right"><span class="topic-tag t-dcf">DCF</span><span class="pts-badge">2/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp7',0,this)">Cálculo</button></div>
+        <div class="q-panel active"><ul class="step-list"><li><span class="step-n">EV</span><span>$34,871M (de Q6)</span></li><li><span class="step-n">+Cash</span><span>Surplus Cash 2024 = $4,000M</span></li><li><span class="step-n">−Debt</span><span>$0 (all-equity)</span></li><li><span class="step-n">Equity</span><span>= 34,871 + 4,000 = <strong>$38,871M</strong></span></li><li><span class="step-n">Price</span><span>38,871 / 2,572.6 = <span class="answer-val">$15.11</span></span></li></ul><div class="callout c-danger" style="margin-top:.5rem"><div class="callout-icon">!</div>Fair value $15.11 vs market $119.16 → el mercado paga <strong>7.9× el modelo</strong>. El mayor gap de todos los exámenes finales (Shell: 1.4×, Disney: 2.7×, Harley: 0.9×). Indica que el mercado descuenta un crecimiento espectacular no capturado por las proyecciones del analista.</div></div>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q-card" id="qp8">
+      <div class="q-head" onclick="toggleQ('qp8')">
+        <div class="q-left"><div class="q-num">Q8</div><div class="q-title">R_A (unlevered cost of capital)</div></div>
+        <div class="q-right"><span class="topic-tag t-capm">CAPM</span><span class="pts-badge">2/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp8',0,this)">Cálculo</button></div>
+        <div class="q-panel active"><ul class="step-list"><li><span class="step-n">→</span><span>D/E = 0% (all-equity) → no hay leverage que quitar</span></li><li><span class="step-n">R_A</span><span>R_A = R_E = WACC = <span class="answer-val">11.3%</span></span></li></ul><div class="callout c-ok" style="margin-top:.5rem"><div class="callout-icon">✓</div>Pregunta "regalo": si D=0, R_A = R_E. Sin deuda no hay riesgo financiero, todo es riesgo operativo puro.</div></div>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="q-card" id="qp9">
+      <div class="q-head" onclick="toggleQ('qp9')">
+        <div class="q-left"><div class="q-num">Q9</div><div class="q-title">R_D con credit rating A3/A− (tabla Damodaran)</div></div>
+        <div class="q-right"><span class="topic-tag t-capm">CAPM</span><span class="pts-badge">2/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp9',0,this)">Cálculo</button></div>
+        <div class="q-panel active"><ul class="step-list"><li><span class="step-n">Spread</span><span>Rating A3/A− → credit spread = 0.95% (Damodaran table del enunciado)</span></li><li><span class="step-n">R_D</span><span>R_D = Rf + spread = 4.2% + 0.95% = <span class="answer-val">5.15%</span></span></li></ul><p style="margin-top:.5rem">Hipotético: PLTR no tiene deuda, pero si la tuviera con rating A−, pagaría ~5.15%. Se usa para relever en Q10-Q11.</p></div>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="q-card" id="qp10">
+      <div class="q-head" onclick="toggleQ('qp10')">
+        <div class="q-left"><div class="q-num">Q10</div><div class="q-title">R_E re-levered al target D/(D+E) ≈ 30% (Damodaran A3/A−)</div></div>
+        <div class="q-right"><span class="topic-tag t-capm">CAPM</span><span class="pts-badge">2/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp10',0,this)">Cálculo</button><button class="q-tab" onclick="switchTab('qp10',1,this)">Consejo</button></div>
+        <div class="q-panel active"><ul class="step-list"><li><span class="step-n">D/(D+E)</span><span>≈ 30% (Damodaran table, A3/A− rating)</span></li><li><span class="step-n">D/E</span><span>= 30%/70% = <strong>42.86%</strong></span></li><li><span class="step-n">R_E</span><span>R_E = R_A + (D/E)(1−t)(R_A − R_D)</span></li><li><span class="step-n"> </span><span>= 11.3% + 0.4286 × 0.79 × (11.3% − 5.15%)</span></li><li><span class="step-n"> </span><span>= 11.3% + 0.3386 × 6.15%</span></li><li><span class="step-n"> </span><span>= 11.3% + 2.08% = <span class="answer-val">13.38%</span></span></li></ul></div>
+        <div class="q-panel"><div class="callout c-warn"><div class="callout-icon">!</div>El D/(D+E) target viene de la tabla Damodaran (no del MVE). La tabla asocia cada credit rating con un leverage ratio típico. Para A3/A−, D/(D+E) ≈ 30%. Fallback del examen: si no pudiste calcular R_D, usar 5.35% → daría R_E ≈ 13.55%.</div></div>
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="q-card" id="qp11">
+      <div class="q-head" onclick="toggleQ('qp11')">
+        <div class="q-left"><div class="q-num">Q11</div><div class="q-title">WACC al nuevo target leverage</div></div>
+        <div class="q-right"><span class="topic-tag t-capm">CAPM</span><span class="pts-badge">2/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp11',0,this)">Cálculo</button></div>
+        <div class="q-panel active"><ul class="step-list"><li><span class="step-n">D/V</span><span>D/(D+E) = 30% → E/(D+E) = 70%</span></li><li><span class="step-n">WACC</span><span>= 0.30 × 5.15% × 0.79 + 0.70 × 13.38%</span></li><li><span class="step-n"> </span><span>= 1.221% + 9.366% = <span class="answer-val">10.59%</span></span></li></ul><div class="callout c-tip" style="margin-top:.5rem"><div class="callout-icon">i</div>WACC baja de 11.3% a 10.59% al añadir deuda. Es el tax shield en acción: deuda after-tax (5.15%×0.79=4.07%) más barata que equity (13.38%).</div></div>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="q-card" id="qp12">
+      <div class="q-head" onclick="toggleQ('qp12')">
+        <div class="q-left"><div class="q-num">Q12</div><div class="q-title">M&A: EBITDA target máximo (budget $39B, EV/EBITDA=15.6x)</div></div>
+        <div class="q-right"><span class="topic-tag t-ma">M&A</span><span class="pts-badge">2/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp12',0,this)">Cálculo</button></div>
+        <div class="q-panel active"><ul class="step-list"><li><span class="step-n">Funds</span><span>Debt raised $35,000M + Surplus Cash $4,000M = <strong>$39,000M</strong></span></li><li><span class="step-n">Multiple</span><span>Japanese robotics sector: EV/EBITDA = 15.6x</span></li><li><span class="step-n">EBITDA</span><span>= 39,000 / 15.6 = <span class="answer-val">$2,500M</span></span></li></ul><p style="margin-top:.5rem">Reverse multiple: dado un budget, calcula el tamaño máximo del target. PLTR podría comprar una empresa con EBITDA de $2.5B en el sector robótico japonés.</p></div>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="q-card" id="qp13">
+      <div class="q-head" onclick="toggleQ('qp13')">
+        <div class="q-left"><div class="q-num">Q13</div><div class="q-title">Dividendos vs Buybacks — ¿cuál apoya dividendos?</div></div>
+        <div class="q-right"><span class="topic-tag t-pay">Payout</span><span class="pts-badge">2/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp13',0,this)">Respuesta</button></div>
+        <div class="q-panel active"><p><span class="answer-val">C — "The firm wants to signal stable and predictable cash flows to the market"</span></p><p style="margin-top:.5rem">Los dividendos son la herramienta de señalización por excelencia de cash flows estables. Una vez declarados, se esperan recurrentemente. Descarte: A (flexibility → buybacks), B (minimize taxes → buybacks), D (institutional flexibility → buybacks).</p></div>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="q-card" id="qp14">
+      <div class="q-head" onclick="toggleQ('qp14')">
+        <div class="q-left"><div class="q-num">Q14</div><div class="q-title">Reacción del board ante carta de activista</div></div>
+        <div class="q-right"><span class="topic-tag t-gov">Gov</span><span class="pts-badge">2/2</span><div class="toggle-icon">+</div></div>
+      </div>
+      <div class="q-body">
+        <div class="q-tabs"><button class="q-tab active" onclick="switchTab('qp14',0,this)">Respuesta</button></div>
+        <div class="q-panel active"><p><span class="answer-val">B — "The board reviews the proposal internally, often hires advisors, and assesses..."</span></p><p style="margin-top:.5rem">Approach racional: evaluar la propuesta con rigor. El board contrata investment banks y proxy advisors para analizar si la propuesta crea valor. Opción A (aceptar todo) es irracional porque el activista puede tener agenda de corto plazo que no alinea con valor a largo plazo.</p></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function toggleQ(id){document.getElementById(id).classList.toggle('open');}
+function switchTab(id,idx,btn){
+  const c=document.getElementById(id);
+  c.querySelectorAll('.q-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  c.querySelectorAll('.q-panel').forEach((p,i)=>p.classList.toggle('active',i===idx));
+  if(event) event.stopPropagation();
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') document.querySelectorAll('.q-card.open').forEach(c=>c.classList.remove('open'));
+});
+</script>
+</body>
+</html>
 </main>
 </div>
 
